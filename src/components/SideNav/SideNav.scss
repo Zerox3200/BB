@@ -1,0 +1,95 @@
+@use './../../helpers/functions' as *;
+
+.dropBox {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #d1e8df85;
+    @include Animtation(0.2s, linear, all);
+
+    &.ShowDropBox {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &.HideDropBox {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #feffff;
+    @include Animtation(0.8s, linear, all);
+    z-index: 2;
+
+    >svg {
+        font-size: 30px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    &.Show {
+        left: 0 !important;
+    }
+
+    @include Breakpoints(medium) {
+        left: -150%;
+    }
+
+    @include Breakpoints(small) {
+        left: -150%;
+    }
+
+    @include Breakpoints(mobile) {
+        left: -150%;
+    }
+
+    .Nav_Links {
+        .Active {
+            background-color: #d1e8df;
+
+            svg {
+                background-color: $BaseColor;
+                color: white;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            padding: 10px;
+            color: $BaseColor;
+            font-family: CairoMeduim;
+            border-radius: 5px;
+            @include Animtation(0.3s, linear, all);
+
+            svg {
+                width: 32px;
+                height: 32px;
+                color: $BaseColor;
+                padding: 6px;
+                border-radius: 5px;
+                margin-right: 10px;
+                @include Animtation(0.3s, linear, all);
+            }
+
+            &:hover {
+                background-color: #d1e8df;
+
+                svg {
+                    background-color: $BaseColor;
+                    color: white;
+                }
+
+            }
+
+        }
+    }
+}

@@ -1,0 +1,73 @@
+@use '../../helpers/functions' as *;
+
+.card {
+    border: none !important;
+    margin: 15px;
+    width: 22% !important;
+    height: max-content !important;
+
+    @include Breakpoints(medium) {
+        width: 45% !important;
+    }
+
+    @include Breakpoints(small) {
+        margin: 15px auto;
+        width: 60% !important;
+    }
+
+    @include Breakpoints(mobile) {
+        margin: 15px auto;
+        width: 80% !important;
+    }
+
+    .card-body {
+        padding: 10px 0 0 0;
+
+
+        img {
+            border-radius: 3px;
+            object-fit: cover;
+            height: 100%;
+
+            @include Breakpoints(mobile) {
+                height: 80px;
+                width: 200px;
+                margin: auto;
+            }
+        }
+
+        .card-body-details {
+            div {
+                padding-left: 3px;
+            }
+
+            span {
+                color: white;
+                background-color: $BaseColor;
+                font-size: 10px;
+                height: max-content;
+                padding: 2px 5px;
+                border-radius: 2px;
+            }
+
+            p {
+                font-size: 12px;
+                line-height: 1.2;
+                color: $BaseColor;
+                padding-left: 3px;
+
+                @include Breakpoints(medium) {
+                    font-size: 15px;
+                }
+
+                @include Breakpoints(small) {
+                    font-size: 15px;
+                }
+
+                @include Breakpoints(mobile) {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

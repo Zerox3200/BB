@@ -32,7 +32,23 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+@font-face {
+  font-family: Cairo;
+  src: url('../public/Cairo-Regular.ttf');
+}
+
+@font-face {
+  font-family: CairoMeduim;
+  src: url('../public/Cairo-Medium.ttf');
+}
+
+@font-face {
+  font-family: CairoBold;
+  src: url('../public/Cairo-Bold.ttf');
 }
