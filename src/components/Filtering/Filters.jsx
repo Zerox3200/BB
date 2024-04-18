@@ -12,6 +12,7 @@ export default function Filters() {
     const FilterButtons = (Filter) => {
         setCategory(Filter);
     }
+
     const FreeOrPaidButtons = (Filter) => {
         setPaid(Filter);
     }
@@ -21,6 +22,24 @@ export default function Filters() {
             return;
         };
 
+        if (Paid === "Free") {
+            const FilteredDataWithPaid = AllApps.filter((project) => {
+                return project.Categorie === Type && project.Free === true;
+            })
+
+            setApps(FilteredDataWithPaid);
+            return;
+        }
+
+        if (Paid === "Paid") {
+            const FilteredDataWithPaid = AllApps.filter((project) => {
+                return project.Categorie === Type && project.Free === false;
+            })
+
+            setApps(FilteredDataWithPaid);
+            return;
+        }
+
         const FilteredData = AllApps.filter((project) => {
             return project.Categorie === Type;
         })
@@ -29,14 +48,26 @@ export default function Filters() {
 
     const PaidFilter = (Free, FreeTruthly) => {
         if (Free === 'All') {
-            AppsFilters(Category);
+            const FilterPaid = AllApps.filter((PaidElement) => {
+                return PaidElement.Categorie === Category;
+            })
+            setApps(FilterPaid);
             return;
         }
 
-        const FilterPaid = AllApps.filter((PaidElement) => {
-            return PaidElement.Free === FreeTruthly && PaidElement.Categorie === Category;
+        if (Category !== 'All') {
+            const FilterPaid = AllApps.filter((PaidElement) => {
+                return PaidElement.Free === FreeTruthly && PaidElement.Categorie === Category;
+            })
+            setApps(FilterPaid);
+            return;
+        }
+
+        const FilterPaidAll = AllApps.filter((PaidElement) => {
+            return PaidElement.Free === FreeTruthly;
         })
-        setApps(FilterPaid)
+        setApps(FilterPaidAll);
+        return;
     }
     return <>
         <div className="FilterButtons row  align-items-center px-4">
@@ -56,7 +87,7 @@ export default function Filters() {
             <div className="row mx-1 col-xl-10 col-lg-12 col-md-10 ">
                 <button onClick={() => {
                     FreeOrPaidButtons('All');
-                    PaidFilter('All')
+                    PaidFilter('All', null)
                 }}
                     type="button" className={Paid === 'All' ? 'btn mx-2 my-1 Active' : 'btn mx-2 my-1'}>All</button>
                 <button onClick={() => {
