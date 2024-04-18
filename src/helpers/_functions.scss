@@ -30,4 +30,10 @@
 
 $BaseColor: #30a27b;
 
-$SecondColor: #d1e8df
+$SecondColor: #d1e8df;
+
+@mixin Title() {
+    color: $BaseColor;
+    width: max-content;
+    margin: 0;
+}

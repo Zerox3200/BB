@@ -13,10 +13,12 @@
     }
 
     @include Breakpoints(small) {
-        width: 30%;
+        width: 40%;
+        margin: 10px auto;
     }
 
     @include Breakpoints(mobile) {
-        width: 30%;
+        width: 40%;
+        margin: 10px auto;
     }
 }

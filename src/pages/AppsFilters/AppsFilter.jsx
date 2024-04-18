@@ -1,8 +1,14 @@
 import React from 'react'
 import './AppsFilter.scss'
-import SideNav from '../../components/SideNav/SideNav'
+import Search from '../../components/Search/Search'
+import Filters from '../../components/Filtering/Filters'
+
+
 export default function AppsFilter() {
     return <>
-        <SideNav />
+        <div className="AppsFilter">
+            <Search />
+            <Filters />
+        </div>
     </>
 }

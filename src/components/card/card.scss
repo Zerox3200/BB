@@ -30,6 +30,10 @@
             height: 100%;
 
             @include Breakpoints(mobile) {
+                object-fit: contain;
+            }
+
+            @include Breakpoints(mobile) {
                 height: 80px;
                 width: 200px;
                 margin: auto;
@@ -37,8 +41,15 @@
         }
 
         .card-body-details {
+            position: relative;
+
             div {
                 padding-left: 3px;
+            }
+
+            .Price {
+                position: absolute;
+                right: 10px;
             }
 
             span {

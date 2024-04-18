@@ -1,11 +1,15 @@
-import React from 'react'
-import './Home.scss'
-import Intro from '../../components/Intro/Intro'
+import React, { Suspense } from 'react'
+import './Home.scss';
+import Loading from '../../components/Loading/Loading';
+
+const Intro = React.lazy(() => import("../../components/Intro/Intro"));
 
 export default function Home() {
     return <>
         <div className="Home">
-            <Intro />
+            <Suspense fallback={<Loading />}>
+                <Intro />
+            </Suspense>
         </div>
     </>
 }

@@ -1,0 +1,168 @@
+@use '../../helpers/functions' as *;
+
+.FilterButtons {
+    --bs-gutter-x: 0 !important;
+
+    @include Breakpoints(small) {
+        justify-content: center
+    }
+
+    @include Breakpoints(mobile) {
+        justify-content: center
+    }
+
+    h1 {
+        color: $BaseColor;
+        margin: 0;
+        justify-content: end;
+
+        @include Breakpoints(medium) {
+            justify-content: center;
+        }
+
+        @include Breakpoints(small) {
+            justify-content: center;
+        }
+
+        @include Breakpoints(mobile) {
+            justify-content: center;
+        }
+    }
+
+    div {
+        @include Breakpoints(medium) {
+            justify-content: center;
+        }
+
+        @include Breakpoints(small) {
+            justify-content: center;
+        }
+
+        @include Breakpoints(mobile) {
+            justify-content: center;
+        }
+
+        .btn {
+            height: max-content;
+            width: 120px;
+            background-color: white;
+            font-weight: bold;
+            border: none;
+
+            &.Active {
+                background-color: $BaseColor;
+                color: white;
+            }
+
+            @include Breakpoints(medium) {
+                width: 30%;
+            }
+
+            @include Breakpoints(small) {
+                width: 40%;
+            }
+
+            @include Breakpoints(mobile) {
+                width: 80%;
+            }
+
+            &:hover {
+                background-color: $BaseColor;
+                color: white;
+            }
+        }
+    }
+}
+
+.FilterButtonsPrice {
+    --bs-gutter-x: 0 !important;
+    height: max-content;
+
+    @include Breakpoints(medium) {
+        justify-content: center
+    }
+
+    @include Breakpoints(small) {
+        justify-content: center
+    }
+
+    @include Breakpoints(mobile) {
+        justify-content: center
+    }
+
+    h1 {
+        color: $BaseColor;
+        margin: 0;
+        justify-content: end;
+
+        @include Breakpoints(medium) {
+            justify-content: center;
+        }
+
+        @include Breakpoints(small) {
+            justify-content: center;
+        }
+
+        @include Breakpoints(mobile) {
+            justify-content: center;
+        }
+    }
+
+    .btn {
+        height: max-content;
+        width: 150px;
+        background-color: white;
+        font-weight: bold;
+        border: none;
+
+        @include Breakpoints(medium) {
+            width: 30%;
+        }
+
+        @include Breakpoints(small) {
+            width: 40%;
+        }
+
+        @include Breakpoints(mobile) {
+            width: 80%;
+        }
+
+        &.Active {
+            background-color: $BaseColor;
+            color: white;
+        }
+
+        &:hover {
+            background-color: $BaseColor;
+            color: white;
+        }
+    }
+
+    div {
+        @include Breakpoints(medium) {
+            justify-content: center;
+        }
+
+        @include Breakpoints(small) {
+            justify-content: center;
+        }
+
+        @include Breakpoints(mobile) {
+            justify-content: center;
+        }
+    }
+}
+
+.FilteredApps {
+    --bs-gutter-x: 0 !important;
+    margin: auto !important;
+
+    h1 {
+        color: $BaseColor;
+        margin: 20px 0;
+
+        span {
+            color: rgba($BaseColor, 0.6);
+        }
+    }
+}
