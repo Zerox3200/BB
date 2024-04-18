@@ -23,11 +23,11 @@ export default function Filters() {
         };
 
         if (Paid === "Free") {
-            const FilteredDataWithPaid = AllApps.filter((project) => {
+            const FilteredDataWithFree = AllApps.filter((project) => {
                 return project.Categorie === Type && project.Free === true;
             })
 
-            setApps(FilteredDataWithPaid);
+            setApps(FilteredDataWithFree);
             return;
         }
 

@@ -33,7 +33,7 @@ export default function Intro() {
             <div className="Intro_Apps_inside">
                 <h1 className='h3'>Our latest apps</h1>
                 <Link className='d-flex justify-content-end align-items-center fs-5'>View all <LuChevronRight /></Link>
-                <div className="Intro_Apps_inside_cards row ">
+                <div className="Intro_Apps_inside_cards row w-100 px-1">
                     <AppCard Free={true} />
                     <AppCard Free={true} />
                     <AppCard Free={true} />
@@ -45,7 +45,7 @@ export default function Intro() {
             <div className="Intro_Categories_inside">
                 <h1 className='h3'>Browser by category</h1>
                 <Link className='col-md-12 d-flex justify-content-end align-items-center fs-5'>View all <LuChevronRight /></Link>
-                <div className="Intro_Categories_cards d-flex flex-wrap justify-content-lg-between justify-content-sm-start">
+                <div className="Intro_Categories_cards d-flex flex-wrap justify-content-lg-between justify-content-sm-start px-1">
                     <Category Image={Quran} />
                     <Category Image={Salah} />
                     <Category Image={Haj} />
