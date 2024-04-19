@@ -11,11 +11,11 @@
 
     @include Breakpoints(medium) {
         width: 30% !important;
-        margin: auto;
+        margin: 15px auto;
     }
 
     @include Breakpoints(small) {
-        margin: auto;
+        margin: 15px auto;
         width: 40% !important;
     }
 
