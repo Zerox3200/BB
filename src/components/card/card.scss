@@ -1,31 +1,36 @@
-@use '../../helpers/functions' as *;
+@use "../../helpers/functions" as *;
 
 .card {
     border: none !important;
-    margin: 15px;
-    width: 22% !important;
+    margin: 30px;
+    width: 20% !important;
     height: max-content !important;
+    background-color: transparent !important;
+
+    @include Breakpoints(large) {
+        margin: 15px auto;
+        width: 20% !important;
+    }
 
     @include Breakpoints(medium) {
-        width: 45% !important;
+        width: 30% !important;
+        margin: auto;
     }
 
     @include Breakpoints(small) {
         margin: 15px auto;
-        width: 60% !important;
+        width: 40% !important;
     }
 
     @include Breakpoints(mobile) {
         margin: 15px auto;
-        width: 80% !important;
+        width: 70% !important;
     }
 
     .card-body {
         padding: 10px 0 0 0;
-
-
         img {
-            border-radius: 3px;
+            border-radius: 10px;
             object-fit: cover;
             height: 100%;
 

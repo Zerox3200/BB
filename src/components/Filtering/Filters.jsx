@@ -16,6 +16,7 @@ export default function Filters() {
     const FreeOrPaidButtons = (Filter) => {
         setPaid(Filter);
     }
+
     const AppsFilters = (Type) => {
         if (Type === "All") {
             setApps(AllApps);
@@ -46,8 +47,13 @@ export default function Filters() {
         setApps(FilteredData);
     }
 
+
     const PaidFilter = (Free, FreeTruthly) => {
         if (Free === 'All') {
+            if (Category === "All") {
+                setApps(AllApps);
+                return;
+            }
             const FilterPaid = AllApps.filter((PaidElement) => {
                 return PaidElement.Categorie === Category;
             })

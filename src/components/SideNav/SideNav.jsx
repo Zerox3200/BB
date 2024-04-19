@@ -20,7 +20,9 @@ export default function SideNav() {
                 <Link className={pathname === '/Apps' ? 'Active' : null} to='Apps'>
                     <AiOutlineAppstoreAdd /> App Store
                 </Link>
-                <Link><FaMessage /> Contact  Us</Link>
+                <Link className={pathname === '/contactus' ? 'Active' : null} to='contactus'>
+                    <FaMessage /> Contact Us
+                </Link>
             </div>
         </nav>
     </>
