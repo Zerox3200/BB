@@ -1,8 +1,6 @@
 @use './../../helpers/functions' as *;
-.con{
-   margin-top: 50px;                            
-   padding: 0 100px 0 100px;
-}
+
+
 
 .Intro_Text {
     height: max-content;
@@ -75,6 +73,12 @@
     }
 
     .Intro_Categories_inside {
+        .Intro_Categories_cards {
+            @include Breakpoints(mobile) {
+                justify-content: center;
+            }
+        }
+
         a {
             text-decoration: none;
             color: $BaseColor;

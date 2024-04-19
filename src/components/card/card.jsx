@@ -5,14 +5,13 @@ import MainApp from '../../Assets/Images/people-holding-pinterest-icon.jpg';
 
 export default function AppCard({ Free }) {
 
-    return <div className="card  p-0">
-
+    return <div className="card p-0">
         <img src={MainApp} className="card-img-top mx-auto" alt="..." loading='lazy' />
-        <div className="card-body d-flex flex-wrap justify-content-between align-items-center py-1">
+        <div className="card-body d-flex justify-content-between align-items-center py-1">
 
-            <img src={AppIcon} alt="..." loading='lazy' className='col-md-4 col-sm-3 mx-auto' />
+            <img src={AppIcon} alt="..." loading='lazy' className='col-md-4 ' />
 
-            <div className="card-body-details col-md-8 col-sm-9 h-100 mt-2 ">
+            <div className="card-body-details col-md-8 h-100 mt-2 ">
 
                 <div className="d-flex justify-content-between align-content-center px-1">
                     <h1 className='h6 px-2'>Tajweed</h1>

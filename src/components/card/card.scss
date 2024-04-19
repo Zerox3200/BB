@@ -2,14 +2,11 @@
 
 .card {
     border: none !important;
-    margin: 30px;
-    width: 20% !important;
     height: max-content !important;
     background-color: transparent !important;
 
     @include Breakpoints(large) {
-        margin: 15px auto;
-        width: 20% !important;
+        width: 22% !important;
     }
 
     @include Breakpoints(medium) {
@@ -18,17 +15,18 @@
     }
 
     @include Breakpoints(small) {
-        margin: 15px auto;
+        margin: auto;
         width: 40% !important;
     }
 
     @include Breakpoints(mobile) {
         margin: 15px auto;
-        width: 70% !important;
+        width: 90% !important;
     }
 
     .card-body {
         padding: 10px 0 0 0;
+
         img {
             border-radius: 10px;
             object-fit: cover;
@@ -36,17 +34,16 @@
 
             @include Breakpoints(mobile) {
                 object-fit: contain;
-            }
-
-            @include Breakpoints(mobile) {
-                height: 80px;
-                width: 200px;
-                margin: auto;
+                width: 30%;
             }
         }
 
         .card-body-details {
             position: relative;
+
+            @include Breakpoints(mobile) {
+                width: 70%;
+            }
 
             div {
                 padding-left: 3px;
@@ -55,6 +52,7 @@
             .Price {
                 position: absolute;
                 right: 10px;
+                top: -5px;
             }
 
             span {

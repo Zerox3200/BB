@@ -29,20 +29,15 @@ export default function Intro() {
                 </p>
             </article>
         </div>
-        <div className="con">
-            <div className="container Intro_Apps row w-100 justify-content-center">
-
-                <div className="Intro_Apps_inside">
-                    <h1 className='h3'>Our latest apps</h1>
-                    <Link className='d-flex justify-content-end align-items-center fs-5'>View all <LuChevronRight /></Link>
-
-                    <div className="Intro_Apps_inside_cards row w-100 px-1">
-                        <AppCard Free={true} />
-                        <AppCard Free={true} />
-                        <AppCard Free={true} />
-                        <AppCard Free={true} />
-                    </div>
-
+        <div className="container Intro_Apps row w-100 justify-content-center px-3">
+            <div className="Intro_Apps_inside d-flex flex-column align-items-center">
+                <h1 className='h3 align-self-start'>Our latest apps</h1>
+                <Link className='d-flex justify-content-end align-items-center fs-5 align-self-end'>View all <LuChevronRight /></Link>
+                <div className="Intro_Apps_inside_cards row w-100 px-1 justify-content-evenly">
+                    <AppCard Free={true} />
+                    <AppCard Free={true} />
+                    <AppCard Free={true} />
+                    <AppCard Free={true} />
                 </div>
             </div>
 
@@ -62,8 +57,6 @@ export default function Intro() {
                     </div>
                 </div>
             </div>
-
         </div>
-
     </>
 }
