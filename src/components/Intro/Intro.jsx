@@ -32,7 +32,8 @@ export default function Intro() {
         <div className="container Intro_Apps row w-100 justify-content-center px-3">
             <div className="Intro_Apps_inside d-flex flex-column align-items-center">
                 <h1 className='h3 align-self-start'>Our latest apps</h1>
-                <Link className='d-flex justify-content-end align-items-center fs-5 align-self-end'>View all <LuChevronRight /></Link>
+                <Link to='/Apps' className='d-flex justify-content-end align-items-center fs-5 align-self-end'>
+                    View all <LuChevronRight /></Link>
                 <div className="Intro_Apps_inside_cards row w-100 px-1 justify-content-evenly">
                     <AppCard Free={true} />
                     <AppCard Free={true} />
@@ -43,8 +44,9 @@ export default function Intro() {
 
             <div className="container Intro_Categories row w-100 justify-content-center my-5 pb-5">
                 <div className="Intro_Categories_inside">
-                    <h1 className='h3'>Browser by category</h1>
-                    <Link className='col-md-12 d-flex justify-content-end align-items-center fs-5'>View all <LuChevronRight /></Link>
+                    <h1 className='h3 mt-4'>Browser by category</h1>
+                    <Link to='/Apps' className='col-md-12 d-flex justify-content-end align-items-center fs-5'>
+                        View all <LuChevronRight /></Link>
                     <div className="Intro_Categories_cards d-flex flex-wrap justify-content-lg-between justify-content-sm-start px-1">
                         <Category Image={Quran} />
                         <Category Image={Salah} />
