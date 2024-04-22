@@ -5,8 +5,16 @@ html {
 }
 
 .Home {
-    margin-left: 250px;
     background-color: #d1e8df;
+    @include Animtation(0.1s, linear, all);
+
+    &.HomeMarined {
+        margin-left: 250px;
+    }
+
+    &.HomeConstant {
+        margin-left: 90px;
+    }
 
     /* Center content vertically */
     @include Breakpoints(medium) {

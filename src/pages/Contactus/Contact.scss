@@ -7,6 +7,7 @@
     /* Center content vertically */
     @include Breakpoints(medium) {
         margin: 0;
+
         .contact-text {
             padding-left: 5rem !important;
         }
@@ -14,6 +15,7 @@
 
     @include Breakpoints(small) {
         margin: 0;
+
         .contact-text {
             padding-left: 2rem !important;
         }
@@ -21,23 +23,28 @@
 
     @include Breakpoints(mobile) {
         margin: 0;
+
         .contact-text {
             padding-left: 0rem !important;
         }
+
         .contact-info {
-            width: fit-content;
+            width: max-content;
             margin-top: 30px;
         }
     }
+
     .cotact-container {
         .contact-text {
             padding-left: 7.5rem;
         }
+
         .contact-main {
             justify-content: space-around;
             margin-top: 50px;
+
             .contact-info {
-                width: fit-content;
+                width: max-content;
             }
         }
     }
@@ -47,6 +54,7 @@
             border-color: $BaseColor;
             box-shadow: 0 0 5px 2px $BaseColor;
         }
+
         &::placeholder {
             color: $BaseColor;
         }
@@ -56,19 +64,48 @@
         &::placeholder {
             color: $BaseColor;
         }
+
         &:focus {
             border-color: $BaseColor;
             box-shadow: 0 0 5px 2px $BaseColor;
         }
     }
+
     select:focus {
         border-color: $BaseColor;
         box-shadow: 0 0 5px 2px $BaseColor;
     }
+
     .form-select {
         color: $BaseColor;
+
         svg {
             color: $BaseColor !important;
         }
+    }
+
+    .submition {
+        @include Breakpoints(medium) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @include Breakpoints(small) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @include Breakpoints(mobile) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    button[type="submit"] {
+        width: 200px;
+
     }
 }

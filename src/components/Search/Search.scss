@@ -1,29 +1,27 @@
 @use "../../helpers/functions" as *;
 
-.Intro {
-    .Intro_Search {
-        position: relative;
-        width: 350px;
+.Intro_Search {
+    position: relative;
+    width: 350px;
 
-        @include Breakpoints(mobile) {
-            width: 70%;
-        }
+    @include Breakpoints(mobile) {
+        width: 70%;
+    }
 
-        svg {
-            position: absolute;
-            color: $BaseColor;
-            right: 7px;
-            top: 7px;
-            cursor: pointer;
-        }
+    svg {
+        position: absolute;
+        color: $BaseColor;
+        right: 7px;
+        top: 7px;
+        cursor: pointer;
+    }
 
-        input[type="text"] {
-            height: 30px;
+    input[type="text"] {
+        height: 30px;
 
-            &:focus {
-                border-color: $BaseColor;
-                box-shadow: 0 0 5px 2px $BaseColor;
-            }
+        &:focus {
+            border-color: $BaseColor;
+            box-shadow: 0 0 5px 2px $BaseColor;
         }
     }
 }

@@ -7,14 +7,16 @@ import './Contact.scss';
 export default function Contactus() {
     const [loading, setloading] = useState(false)
 
-    function loginsubmit(val) {
-        setloading(true)
+    function loginsubmit(values) {
+        console.log(values);
+        setloading(true);
     };
 
     let validationSchema = Yup.object({
         name: Yup.string().required("name is required").min(3, "min length is 3"),
         email: Yup.string().required("email is required").email("invalid email"),
-        reason: Yup.string().required("reson required").oneOf(["i have an issue", "i have a feedback", "i have a suggestion", "i want to collaborate"]),
+        reason: Yup.string().required("reson required")
+            .oneOf(["i have an issue", "i have a feedback", "i have a suggestion", "i want to collaborate"]),
         subject: Yup.string().min(5).required("subject required"),
         message: Yup.string().min(10).required("message required")
     })
@@ -26,16 +28,14 @@ export default function Contactus() {
             reason: "i have an issue",
             subject: "",
             message: "",
-        }, validationSchema, onSubmit: loginsubmit
+        }, validationSchema, onSubmit: loginsubmit,
+
     })
 
     return (
         <div className='ContactUs'>
             <Helmet>
-                <meta charSet="utf-8" />
-                <title>contact</title>
-                <link rel="canonical" href="http://mysite.com/example" />
-                <link rel="icon" type="svg/x-icon" href="../../Assets/Images/_icon.svg"></link>
+                <title>Contact</title>
             </Helmet>
             <Search />
 
@@ -56,52 +56,54 @@ export default function Contactus() {
 
                             <div className='my-2'>
                                 <input className='form-control' placeholder="name" onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="name" id="name" />
-                                {formik.errors.name && formik.touched.name && <div className="alert alert-danger py-2">{formik.errors.name}</div>}
+                                {formik.errors.name && formik.touched.name &&
+                                    <div className="alert alert-danger py-2 mt-2">{formik.errors.name}</div>}
                             </div>
 
                             <div className='my-2'>
                                 <input className='form-control' placeholder="email" onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="email" />
-                                {formik.errors.email && formik.touched.email && <div className="alert alert-danger py-2">{formik.errors.email}</div>}
+                                {formik.errors.email && formik.touched.email &&
+                                    <div className="alert alert-danger py-2 mt-2">{formik.errors.email}</div>}
                             </div>
 
                             <div className='my-2'>
                                 <select className='form-select' onBlur={formik.handleBlur} onChange={formik.handleChange} name="reason" id="reason">
-                                    <option selected className='font-color'>i have an issue</option>
-                                    <option className='font-color' value={"i have a feedback"}>i have a feedback</option>
-                                    <option className='font-color' value={"i have a suggestion"}>i have a suggestion</option>
-                                    <option className='font-color' value={"i want to collaborate"}>i want to collaborate</option>
+                                    <option className='font-color' value="i have an issue">I have an issue</option>
+                                    <option className='font-color' value="i have a feedback">I have a feedback</option>
+                                    <option className='font-color' value="i have a suggestion">I have a suggestion</option>
+                                    <option className='font-color' value="i want to collaborate">I want to collaborate</option>
                                 </select>
-                                {formik.errors.reason && formik.touched.reason && <div className="alert alert-danger py-2">{formik.errors.reason}</div>}
+                                {formik.errors.reason && formik.touched.reason &&
+                                    <div className="alert alert-danger py-2 mt-2">{formik.errors.reason}</div>}
                             </div>
 
                             <div className='my-2'>
                                 <input className='form-control' placeholder="Subject title" onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="subject" />
-                                {formik.errors.subject && formik.touched.subject && <div className="alert alert-danger py-2">{formik.errors.subject}</div>}
+                                {formik.errors.subject && formik.touched.subject &&
+                                    <div className="alert alert-danger py-2 mt-2">{formik.errors.subject}</div>}
                             </div>
 
                             <div className='my-2'>
                                 <textarea className='form-control' placeholder="Message" name="message" id="message" onBlur={formik.handleBlur} onChange={formik.handleChange} rows="10" cols="30">
 
                                 </textarea>
-                                {formik.errors.message && formik.touched.message && <div className="alert alert-danger py-2">{formik.errors.message}</div>}
+                                {formik.errors.message && formik.touched.message &&
+                                    <div className="alert alert-danger py-2 mt-2">{formik.errors.message}</div>}
                             </div>
 
 
                             {loading ? <div className="text-end">
-                                < button className='btn bg-main text-light '>
+                                <button className='btn bg-main text-light' disabled>
                                     <i className='fas fa-spin fa-spinner'></i>
                                 </button>
                             </div>
                                 :
-                                <div className="text-end">
-                                    <button type='submit' className='btn bg-main text-light' >Submit</button>
+                                <div className="submition text-end">
+                                    <button type='submit' className='btn bg-main text-light'
+                                        disabled={!(formik.dirty && formik.isValid)}>Submit</button>
                                 </div>
                             }
-
-
                         </form>
-
-
                     </div>
 
                     <div className="contact-info col-md-4 col-sm-12 ">

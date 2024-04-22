@@ -1,51 +1,5 @@
 @use './../../helpers/functions' as *;
 
-.SideButton {
-    width: 30px;
-    height: 30px;
-    background-color: $BaseColor;
-    color: white;
-    border-radius: 50%;
-    padding: 5px;
-    display: none;
-    z-index: 3;
-    position: fixed;
-    right: 20px;
-    top: 10px;
-
-    @include Breakpoints(medium) {
-        display: block;
-    }
-
-    @include Breakpoints(small) {
-        display: block;
-    }
-
-    @include Breakpoints(mobile) {
-        display: inline;
-    }
-}
-
-.dropBox {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background-color: #d1e8df85;
-    @include Animtation(0.2s, linear, all);
-
-    &.ShowDropBox {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    &.HideDropBox {
-        visibility: hidden;
-        opacity: 0;
-    }
-
-}
-
 nav {
     position: fixed;
     left: 0;
@@ -53,33 +7,51 @@ nav {
     height: 100%;
     width: 250px;
     background-color: #feffff;
-    @include Animtation(0.8s, linear, all);
+    @include Animtation(0.1s, linear, all);
     z-index: 2;
 
-    >svg {
-        font-size: 30px;
-        position: absolute;
-        right: 10px;
-        top: 10px;
+    &.NavSmall {
+        width: 90px !important;
     }
 
-    &.Show {
-        left: 0 !important;
+    .nav_Title {
+        padding: 0 10px;
+        overflow: hidden;
+
+        svg {
+            position: absolute;
+            right: -25px;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            background-color: $BaseColor;
+            color: white;
+            padding: 6px;
+            cursor: pointer;
+            @include Animtation(0.5s, linear, all);
+
+            &.Rotate {
+                transform: rotate(180deg);
+            }
+        }
+
+
+
+        >img {
+            width: 40px;
+            margin-right: 5px;
+        }
+
+        img:nth-of-type(2) {
+            width: 130px;
+        }
     }
 
-    @include Breakpoints(medium) {
-        left: -150%;
-    }
 
-    @include Breakpoints(small) {
-        left: -150%;
-    }
 
-    @include Breakpoints(mobile) {
-        left: -150%;
-    }
+    .Menu_Bar {
+        width: 100%;
 
-    .Nav_Links {
         .Active {
             background-color: #d1e8df;
 
@@ -89,34 +61,68 @@ nav {
             }
         }
 
-        a {
-            text-decoration: none;
-            padding: 10px;
-            color: $BaseColor;
-            font-family: CairoMeduim;
-            border-radius: 5px;
-            @include Animtation(0.3s, linear, all);
+        .menu {
 
-            svg {
-                width: 32px;
-                height: 32px;
-                color: $BaseColor;
-                padding: 6px;
-                border-radius: 5px;
-                margin-right: 10px;
-                @include Animtation(0.3s, linear, all);
-            }
+            ul {
 
-            &:hover {
-                background-color: #d1e8df;
+                li {
+                    padding: 0 10px;
+                    display: flex;
+                    align-items: center;
+                    height: 50px;
+                    margin-top: 20px;
 
-                svg {
-                    background-color: $BaseColor;
-                    color: white;
+                    &.Active {
+                        background-color: #d1e8df;
+
+                        svg {
+                            background-color: $BaseColor;
+                            color: white;
+                        }
+
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+
+                    a {
+                        width: 100%;
+                        text-decoration: none;
+                        color: $BaseColor;
+                        font-family: CairoMeduim;
+                        border-radius: 5px;
+                        @include Animtation(0.3s, linear, all);
+                        overflow: hidden;
+
+                        svg {
+                            min-width: 40px;
+                            height: 40px;
+                            color: $BaseColor;
+                            padding: 10px;
+                            border-radius: 5px;
+                            margin-right: 10px;
+                            @include Animtation(0.3s, linear, all);
+                        }
+
+                        span {
+                            width: max-content;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: #d1e8df;
+
+                        svg {
+                            background-color: $BaseColor;
+                            color: white;
+                        }
+
+                        span {
+                            font-weight: bold;
+                        }
+                    }
                 }
-
             }
-
         }
     }
 }

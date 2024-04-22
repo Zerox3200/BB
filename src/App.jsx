@@ -1,28 +1,31 @@
+import React, { Suspense, lazy } from 'react';
 import './App.scss';
 import { RouterProvider, createHashRouter } from 'react-router-dom';
 import Layout from './pages/Layout';
 import Home from './pages/Home/Home';
-import AppsFilter from './pages/AppsFilters/AppsFilter';
-import { NavContextProvider } from '../src/Context/navContext'
-import Contactus from './pages/Contactus/Contactus.jsx';
-import Productsinfo from './pages/Productsinfo/Productsinfo.jsx';
+import Loading from './components/Loading/Loading.jsx';
+
+const Contactus = lazy(() => import("./pages/Contactus/Contactus.jsx"));
+const Productsinfo = lazy(() => import("./pages/Productsinfo/Productsinfo.jsx"));
+const AppsFilter = lazy(() => import("./pages/AppsFilters/AppsFilter"));
+const AdminLogin = lazy(() => import('./pages/Admin/Login/Login.jsx'));
+
 
 function App() {
   const routers = createHashRouter([
     {
       path: '', element: <Layout />, children: [
         { index: true, element: <Home /> },
-        { path: "Apps", element: <AppsFilter /> },
-        { path: "Contactus", element: <Contactus /> },
-        { path: "ProductsInfo", element: <Productsinfo /> },
+        { path: "Apps", element: <Suspense fallback={<Loading />}><AppsFilter /> </Suspense> },
+        { path: "Contactus", element: <Suspense fallback={<Loading />}><Contactus /> </Suspense> },
+        { path: "ProductsInfo", element: <Suspense fallback={<Loading />}><Productsinfo /> </Suspense> },
+        { path: "Login2030", element: <Suspense fallback={<Loading />}><AdminLogin /> </Suspense> },
       ]
     }
   ])
   return <>
-    <NavContextProvider>
-      <RouterProvider router={routers}>
-      </RouterProvider>
-    </NavContextProvider>
+    <RouterProvider router={routers}>
+    </RouterProvider>
   </>
 }
 

@@ -1,13 +1,17 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useContext, useEffect, useState } from 'react'
 import './Home.scss';
 import Loading from '../../components/Loading/Loading';
 import { Helmet } from 'react-helmet';
+import { NavContext } from '../../Context/NavContext';
+import { useAnimate } from 'framer-motion';
 
 const Intro = React.lazy(() => import("../../components/Intro/Intro"));
 
 export default function Home() {
+    const { margin } = useContext(NavContext);
+
     return <>
-        <div className="Home">
+        <div className={margin ? "Home HomeMarined" : "Home HomeConstant"} >
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>deenbook</title>
