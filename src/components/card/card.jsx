@@ -2,11 +2,14 @@ import React from 'react'
 import './card.scss';
 import AppIcon from '../../Assets/Images/online-internet-symbol-icon.jpg';
 import MainApp from '../../Assets/Images/people-holding-pinterest-icon.jpg';
+import { Link } from 'react-router-dom';
 
 export default function AppCard({ Free }) {
 
     return <div className="card p-0">
-        <img src={MainApp} className="card-img-top mx-auto" alt="..." loading='lazy' />
+        <Link to={"/ProductsInfo"}>
+            <img src={MainApp} className="card-img-top mx-auto" alt="..." loading='lazy' />
+        </Link>
         <div className="card-body d-flex justify-content-between align-items-center py-1">
 
             <img src={AppIcon} alt="..." loading='lazy' className='col-md-4 ' />

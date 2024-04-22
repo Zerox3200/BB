@@ -3,7 +3,6 @@ import './Filters.scss';
 import Categories from './FiltersFile';
 import AppCard from '../card/card';
 import { AllApps } from './FiltersFile';
-
 export default function Filters() {
     const [Apps, setApps] = useState(AllApps);
     const [Category, setCategory] = useState('All');

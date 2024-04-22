@@ -1,0 +1,29 @@
+@use "../../helpers/functions" as *;
+.prod-info {
+    margin-left: 250px;
+    background-color: #d1e8df;
+
+    /* Center content vertically */
+    @include Breakpoints(medium) {
+        margin: 0;
+    }
+
+    @include Breakpoints(small) {
+        margin: 0;
+    }
+
+    @include Breakpoints(mobile) {
+        margin: 0;
+    }
+    .prod-main-con {
+        a {
+            text-decoration: none;
+            color: rgba($BaseColor, 0.6);
+            font-family: CairoMeduim;
+            
+        }
+        .link-style {
+            color: $BaseColor;
+        }
+    }
+}

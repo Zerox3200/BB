@@ -1,19 +1,74 @@
-@use './../../helpers/functions' as *;
+@use "../../helpers/functions" as *;
 
-.ContactUs{
+.ContactUs {
     margin-left: 250px;
     background-color: #d1e8df;
 
     /* Center content vertically */
     @include Breakpoints(medium) {
         margin: 0;
+        .contact-text {
+            padding-left: 5rem !important;
+        }
     }
 
     @include Breakpoints(small) {
         margin: 0;
+        .contact-text {
+            padding-left: 2rem !important;
+        }
     }
 
     @include Breakpoints(mobile) {
         margin: 0;
+        .contact-text {
+            padding-left: 0rem !important;
+        }
+        .contact-info {
+            width: fit-content;
+            margin-top: 30px;
+        }
+    }
+    .cotact-container {
+        .contact-text {
+            padding-left: 7.5rem;
+        }
+        .contact-main {
+            justify-content: space-around;
+            margin-top: 50px;
+            .contact-info {
+                width: fit-content;
+            }
+        }
+    }
+
+    input {
+        &:focus {
+            border-color: $BaseColor;
+            box-shadow: 0 0 5px 2px $BaseColor;
+        }
+        &::placeholder {
+            color: $BaseColor;
+        }
+    }
+
+    textarea {
+        &::placeholder {
+            color: $BaseColor;
+        }
+        &:focus {
+            border-color: $BaseColor;
+            box-shadow: 0 0 5px 2px $BaseColor;
+        }
+    }
+    select:focus {
+        border-color: $BaseColor;
+        box-shadow: 0 0 5px 2px $BaseColor;
+    }
+    .form-select {
+        color: $BaseColor;
+        svg {
+            color: $BaseColor !important;
+        }
     }
 }

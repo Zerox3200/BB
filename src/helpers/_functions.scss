@@ -1,24 +1,18 @@
 @mixin Breakpoints($point) {
     @if $point ==mobile {
-        @media (max-width:767px) {
+        @media (max-width: 767px) {
             @content;
         }
-    }
-
-    @else if $point ==small {
-        @media (min-width:768px) and (max-width:991px) {
+    } @else if $point ==small {
+        @media (min-width: 768px) and (max-width: 991px) {
             @content;
         }
-    }
-
-    @else if $point ==medium {
-        @media (min-width:992px) and (max-width:1199px) {
+    } @else if $point ==medium {
+        @media (min-width: 992px) and (max-width: 1199px) {
             @content;
         }
-    }
-
-    @else if $point ==large {
-        @media (min-width:1200px) {
+    } @else if $point ==large {
+        @media (min-width: 1200px) {
             @content;
         }
     }
@@ -37,3 +31,13 @@ $SecondColor: #d1e8df;
     width: max-content;
     margin: 0;
 }
+.title {
+    @include Title();
+}
+.bg-main {
+    background-color: $BaseColor !important;
+}
+.font-color {
+    color: $BaseColor;
+}
+
