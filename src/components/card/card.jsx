@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AppCard({ Free }) {
 
-    return <div className="card p-0">
+    return <div className="card p-0 mt-3">
         <Link to={"/ProductsInfo"}>
             <img src={MainApp} className="card-img-top mx-auto" alt="..." loading='lazy' />
         </Link>

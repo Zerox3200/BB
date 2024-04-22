@@ -1,29 +1,25 @@
-import React, { useContext, useState } from 'react'
-import './SideNav.scss';
+import React, { useContext } from 'react'
+import './MobileNav.scss';
 import Logo from '../../Assets/Images/_icon.png';
 import LogoDesc from '../../Assets/Images/_wormark.png'
 import { Link, useLocation } from 'react-router-dom';
 import { ImHome } from "react-icons/im";
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { FaMessage } from "react-icons/fa6";
-import { FaChevronRight } from "react-icons/fa";
 import { NavContext } from '../../Context/NavContext';
+import { IoClose } from "react-icons/io5";
 
-export default function SideNav() {
+export default function MobileNav() {
     const { pathname } = useLocation();
-    const [Rotate, setRotate] = useState(true);
-    const { setMargin, margin } = useContext(NavContext);
+    const { MobileNavShow, HandleMobileNav } = useContext(NavContext);
 
-    const Rotating = () => {
-        setRotate(Rotate => !Rotate);
-        setMargin(Rotate ? false : true);
-    }
+
 
     return <>
-        <nav className={margin ? 'p-3 NavBigger' : 'p-3 NavSmall'}>
+        <nav className={MobileNavShow ? 'MobileNav px-3 py-5' : 'MobileNav px-3 py-5 Show'} >
+            <IoClose className='font-color' onClick={() => HandleMobileNav()} />
             <div className="position-relative">
                 <div className="nav_Title w-100 d-flex align-items-center">
-                    <FaChevronRight className={Rotate ? 'Rotate' : null} onClick={() => Rotating()} />
                     <img src={Logo} alt="..." loading='lazy' />
                     <img src={LogoDesc} alt="..." loading='lazy' />
                 </div>

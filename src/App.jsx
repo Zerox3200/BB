@@ -4,6 +4,7 @@ import { RouterProvider, createHashRouter } from 'react-router-dom';
 import Layout from './pages/Layout';
 import Home from './pages/Home/Home';
 import Loading from './components/Loading/Loading.jsx';
+import NavProvider from './Context/NavContext.jsx';
 
 const Contactus = lazy(() => import("./pages/Contactus/Contactus.jsx"));
 const Productsinfo = lazy(() => import("./pages/Productsinfo/Productsinfo.jsx"));
@@ -24,8 +25,10 @@ function App() {
     }
   ])
   return <>
-    <RouterProvider router={routers}>
-    </RouterProvider>
+    <NavProvider>
+      <RouterProvider router={routers}>
+      </RouterProvider>
+    </NavProvider>
   </>
 }
 

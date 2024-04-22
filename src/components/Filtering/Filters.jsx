@@ -107,8 +107,8 @@ export default function Filters() {
                     type="button" className={Paid === 'Paid' ? 'btn mx-2 my-1 Active' : 'btn mx-2 my-1'}>Paid</button>
             </div>
         </div>
-        <div className="container FilteredApps mt-5 row justify-content-evenly">
-            <h1 className='h4'><span>Home</span> / App store</h1>
+        <div className="container FilteredApps mt-5 row justify-content-center column-gap-3 mx-auto">
+            <h1 className='h4 ps-3'><span>Home</span> / App store</h1>
             {Apps.map(ele => <AppCard key={ele.id} Free={ele.Free} />)}
         </div>
     </>

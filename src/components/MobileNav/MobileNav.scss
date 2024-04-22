@@ -1,40 +1,42 @@
 @use './../../helpers/functions' as *;
 
-nav {
+.MobileNav {
     position: fixed;
-    left: 0;
+    left: -250px;
     top: 0;
     height: 100%;
     background-color: #feffff;
     @include Animtation(0.4s, linear, all);
     z-index: 2;
+    width: 250px;
+    display: none;
+    z-index: 5;
+
+    &.Show {
+        left: 0%;
+    }
 
     @include Breakpoints(medium) {
-        display: none;
+        display: block;
     }
 
     @include Breakpoints(small) {
-        display: none;
+        display: block;
     }
 
     @include Breakpoints(mobile) {
-        display: none;
+        display: block;
     }
 
-    &.NavBigger {
-        width: 250px;
-
-        @include Breakpoints(mobile) {
-            width: 90px;
-        }
-    }
-
-    &.NavSmall {
-        width: 90px;
-
-        @include Breakpoints(mobile) {
-            width: 250px;
-        }
+    >svg {
+        position: absolute;
+        right: 15px;
+        font-size: 35px;
+        top: 10px;
+        color: $BaseColor;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
     }
 
     .nav_Title {

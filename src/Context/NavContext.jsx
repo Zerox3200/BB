@@ -4,9 +4,12 @@ export const NavContext = createContext();
 
 export default function NavProvider({ children }) {
     const [margin, setMargin] = useState(true);
-    const toggleNavbar = () => setMargin(!margin);
+    const [MobileNavShow, setMobileNavShow] = useState(true);
 
-    return <NavContext.Provider value={{ margin, setMargin, toggleNavbar }}>
+    const HandleMobileNav = () => {
+        setMobileNavShow(MobileNavShow === true ? false : true);
+    }
+    return <NavContext.Provider value={{ margin, setMargin, MobileNavShow, setMobileNavShow, HandleMobileNav }}>
         {children}
     </NavContext.Provider>
 }

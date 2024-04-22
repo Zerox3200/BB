@@ -6,14 +6,38 @@ html {
 
 .Home {
     background-color: #d1e8df;
-    @include Animtation(0.1s, linear, all);
+    @include Animtation(0.4s, linear, all);
 
     &.HomeMarined {
         margin-left: 250px;
+
+        @include Breakpoints(medium) {
+            margin-left: 0;
+        }
+
+        @include Breakpoints(small) {
+            margin-left: 0;
+        }
+
+        @include Breakpoints(mobile) {
+            margin-left: 0;
+        }
     }
 
     &.HomeConstant {
         margin-left: 90px;
+
+        @include Breakpoints(medium) {
+            margin-left: 0;
+        }
+
+        @include Breakpoints(small) {
+            margin-left: 0;
+        }
+
+        @include Breakpoints(mobile) {
+            margin-left: 0;
+        }
     }
 
     /* Center content vertically */

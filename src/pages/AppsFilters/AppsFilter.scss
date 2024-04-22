@@ -1,8 +1,40 @@
 @use '../../helpers/functions' as *;
 
 .AppsFilter {
-    margin-left: 250px;
     background-color: #d1e8df;
+    @include Animtation(0.4s, linear, all);
+
+    &.AppsFilterMargined {
+        margin-left: 250px;
+
+        @include Breakpoints(medium) {
+            margin: 0;
+        }
+
+        @include Breakpoints(small) {
+            margin: 0;
+        }
+
+        @include Breakpoints(mobile) {
+            margin: 0;
+        }
+    }
+
+    &.AppsFilterConstant {
+        margin-left: 90px;
+
+        @include Breakpoints(medium) {
+            margin: 0;
+        }
+
+        @include Breakpoints(small) {
+            margin: 0;
+        }
+
+        @include Breakpoints(mobile) {
+            margin: 0;
+        }
+    }
 
     /* Center content vertically */
     @include Breakpoints(medium) {
