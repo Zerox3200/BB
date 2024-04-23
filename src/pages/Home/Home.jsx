@@ -1,4 +1,4 @@
-import React, { Suspense, useContext} from 'react'
+import React, { Suspense, useContext } from 'react'
 import './Home.scss';
 import Loading from '../../components/Loading/Loading';
 import { Helmet } from 'react-helmet';

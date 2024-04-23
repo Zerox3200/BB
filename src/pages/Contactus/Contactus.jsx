@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from "yup"
 import Search from '../../components/Search/Search'
 import { Helmet } from "react-helmet";
 import './Contact.scss';
+import { NavContext } from '../../Context/NavContext';
 export default function Contactus() {
     const [loading, setloading] = useState(false)
+    const { margin } = useContext(NavContext);
 
     function loginsubmit(values) {
         console.log(values);
@@ -33,7 +35,7 @@ export default function Contactus() {
     })
 
     return (
-        <div className='ContactUs'>
+        <div className={margin ? "ContactUs ContactMarined" : "ContactUs ContactConstant"}>
             <Helmet>
                 <title>Contact</title>
             </Helmet>
