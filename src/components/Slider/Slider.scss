@@ -1,0 +1,13 @@
+@use "../../helpers/functions" as *;
+.slider-container {
+    width: 100%;
+    div {
+        width: 100%;
+    }
+    img {
+        width: 140px;
+        height: 248px;
+        background-color: $BaseColor;
+        border-radius: 10px;
+    }
+}

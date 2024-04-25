@@ -1,7 +1,39 @@
 @use "../../helpers/functions" as *;
 .prod-info {
-    margin-left: 250px;
     background-color: #d1e8df;
+    @include Animtation(0.4s, linear, all);
+
+    &.prod-info-Marined {
+        margin-left: 250px;
+
+        @include Breakpoints(medium) {
+            margin-left: 0;
+        }
+
+        @include Breakpoints(small) {
+            margin-left: 0;
+        }
+
+        @include Breakpoints(mobile) {
+            margin-left: 0;
+        }
+    }
+
+    &.prod-info-Constant {
+        margin-left: 90px;
+
+        @include Breakpoints(medium) {
+            margin-left: 0;
+        }
+
+        @include Breakpoints(small) {
+            margin-left: 0;
+        }
+
+        @include Breakpoints(mobile) {
+            margin-left: 0;
+        }
+    }
 
     /* Center content vertically */
     @include Breakpoints(medium) {
@@ -20,10 +52,50 @@
             text-decoration: none;
             color: rgba($BaseColor, 0.6);
             font-family: CairoMeduim;
-            
         }
         .link-style {
             color: $BaseColor;
+        }
+        .app-icon {
+            width: 120px;
+        }
+        .app-link {
+            gap: 20px;
+            .share-link {
+                background-color: $BaseColor;
+                color: white;
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+                padding: 3px;
+                text-align: center;
+                border-radius: 7px 7px;
+            }
+            .google-play {
+                background-color: black;
+                width: 134px;
+                height: 40px;
+                padding: 1px;
+                border-radius: 20px/100px;
+                display: flex;
+                span {
+                    display: block;
+                    line-height: 18px;
+                    color: white;
+                }
+                img {
+                    width: 40px;
+                }
+            }
+        }
+        .app-slider {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .new {
+            @extend .app-slider;
+
         }
     }
 }

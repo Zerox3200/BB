@@ -1,4 +1,4 @@
-@use '../../helpers/functions' as *;
+@use "../../helpers/functions" as *;
 
 html {
     background-color: #d1e8df;
@@ -51,5 +51,8 @@ html {
 
     @include Breakpoints(mobile) {
         margin: 0;
+    }
+    .app-icon {
+        width: 120px;
     }
 }
