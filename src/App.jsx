@@ -24,10 +24,11 @@ function App() {
       ]
     }, {
       path: '', element: <AdminLayout />, children: [
-        { path: "Login2030", element: <Suspense fallback={<Loading />}><AdminLogin /> </Suspense> }, 
+        { path: "Login2030", element: <Suspense fallback={<Loading />}><AdminLogin /> </Suspense> },
       ]
     }
-  ])
+  ]);
+
   return <>
     <NavProvider>
       <RouterProvider router={routers}>

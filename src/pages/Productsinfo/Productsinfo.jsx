@@ -12,8 +12,8 @@ import AppCard from '../../components/card/card'
 
 export default function Productsinfo() {
     const { margin } = useContext(NavContext)
-    return (
-        <div className={margin ? "prod-info  prod-info-Marined " : "prod-info  prod-info-Constant"} >
+    return <>
+        <section className={margin ? "prod-info  prod-info-Marined " : "prod-info  prod-info-Constant"} >
             <Search />
             <div className="prod-main-con ps-5 container">
 
@@ -28,15 +28,15 @@ export default function Productsinfo() {
 
                 <div className="row my-3">
 
-                    <img className='col-2 app-icon' src={appIcon} alt="" />
+                    <img className='col-md-2 app-icon' src={appIcon} alt="" />
 
-                    <div className="col-4 app-name font-color">
+                    <div className="col-md-4 app-name font-color">
                         <h1>Tajweed App</h1>
                         <span className='p-2 m-2'>free</span>
                         <span className='p-2 m-2'>78 MB</span>
                     </div>
 
-                    <div className="app-link col-6 d-flex justify-content-end">
+                    <div className="app-link col-md-6 d-flex justify-content-end">
                         <Link to={"/"}>
                             <div className="share-link">
                                 <FaShareAlt />
@@ -49,18 +49,15 @@ export default function Productsinfo() {
                                 <span>Get it on</span>
                                 <span>google play</span>
                             </span>
-
                         </div>
-
                     </div>
-
                 </div>
 
-                <div className="row gap-3 ">
-                    <div className="app-slider col-7">
+                <div className="row Main_height gap-3">
+                    <div className="app-slider col-lg-7 col-md-10 h-100 d-flex align-items-center">
                         <MultipleItems></MultipleItems>
                     </div>
-                    <div className="new col-4">
+                    <div className="new col-lg-4 col-md-10 h-100">
                         <h2 className='font-color'>What's new</h2>
                         <ul className='font-color'>
                             <li>removed email afds</li>
@@ -72,8 +69,10 @@ export default function Productsinfo() {
                         </ul>
                     </div>
                 </div>
-                <div className="row gap-3 my-2 ">
-                    <div className="app-slider font-color col-7">
+
+
+                <div className="row  gap-3 my-3">
+                    <div className="app-slider font-color col-lg-7 col-md-10">
                         <h2>App description</h2>
                         <p >
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis veniam facere consectetur, vel placeat dolorem deserunt magni nemo distinctio consequatur, molestias itaque fuga accusamus, facilis id recusandae. Totam sequi at minus quibusdam incidunt, vitae cupiditate distinctio cumque sint eveniet voluptates consectetur voluptatem sunt necessitatibus quae animi vel alias pariatur neque!
@@ -81,7 +80,7 @@ export default function Productsinfo() {
 
                     </div>
 
-                    <div className="new font-color col-4">
+                    <div className="new font-color col-lg-4 col-md-10">
                         <h2>App Info</h2>
                         <div>
                             <span>App language: </span>
@@ -107,14 +106,10 @@ export default function Productsinfo() {
                     </div>
                 </div>
 
-                <div className="row font-color">
+                <div className="row font-color mt-4">
                     <div className="related col-12">
                         <h2>Related apps</h2>
-
-
                         {/* related */}
-
-
                     </div>
                 </div>
 
@@ -126,7 +121,7 @@ export default function Productsinfo() {
 
                             <Link to='/Apps' className='d-flex justify-content-end align-items-center fs-5 align-self-end'>
                                 View all <LuChevronRight /></Link>
-                            
+
                             <div className="Intro_Apps_inside_cards row px-5 gap-4">
                                 <AppCard Free={true} />
                                 <AppCard Free={true} />
@@ -138,6 +133,6 @@ export default function Productsinfo() {
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        </section>
+    </>
 }

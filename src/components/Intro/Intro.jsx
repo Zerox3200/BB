@@ -14,15 +14,16 @@ import Tasbeh from '../../Assets/Images/Icons/x1024/Tasbeeh.svg';
 import Wudouu from '../../Assets/Images/Icons/x1024/Wudu_.svg';
 import Duaa from '../../Assets/Images/Icons/x1024/Du_ā.svg';
 import Search from '../Search/Search';
+import { useTranslation } from 'react-i18next';
 
 export default function Intro() {
-
+    const { t } = useTranslation();
     return <>
         <Search />
         <div className="Intro_Text mt-3 d-flex flex-wrap align-items-center p-5 col-xl-11  col-sm-12">
             {/* <img src={Icon} alt="..." loading='lazy' /> */}
             <article className='p-4 col-md-9'>
-                <h1 className='h3 fw-bold'>Mobile Application For The Ummah!</h1>
+                <h1 className='h3 fw-bold'>{t("IntroTitle")}</h1>
                 <p className='h-5'>Deenbook Inc is a provider of Islamic Mobile Applications and Utilites for the Muslim Ummah.</p>
                 <p>Our aim is to server the Islamic Community by combining Technical Acumen with Classical Islamic Sciences and
                     Juriprudence to deliver Useful Applications for everyday use.

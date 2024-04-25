@@ -1,13 +1,70 @@
 @use "../../helpers/functions" as *;
+
 .slider-container {
     width: 100%;
+
     div {
         width: 100%;
     }
+
     img {
-        width: 140px;
-        height: 248px;
+        margin-left: 5px;
+        // width: 160px;
+        height: 290px;
         background-color: $BaseColor;
         border-radius: 10px;
+    }
+
+    .slick-arrow.slick-prev.slick-disabled {
+        opacity: 0;
+    }
+
+    .slick-arrow.slick-next.slick-disabled {
+        opacity: 0;
+    }
+
+    .slick-prev,
+    .slick-next {
+        height: 35px;
+        width: 35px;
+        background-color: white;
+        border-radius: 5px;
+        z-index: 2;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        @include Animtation(0.2s, linear, all);
+
+        &:hover {
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        &::before {
+            font-family: Cairo;
+            color: $BaseColor;
+            font-size: 10px;
+            line-height: 0;
+            opacity: 0.6;
+            width: 15px;
+            @include Animtation(0.2s, linear, all);
+        }
+    }
+
+    .slick-prev {
+        left: -20px;
+
+        &::before {
+            content: url('../../Assets/Images/angle-left-solid\ \(1\).svg');
+        }
+    }
+
+    .slick-next {
+        right: -20px;
+
+        &::before {
+            content: url('../../Assets/Images/angle-right-solid.svg');
+        }
     }
 }

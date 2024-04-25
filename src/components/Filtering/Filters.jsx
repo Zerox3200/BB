@@ -3,6 +3,7 @@ import './Filters.scss';
 import Categories from './FiltersFile';
 import AppCard from '../card/card';
 import { AllApps } from './FiltersFile';
+import { Link } from 'react-router-dom';
 export default function Filters() {
     const [Apps, setApps] = useState(AllApps);
     const [Category, setCategory] = useState('All');
@@ -108,7 +109,7 @@ export default function Filters() {
             </div>
         </div>
         <div className="container FilteredApps mt-5 row justify-content-center column-gap-3 mx-auto">
-            <h1 className='h4 ps-3'><span>Home</span> / App store</h1>
+            <h1 className='h4 ps-3'><Link to='/'>Home</Link> / App store</h1>
             {Apps.map(ele => <AppCard key={ele.id} Free={ele.Free} />)}
         </div>
     </>

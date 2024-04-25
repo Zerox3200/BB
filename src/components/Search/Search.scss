@@ -18,6 +18,13 @@
 }
 
 .Intro {
+    height: 80px;
+    --bs-gutter-x: 0;
+
+    @include Breakpoints(mobile) {
+        height: max-content;
+    }
+
     >svg {
         background-color: $BaseColor;
         color: white;
@@ -45,18 +52,21 @@
     .Intro_Search {
         position: relative;
         width: 350px;
+        display: flex;
+        column-gap: 10px;
 
         @include Breakpoints(mobile) {
             width: 70%;
         }
 
-        svg {
+        >svg {
             position: absolute;
             color: $BaseColor;
             right: 7px;
             top: 7px;
             cursor: pointer;
         }
+
 
         input[type="text"] {
             height: 30px;

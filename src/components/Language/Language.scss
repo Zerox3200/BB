@@ -1,0 +1,67 @@
+@use '../../helpers/functions' as *;
+
+.Language {
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+
+    @include Breakpoints(mobile) {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    img {
+        width: 25px;
+    }
+
+    .LanguageChecking {
+        position: absolute;
+        bottom: -178px;
+        left: 0;
+        width: 200px;
+        background-color: white;
+        padding: 10px 0;
+        @include Animtation(0.2s, linear, all);
+        opacity: 0;
+        visibility: hidden;
+
+        >div {
+            svg {
+                @include Animtation(0.2s, linear, all);
+                font-size: 20px;
+
+                &:hover {
+                    color: $BaseColor;
+                }
+            }
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+
+        .LangChoice {
+            padding: 10px 0;
+            @include Animtation(0.3s, linear, all);
+
+            &:hover {
+                background-color: $BaseColor;
+                color: white;
+            }
+        }
+
+
+        &.Show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @include Breakpoints(mobile) {
+            width: 100%;
+        }
+
+    }
+}

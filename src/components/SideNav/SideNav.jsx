@@ -20,7 +20,7 @@ export default function SideNav() {
     }
 
     return <>
-        <nav className={margin ? 'p-3 NavBigger' : 'p-3 NavSmall'}>
+        <aside className={margin ? 'p-3 NavBigger' : 'p-3 NavSmall'}>
             <div className="position-relative">
                 <div className="nav_Title w-100 d-flex align-items-center">
                     <FaChevronRight className={Rotate ? 'Rotate' : null} onClick={() => Rotating()} />
@@ -52,6 +52,6 @@ export default function SideNav() {
                     </ul>
                 </div>
             </div>
-        </nav>
+        </aside>
     </>
 }

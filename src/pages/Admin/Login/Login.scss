@@ -5,39 +5,30 @@
     @include Animtation(0.4s, linear, all);
     padding: 1px;
 
-    &.LoginMarined {
-        margin-left: 250px;
-
-        @include Breakpoints(medium) {
-            margin-left: 0;
-        }
-
-        @include Breakpoints(small) {
-            margin-left: 0;
-        }
+    .btn {
+        width: 200px;
 
         @include Breakpoints(mobile) {
-            margin-left: 0;
+            width: 200px;
         }
     }
 
-    &.LoginConstant {
-        margin-left: 90px;
 
-        @include Breakpoints(medium) {
-            margin-left: 0;
-        }
 
-        @include Breakpoints(small) {
-            margin-left: 0;
-        }
-
-        @include Breakpoints(mobile) {
-            margin-left: 0;
-        }
-    }
     .login-main {
         width: 40%;
         margin: 100px auto;
+
+        @include Breakpoints(medium) {
+            width: 80%;
+        }
+
+        @include Breakpoints(small) {
+            width: 80%;
+        }
+
+        @include Breakpoints(mobile) {
+            width: 90%;
+        }
     }
 }

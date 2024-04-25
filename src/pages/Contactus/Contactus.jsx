@@ -35,7 +35,7 @@ export default function Contactus() {
     })
 
     return (
-        <div className={margin ? "ContactUs ContactMarined" : "ContactUs ContactConstant"}>
+        <section className={margin ? "ContactUs ContactMarined" : "ContactUs ContactConstant"}>
             <Helmet>
                 <title>Contact</title>
             </Helmet>
@@ -119,6 +119,6 @@ export default function Contactus() {
 
             </div>
 
-        </div>
+        </section>
     )
 }

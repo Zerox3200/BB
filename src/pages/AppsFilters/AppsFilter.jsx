@@ -10,12 +10,12 @@ export default function AppsFilter() {
     const { margin } = useContext(NavContext);
 
     return <>
-        <div className={margin ? "AppsFilter AppsFilterMargined" : "AppsFilter AppsFilterConstant"}>
+        <section className={margin ? "AppsFilter AppsFilterMargined" : "AppsFilter AppsFilterConstant"}>
             <Helmet>
                 <title>Apps store</title>
             </Helmet>
             <Search />
             <Filters />
-        </div>
+        </section>
     </>
 }

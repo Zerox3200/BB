@@ -1,59 +1,72 @@
 import React from "react";
-
 import Slider from "react-slick";
 import './Slider.scss'
-import app from '../../Assets/Images/people-holding-pinterest-icon.jpg'
+// import app from '../../Assets/Images/people-holding-pinterest-icon.jpg'
 
 
 function CenterMode() {
-    const settings = {
-        className: "center",
-        centerMode: true,
-        infinite: true,
-        centerPadding: "1px",
-        slidesToShow: 4.03,
+    var settings = {
+        infinite: false,
         speed: 500,
-        rtl:true,
-        // responsive: [
-        //     {
-
-        //     }
-        // ]
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 1433,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                }
+            },
+            {
+                breakpoint: 783,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: true,
+                    autoplay: true
+                }
+            }
+        ]
     };
     return (
         <div className="slider-container">
-            <Slider {...settings}>
+            <Slider {...settings} >
                 <div>
-                    <img src={app} alt="" />
+                    <img alt="..." loading="lazy" />
                 </div>
                 <div>
-                    <img src={app} alt="" />
+                    <img alt="..." loading="lazy" />
                 </div>
                 <div>
-                    <img src={app} alt="" />
+                    <img alt="..." loading="lazy" />
                 </div>
                 <div>
-                    <img src={app} alt="" />
+                    <img alt="..." loading="lazy" />
                 </div>
                 <div>
-                    <img src={app} alt="" />
+                    <img alt="..." loading="lazy" />
                 </div>
                 <div>
-                    <img src={app} alt="" />
+                    <img alt="..." loading="lazy" />
                 </div>
                 <div>
-                    <img src={app} alt="" />
+                    <img alt="..." loading="lazy" />
                 </div>
                 <div>
-                    <img src={app} alt="" />
+                    <img alt="..." loading="lazy" />
                 </div>
-                <div>
-                    <img src={app} alt="" />
-                </div>
-                <div>
-                    <img src={app} alt="" />
-                </div>
-
             </Slider>
         </div>
     );

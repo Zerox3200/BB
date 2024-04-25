@@ -156,23 +156,13 @@
 .FilteredApps {
     --bs-gutter-x: 0 !important;
 
-    // @include Breakpoints(medium) {
-    //     margin: auto !important;
-    // }
-
-    // @include Breakpoints(small) {
-    //     margin: auto !important;
-    // }
-
-    // @include Breakpoints(mobile) {
-    //     margin: auto !important;
-    // }
 
     h1 {
         color: $BaseColor;
         margin: 20px 0;
 
-        span {
+        a {
+            text-decoration: none;
             color: rgba($BaseColor, 0.6);
         }
     }
