@@ -8,12 +8,11 @@ import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { FaMessage } from "react-icons/fa6";
 import { NavContext } from '../../Context/NavContext';
 import { IoClose } from "react-icons/io5";
+import { MdOutlinePolicy } from 'react-icons/md';
 
 export default function MobileNav() {
     const { pathname } = useLocation();
     const { MobileNavShow, HandleMobileNav } = useContext(NavContext);
-
-
 
     return <>
         <nav className={MobileNavShow ? 'MobileNav px-3 py-5' : 'MobileNav px-3 py-5 Show'} >
@@ -43,6 +42,12 @@ export default function MobileNav() {
                             <Link to='ContactUs' className='d-flex align-items-center'>
                                 <FaMessage />
                                 <span style={{ textWrap: 'nowrap' }}>Contact Us</span>
+                            </Link>
+                        </li>
+                        <li className={pathname === '/Policy' ? 'Active' : null}>
+                            <Link className='d-flex align-items-center' to={'/Policy'}>
+                                <MdOutlinePolicy />
+                                <span style={{ textWrap: 'nowrap' }}>Policy</span>
                             </Link>
                         </li>
                     </ul>

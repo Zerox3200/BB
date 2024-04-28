@@ -20,7 +20,7 @@ export default function Intro() {
     const { t } = useTranslation();
     return <>
         <Search />
-        <div className="Intro_Text mt-3 d-flex flex-wrap align-items-center p-5 col-xl-11  col-sm-12">
+        <div className="Intro_Text mt-3 d-flex flex-wrap align-items-center p-5 col-xl-11 col-sm-12">
             {/* <img src={Icon} alt="..." loading='lazy' /> */}
             <article className='p-4 col-md-9'>
                 <h1 className='h3 fw-bold'>{t("IntroTitle")}</h1>

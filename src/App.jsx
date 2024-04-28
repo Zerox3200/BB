@@ -1,12 +1,13 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import './App.scss';
 import { RouterProvider, createHashRouter } from 'react-router-dom';
 import Layout from './pages/Layout';
 import Home from './pages/Home/Home';
 import Loading from './components/Loading/Loading.jsx';
-import NavProvider from './Context/NavContext.jsx';
 import AdminLayout from './pages/AdminLayout.jsx';
 import Policy from './pages/Policy/Policy.jsx';
+import { reactLocalStorage } from 'reactjs-localstorage';
+import { useTranslation } from 'react-i18next';
 
 const Contactus = lazy(() => import("./pages/Contactus/Contactus.jsx"));
 const Productsinfo = lazy(() => import("./pages/Productsinfo/Productsinfo.jsx"));
@@ -15,6 +16,8 @@ const AdminLogin = lazy(() => import('./pages/Admin/Login/Login.jsx'));
 
 
 function App() {
+  const { i18n } = useTranslation();
+
   const routers = createHashRouter([
     {
       path: '', element: <Layout />, children: [
@@ -30,12 +33,17 @@ function App() {
       ]
     }
   ]);
+  const MainLanguage = reactLocalStorage.get("lan");
+
+  useEffect(() => {
+    if (MainLanguage) {
+      i18n.changeLanguage(MainLanguage.toLowerCase());
+    }
+  }, [MainLanguage, i18n])
 
   return <>
-    <NavProvider>
-      <RouterProvider router={routers}>
-      </RouterProvider>
-    </NavProvider>
+    <RouterProvider router={routers}>
+    </RouterProvider>
   </>
 }
 

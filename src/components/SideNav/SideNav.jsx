@@ -32,7 +32,7 @@ export default function SideNav() {
             </div>
 
             <div className="Menu_Bar d-flex flex-column">
-                
+
                 <div className="menu">
                     <ul className='list-unstyled mt-3'>
                         <li className={pathname === '/' ? 'Active' : null}>
@@ -53,11 +53,6 @@ export default function SideNav() {
                                 <span style={{ textWrap: 'nowrap' }}>Contact Us</span>
                             </Link>
                         </li>
-                    </ul>
-                </div>
-
-                <div className="menutwo">
-                    <ul className='mt-3'>
                         <li className={pathname === '/Policy' ? 'Active' : null}>
                             <Link className='d-flex align-items-center' to={'/Policy'}>
                                 <MdOutlinePolicy />
@@ -66,7 +61,6 @@ export default function SideNav() {
                         </li>
                     </ul>
                 </div>
-
             </div>
 
         </aside>
