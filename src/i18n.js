@@ -15,7 +15,7 @@ const resources = {
     },
     ar: {
         translation: {
-            "IntroTitle": "Bienvenue à React et react-i18next"
+            "IntroTitle": "ههلا بلخميس"
         }
     }
 };

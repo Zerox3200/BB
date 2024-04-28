@@ -26,24 +26,32 @@ const Languages = React.memo(() => {
     ];
 
 
-    return <div className="Language px-2 d-flex justify-content-between align-items-center"
-        onClick={() => handleLanguage()}>
+
+    return <div className="Language px-2 d-flex justify-content-between align-items-center" onClick={() => handleLanguage()}>
+        
+
         <h1 className="h5 m-0">{Lan}</h1>
         <img src={Lan === "En" ? EnglishFlag : Lan === "Tr" ? TurkishFlag : Lan === 'Ar' ? ArabicFlag : null}
             alt="..." loading="lazy" />
-        <div
-            className={`LanguageChecking ${showLanguages ? 'Show' : ''}`}>
+
+        <div className={`LanguageChecking ${showLanguages ? 'Show' : ''}`}>
+
             <div className="d-flex justify-content-end px-2">
                 <IoMdClose onClick={() => handleLanguage()} />
             </div>
+
             {languageChoices.map(({ lang, flag }) => (
+
                 <div className="LangChoice d-flex justify-content-between px-2" key={lang}
                     onClick={() => handleType(lang)}>
                     <h1 className="h5 m-0">{lang}</h1>
                     <img src={flag} alt="..." loading="lazy" />
                 </div>
+
             ))}
+
         </div>
+
     </div>
 })
 

@@ -8,6 +8,7 @@ import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { FaMessage } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa";
 import { NavContext } from '../../Context/NavContext';
+import { MdOutlinePolicy } from "react-icons/md";
 
 export default function SideNav() {
     const { pathname } = useLocation();
@@ -21,6 +22,7 @@ export default function SideNav() {
 
     return <>
         <aside className={margin ? 'p-3 NavBigger' : 'p-3 NavSmall'}>
+
             <div className="position-relative">
                 <div className="nav_Title w-100 d-flex align-items-center">
                     <FaChevronRight className={Rotate ? 'Rotate' : null} onClick={() => Rotating()} />
@@ -28,7 +30,9 @@ export default function SideNav() {
                     <img src={LogoDesc} alt="..." loading='lazy' />
                 </div>
             </div>
-            <div className="Menu_Bar">
+
+            <div className="Menu_Bar d-flex flex-column">
+                
                 <div className="menu">
                     <ul className='list-unstyled mt-3'>
                         <li className={pathname === '/' ? 'Active' : null}>
@@ -51,7 +55,20 @@ export default function SideNav() {
                         </li>
                     </ul>
                 </div>
+
+                <div className="menutwo">
+                    <ul className='mt-3'>
+                        <li className={pathname === '/Policy' ? 'Active' : null}>
+                            <Link className='d-flex align-items-center' to={'/Policy'}>
+                                <MdOutlinePolicy />
+                                <span style={{ textWrap: 'nowrap' }}>Policy</span>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
+
         </aside>
     </>
 }

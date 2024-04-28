@@ -6,6 +6,7 @@ import Home from './pages/Home/Home';
 import Loading from './components/Loading/Loading.jsx';
 import NavProvider from './Context/NavContext.jsx';
 import AdminLayout from './pages/AdminLayout.jsx';
+import Policy from './pages/Policy/Policy.jsx';
 
 const Contactus = lazy(() => import("./pages/Contactus/Contactus.jsx"));
 const Productsinfo = lazy(() => import("./pages/Productsinfo/Productsinfo.jsx"));
@@ -21,6 +22,7 @@ function App() {
         { path: "Apps", element: <Suspense fallback={<Loading />}><AppsFilter /> </Suspense> },
         { path: "Contactus", element: <Suspense fallback={<Loading />}><Contactus /> </Suspense> },
         { path: "ProductsInfo", element: <Suspense fallback={<Loading />}><Productsinfo /> </Suspense> },
+        { path: "Policy", element: <Suspense fallback={<Loading />}><Policy /> </Suspense> },
       ]
     }, {
       path: '', element: <AdminLayout />, children: [

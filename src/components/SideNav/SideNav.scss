@@ -1,4 +1,4 @@
-@use './../../helpers/functions' as *;
+@use "./../../helpers/functions" as *;
 
 aside {
     position: fixed;
@@ -58,9 +58,7 @@ aside {
             }
         }
 
-
-
-        >img {
+        > img {
             width: 40px;
             margin-right: 5px;
         }
@@ -69,8 +67,6 @@ aside {
             width: 130px;
         }
     }
-
-
 
     .Menu_Bar {
         width: 100%;
@@ -85,9 +81,70 @@ aside {
         }
 
         .menu {
-
             ul {
+                li {
+                    padding: 0 10px;
+                    display: flex;
+                    align-items: center;
+                    height: 50px;
+                    margin-top: 20px;
 
+                    &.Active {
+                        background-color: #d1e8df;
+
+                        svg {
+                            background-color: $BaseColor;
+                            color: white;
+                        }
+
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+
+                    a {
+                        width: 100%;
+                        text-decoration: none;
+                        color: $BaseColor;
+                        font-family: CairoMeduim;
+                        border-radius: 5px;
+                        @include Animtation(0.3s, linear, all);
+                        overflow: hidden;
+
+                        svg {
+                            min-width: 40px;
+                            height: 40px;
+                            color: $BaseColor;
+                            padding: 10px;
+                            border-radius: 5px;
+                            margin-right: 10px;
+                            @include Animtation(0.3s, linear, all);
+                        }
+
+                        span {
+                            width: max-content;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: #d1e8df;
+
+                        svg {
+                            background-color: $BaseColor;
+                            color: white;
+                        }
+
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+
+        .menutwo {
+            ul {
+                list-style: none;
                 li {
                     padding: 0 10px;
                     display: flex;
