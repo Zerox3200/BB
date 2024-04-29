@@ -1,7 +1,5 @@
 @use './../../helpers/functions' as *;
 
-
-
 .Intro_Text {
     height: max-content;
     margin: auto;
@@ -72,16 +70,14 @@
         @include Title();
     }
 
-    .Intro_Categories_inside {
-        .Intro_Categories_cards {
-            @include Breakpoints(mobile) {
-                justify-content: center;
-            }
+    .Intro_Categories_cards {
+        @include Breakpoints(mobile) {
+            justify-content: center;
         }
+    }
 
-        a {
-            text-decoration: none;
-            color: $BaseColor;
-        }
+    a {
+        text-decoration: none;
+        color: $BaseColor;
     }
 }

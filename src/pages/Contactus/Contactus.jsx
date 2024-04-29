@@ -5,9 +5,14 @@ import Search from '../../components/Search/Search'
 import { Helmet } from "react-helmet";
 import './Contact.scss';
 import { NavContext } from '../../Context/NavContext';
+import { useTranslation } from 'react-i18next';
+import { reactLocalStorage } from 'reactjs-localstorage';
+
 export default function Contactus() {
     const [loading, setloading] = useState(false)
     const { margin } = useContext(NavContext);
+    const { t } = useTranslation();
+    const MainLanguage = reactLocalStorage.get('lan');
 
     function loginsubmit(values) {
         console.log(values);
@@ -15,19 +20,18 @@ export default function Contactus() {
     };
 
     let validationSchema = Yup.object({
-        name: Yup.string().required("name is required").min(3, "min length is 3"),
-        email: Yup.string().required("email is required").email("invalid email"),
-        reason: Yup.string().required("reson required")
-            .oneOf(["i have an issue", "i have a feedback", "i have a suggestion", "i want to collaborate"]),
-        subject: Yup.string().min(5).required("subject required"),
-        message: Yup.string().min(10).required("message required")
+        name: Yup.string().required(t("NameRequired")).min(3, t("Minimum")),
+        email: Yup.string().required(t("EmailRequired")).email(t("InvalidEmail")),
+        reason: Yup.string(),
+        subject: Yup.string().min(5, t("SubjectMinimum")).required(t("SubjectRequired")),
+        message: Yup.string().min(10, "min lenght is 10").required(t("MessageRequired"))
     })
 
     let formik = useFormik({
         initialValues: {
             name: "",
             email: "",
-            reason: "i have an issue",
+            reason: MainLanguage === "ar" ? "لدي مشكله" : MainLanguage === "tr" ? 'bir sorunum var' : 'I have a feedback',
             subject: "",
             message: "",
         }, validationSchema, onSubmit: loginsubmit,
@@ -37,17 +41,18 @@ export default function Contactus() {
     return (
         <section className={margin ? "ContactUs ContactMarined" : "ContactUs ContactConstant"}>
             <Helmet>
-                <title>Contact</title>
+                <title>Contact Us</title>
             </Helmet>
             <Search />
 
             <div className="cotact-container container">
 
-                <div className="contact-text">
+                <div className={MainLanguage === 'ar' ? "contact-text col-md-6 col-sm-12 Right" :
+                    "contact-text col-md-6 col-sm-12"}>
 
-                    <h2 className='font-color fw-bold'>Contact Us</h2>
-                    <p className='font-color fs-6 fw-bold '>Assalamu Alaykum,<br />
-                        We would like to hear from you.
+                    <h2 className='font-color fw-bold'>{t("Contact")}</h2>
+                    <p className='font-color fs-6 fw-bold '>{t("ContactUSGreeting")},<br />
+                        {t("ContactUSGreeting2")}.
                     </p>
                 </div>
 
@@ -57,36 +62,36 @@ export default function Contactus() {
                         <form onSubmit={formik.handleSubmit}>
 
                             <div className='my-2'>
-                                <input className='form-control' placeholder="name" onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="name" id="name" />
+                                <input className='form-control' placeholder={t("name")} onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="name" id="name" />
                                 {formik.errors.name && formik.touched.name &&
                                     <div className="alert alert-danger py-2 mt-2">{formik.errors.name}</div>}
                             </div>
 
                             <div className='my-2'>
-                                <input className='form-control' placeholder="email" onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="email" />
+                                <input className='form-control' placeholder={t("email")} onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="email" />
                                 {formik.errors.email && formik.touched.email &&
                                     <div className="alert alert-danger py-2 mt-2">{formik.errors.email}</div>}
                             </div>
 
                             <div className='my-2'>
                                 <select className='form-select' onBlur={formik.handleBlur} onChange={formik.handleChange} name="reason" id="reason">
-                                    <option className='font-color' value="i have an issue">I have an issue</option>
-                                    <option className='font-color' value="i have a feedback">I have a feedback</option>
-                                    <option className='font-color' value="i have a suggestion">I have a suggestion</option>
-                                    <option className='font-color' value="i want to collaborate">I want to collaborate</option>
+                                    <option className='font-color' value="i have an issue">{t("Choice1")}</option>
+                                    <option className='font-color' value="i have a feedback">{t("Choice2")}</option>
+                                    <option className='font-color' value="i have a suggestion">{t("Choice3")}</option>
+                                    <option className='font-color' value="i want to collaborate">{t("Choice4")}</option>
                                 </select>
                                 {formik.errors.reason && formik.touched.reason &&
                                     <div className="alert alert-danger py-2 mt-2">{formik.errors.reason}</div>}
                             </div>
 
                             <div className='my-2'>
-                                <input className='form-control' placeholder="Subject title" onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="subject" />
+                                <input className='form-control' placeholder={t("SubjectTitle")} onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="subject" />
                                 {formik.errors.subject && formik.touched.subject &&
                                     <div className="alert alert-danger py-2 mt-2">{formik.errors.subject}</div>}
                             </div>
 
                             <div className='my-2'>
-                                <textarea className='form-control' placeholder="Message" name="message" id="message" onBlur={formik.handleBlur} onChange={formik.handleChange} rows="10" cols="30">
+                                <textarea className='form-control' placeholder={t("Message")} name="message" id="message" onBlur={formik.handleBlur} onChange={formik.handleChange} rows="10" cols="30">
 
                                 </textarea>
                                 {formik.errors.message && formik.touched.message &&

@@ -5,7 +5,6 @@ import Layout from './pages/Layout';
 import Home from './pages/Home/Home';
 import Loading from './components/Loading/Loading.jsx';
 import AdminLayout from './pages/AdminLayout.jsx';
-import Policy from './pages/Policy/Policy.jsx';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import { useTranslation } from 'react-i18next';
 
@@ -13,6 +12,7 @@ const Contactus = lazy(() => import("./pages/Contactus/Contactus.jsx"));
 const Productsinfo = lazy(() => import("./pages/Productsinfo/Productsinfo.jsx"));
 const AppsFilter = lazy(() => import("./pages/AppsFilters/AppsFilter"));
 const AdminLogin = lazy(() => import('./pages/Admin/Login/Login.jsx'));
+const Policy = lazy(() => import("./pages/Policy/Policy.jsx"));
 
 
 function App() {
