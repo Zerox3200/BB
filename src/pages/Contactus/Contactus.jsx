@@ -24,7 +24,7 @@ export default function Contactus() {
         email: Yup.string().required(t("EmailRequired")).email(t("InvalidEmail")),
         reason: Yup.string(),
         subject: Yup.string().min(5, t("SubjectMinimum")).required(t("SubjectRequired")),
-        message: Yup.string().min(10, "min lenght is 10").required(t("MessageRequired"))
+        message: Yup.string().min(10, t("MessageMinimum")).required(t("MessageRequired"))
     })
 
     let formik = useFormik({
@@ -75,10 +75,10 @@ export default function Contactus() {
 
                             <div className='my-2'>
                                 <select className='form-select' onBlur={formik.handleBlur} onChange={formik.handleChange} name="reason" id="reason">
-                                    <option className='font-color' value="i have an issue">{t("Choice1")}</option>
-                                    <option className='font-color' value="i have a feedback">{t("Choice2")}</option>
-                                    <option className='font-color' value="i have a suggestion">{t("Choice3")}</option>
-                                    <option className='font-color' value="i want to collaborate">{t("Choice4")}</option>
+                                    <option className='font-color' value={t("Choice1")}>{t("Choice1")}</option>
+                                    <option className='font-color' value={t("Choice2")}>{t("Choice2")}</option>
+                                    <option className='font-color' value={t("Choice3")}>{t("Choice3")}</option>
+                                    <option className='font-color' value={t("Choice4")}>{t("Choice4")}</option>
                                 </select>
                                 {formik.errors.reason && formik.touched.reason &&
                                     <div className="alert alert-danger py-2 mt-2">{formik.errors.reason}</div>}
@@ -113,12 +113,12 @@ export default function Contactus() {
                         </form>
                     </div>
 
-                    <div className="contact-info col-md-4 col-sm-12 ">
-                        <h3 className='title mb-3 fw-bold'>Our contact info :</h3>
-                        <span className='d-block font-color fs-5'>Email : email@deenbook.co.uk</span>
-                        <span className='d-block font-color fs-5'>Phone : +00011234578901</span>
-                        <span className='d-block font-color fs-5'>Facebook : @deenbook</span>
-                        <span className='d-block font-color fs-5'>Youtube : @deenbook</span>
+                    <div className={MainLanguage === 'ar' ? "contact-info col-md-4 col-sm-12 Right" : "contact-info col-md-4 col-sm-12"}>
+                        <h3 className='title mb-3 fw-bold'>{t("ContactInfo")}:</h3>
+                        <span className='d-block font-color fs-5'>{t("ContactInfoEmail")} : email@deenbook.co.uk</span>
+                        <span className='d-block font-color fs-5'>{t("ContactInfoPhoneNumber")} : +00011234578901</span>
+                        <span className='d-block font-color fs-5'>{t("ContactInfoFacebook")} : @deenbook</span>
+                        <span className='d-block font-color fs-5'>{t("ContactInfoYoutube")} : @deenbook</span>
                     </div>
                 </div>
 

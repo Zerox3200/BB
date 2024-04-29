@@ -33,7 +33,12 @@ const resources = {
             "Minimum": "min length is 3",
             "InvalidEmail": "invalid email",
             "SubjectMinimum": "min lenght is 5",
-            "MessageMinimum": "min lenght is 10"
+            "MessageMinimum": "min lenght is 10",
+            "ContactInfo": "Our Contact Info",
+            "ContactInfoEmail": "Email",
+            "ContactInfoPhoneNumber": "Phone",
+            "ContactInfoFacebook": "Facebbok",
+            "ContactInfoYoutube": "Youtube"
         }
     },
     tr: {
@@ -67,7 +72,12 @@ const resources = {
             "Minimum": "minimum uzunluk 3",
             "InvalidEmail": "Geçersiz e-posta",
             "SubjectMinimum": "minimum uzunluk 5",
-            "MessageMinimum": "minimum uzunluk 10"
+            "MessageMinimum": "minimum uzunluk 10",
+            "ContactInfo": "İletişim bilgilerimiz",
+            "ContactInfoEmail": "E-postamız",
+            "ContactInfoPhoneNumber": "Telefon Numaramız",
+            "ContactInfoFacebook": "Facebook hesabımız",
+            "ContactInfoYoutube": "Youtube kanalımız"
         }
     },
     ar: {
@@ -100,7 +110,12 @@ const resources = {
             "Minimum": "أقل عدد ثلاث أحرف",
             "InvalidEmail": "يجب كتابته بصيغة البريد الالكتروني",
             "SubjectMinimum": "أقل عدد خمسة أحرف",
-            "MessageMinimum": "أقل عدد عشرة احرف"
+            "MessageMinimum": "أقل عدد عشرة احرف",
+            "ContactInfo": "معلومات الاتصال لدينا",
+            "ContactInfoEmail": "بريدنا الاكتروني",
+            "ContactInfoPhoneNumber": "رقم الهاتف الخاص بنا",
+            "ContactInfoFacebook": "حساب الفيس بوك",
+            "ContactInfoYoutube": "قناة اليوتيوب"
         }
     }
 };
