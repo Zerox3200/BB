@@ -57,8 +57,6 @@
         .Main_height {
             height: 350px;
 
-
-
             @include Breakpoints(small) {
                 height: max-content;
             }
@@ -67,7 +65,15 @@
                 height: max-content;
             }
         }
-
+        .app-name {
+            span {
+                font-size: 14px;
+                background-color: $BaseColor;
+                color: white;
+                border-radius: 5px;
+                padding: 3px;
+            }
+        }
         a {
             text-decoration: none;
             color: rgba($BaseColor, 0.6);
@@ -124,7 +130,6 @@
 
         .new {
             @extend .app-slider;
-
         }
     }
 }

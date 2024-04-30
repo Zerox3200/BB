@@ -7,33 +7,37 @@ import appIcon from '../../Assets/Images/online-internet-symbol-icon.jpg'
 import { FaShareAlt } from "react-icons/fa";
 import googleplay from '../../Assets/Images/icons8-google-play.svg'
 import MultipleItems from '../../components/Slider/Slider'
-import { LuChevronRight } from 'react-icons/lu'
+import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
 import AppCard from '../../components/card/card'
+import { reactLocalStorage } from 'reactjs-localstorage'
+import { useTranslation } from 'react-i18next'
 
 export default function Productsinfo() {
     const { margin } = useContext(NavContext)
+    const { t } = useTranslation();
+    const MainLanguage = reactLocalStorage.get('lan');
     return <>
         <section className={margin ? "prod-info  prod-info-Marined " : "prod-info  prod-info-Constant"} >
             <Search />
             <div className="prod-main-con ps-5 container">
 
-                <div className="row">
+                <div className={MainLanguage === 'ar' ? 'row Right' : 'row'}>
                     <div className="col-12 mt-5">
-                        <Link to={"/"}> Home /</Link>
-                        <Link to={"/Apps"}> App store /</Link>
-                        <Link to={"/Apps"}> Quran /</Link>
-                        <Link className='link-style' to={"/"}> Tajweed App</Link>
+                        <Link to={"/"}>{t('Home')}  /</Link>
+                        <Link to={"/Apps"}> {t('AppStore')} /</Link>
+                        <Link to={"/Apps"}> {t("quraaninfo")}/</Link>
+                        <Link className='link-style' to={"/"}> {t("tajweed")}</Link>
                     </div>
                 </div>
 
-                <div className="row my-3">
+                <div className={MainLanguage === 'ar' ? 'row my-3 Right' : 'row my-3'}>
 
                     <img className='col-md-2 app-icon' src={appIcon} alt="" />
 
                     <div className="col-md-4 app-name font-color">
-                        <h1>Tajweed App</h1>
-                        <span className='p-2 m-2'>free</span>
-                        <span className='p-2 m-2'>78 MB</span>
+                        <h1 className='mb-3'>Tajweed App</h1>
+                        <span className=' m-2 '>Free</span>
+                        <span className=' m-2'>78 MB</span>
                     </div>
 
                     <div className="app-link col-md-6 d-flex justify-content-end">
@@ -53,7 +57,7 @@ export default function Productsinfo() {
                     </div>
                 </div>
 
-                <div className="row Main_height gap-3">
+                <div className={MainLanguage === 'ar' ? 'row Main_height gap-3 Right' : 'row Main_height gap-3'}>
                     <div className="app-slider col-lg-7 col-md-10 h-100 d-flex align-items-center">
                         <MultipleItems></MultipleItems>
                     </div>
@@ -71,7 +75,7 @@ export default function Productsinfo() {
                 </div>
 
 
-                <div className="row  gap-3 my-3">
+                <div className={MainLanguage === 'ar' ? 'row  gap-3 my-3 Right' : 'row  gap-3 my-3'}>
                     <div className="app-slider font-color col-lg-7 col-md-10">
                         <h2>App description</h2>
                         <p >
@@ -106,21 +110,24 @@ export default function Productsinfo() {
                     </div>
                 </div>
 
-                <div className="row font-color mt-4">
+                <div className={MainLanguage === 'ar' ? 'row font-color mt-4 Right' : 'row font-color mt-4'}>
                     <div className="related col-12">
-                        <h2>Related apps</h2>
+                        <h2>{t("relatedappsinfo")}</h2>
                         {/* related */}
                     </div>
                 </div>
 
-                <div className="row">
+                <div className="row" >
                     <div className="related ">
-                        <h2 className='col-12 font-color'>you might also like</h2>
+                        <h2 className={MainLanguage === 'ar' ? 'col-12 font-color Right' : 'col-12 font-color my-3'} >{t("you")}</h2>
 
                         <div className="Intro_Apps_inside d-flex flex-column align-items-center">
 
-                            <Link to='/Apps' className='d-flex justify-content-end align-items-center fs-5 align-self-end'>
-                                View all <LuChevronRight /></Link>
+                            <Link to='/Apps' className={MainLanguage === 'ar' ?
+                                'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
+                                'd-flex justify-content-end align-items-center fs-5 align-self-end'}>
+                                {t("LastAppsViewAll")}{MainLanguage === 'ar' ? <LuChevronLeft className='mt-2 fs-5' />
+                                    : <LuChevronRight />}</Link>
 
                             <div className="Intro_Apps_inside_cards row px-5 gap-4">
                                 <AppCard Free={true} />

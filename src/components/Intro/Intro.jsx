@@ -33,9 +33,12 @@ export default function Intro() {
         </div>
         <div className="container Intro_Apps row w-100 justify-content-center px-3 ">
             <div className="Intro_Apps_inside d-flex flex-column align-items-center">
-                <h1 className='h3 align-self-start'>{t("LastApps")}</h1>
-                <Link to='/Apps' className={MainLanguage === 'ar' ? 'd-flex justify-content-end align-items-center fs-5 align-self-end Right'
-                    : 'd-flex justify-content-end align-items-center fs-5 align-self-end'}>
+
+                <h1 className={MainLanguage === 'ar' ? 'h3 align-self-end Right' : 'h3 align-self-start'}>{t("LastApps")}</h1>
+
+                <Link to='/Apps' className={MainLanguage === 'ar' ?
+                    'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
+                    'd-flex justify-content-end align-items-center fs-5 align-self-end'}>
                     {t("LastAppsViewAll")}{MainLanguage === 'ar' ? <LuChevronLeft className='mt-2 fs-5' />
                         : <LuChevronRight />}</Link>
 
@@ -49,9 +52,10 @@ export default function Intro() {
             </div>
 
             <div className="Intro_Categories d-flex flex-column  justify-content-center my-5 pb-5">
-                <h1 className='h3 mt-4'>{t("BrowserByCategory")}</h1>
+                <h1 className={MainLanguage === 'ar' ? 'h3 mt-4 Right align-self-end' : 'h3 mt-4'}>{t("BrowserByCategory")}</h1>
+
                 <Link to='/Apps' className={MainLanguage === 'ar' ?
-                    'd-flex justify-content-end align-items-center fs-5 align-self-end Right' :
+                    'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
                     'd-flex justify-content-end align-items-center fs-5 align-self-end'}>
                     {t("LastAppsViewAll")}{MainLanguage === 'ar' ? <LuChevronLeft className='mt-2 fs-5' />
                         : <LuChevronRight />}</Link>
