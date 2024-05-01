@@ -101,8 +101,8 @@ const resources = {
       'Homeside': 'Ana Sayfa',
       'Apside': 'Uygulamalar',
       'contactside': 'Bizimle İletişime Geçin',
-      'policyside': 'Politika'
-
+      'policyside': 'Politika',
+      'Contact': 'Temas etmek'
     }
   },
   ar: {
@@ -201,7 +201,8 @@ const resources = {
       'Homeside': 'ہوم',
       'Apside': 'ایپس',
       'contactside': 'ہم سے رابطہ کریں',
-      'policyside': 'پالیسی'
+      'policyside': 'پالیسی',
+      'Contact': 'Contact'
     }
 
   }
