@@ -17,7 +17,7 @@ function Search() {
                 <label htmlFor="search">
                     <IoSearchOutline />
                 </label>
-                <input type="text" className="form-control" id='search' />
+                <input type="text" className="form-control" id='search' placeholder='Search' />
             </form>
 
             <Languages />

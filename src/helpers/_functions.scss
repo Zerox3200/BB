@@ -3,15 +3,21 @@
         @media (max-width: 767px) {
             @content;
         }
-    } @else if $point ==small {
+    }
+
+    @else if $point ==small {
         @media (min-width: 768px) and (max-width: 991px) {
             @content;
         }
-    } @else if $point ==medium {
+    }
+
+    @else if $point ==medium {
         @media (min-width: 992px) and (max-width: 1199px) {
             @content;
         }
-    } @else if $point ==large {
+    }
+
+    @else if $point ==large {
         @media (min-width: 1200px) {
             @content;
         }
@@ -24,19 +30,23 @@
 
 $BaseColor: #30a27b;
 
+$FreeColor: #1E5744;
+
 $SecondColor: #d1e8df;
 
 @mixin Title() {
     color: $BaseColor;
-    margin:0px 20px;
+    margin: 0px 20px;
 }
+
 .title {
     @include Title();
 }
+
 .bg-main {
     background-color: $BaseColor !important;
 }
+
 .font-color {
     color: $BaseColor;
 }
-
