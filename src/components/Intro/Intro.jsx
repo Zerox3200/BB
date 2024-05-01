@@ -26,25 +26,25 @@ export default function Intro() {
         <div className="Intro_Text mt-3 d-flex flex-wrap align-items-center py-5 px-2 col-xl-11 col-sm-12">
             {/* <img src={Icon} alt="..." loading='lazy' /> */}
             <article className='p-4 col-md-9'>
-                <h1 className={MainLanguage === 'ar' ? 'h3 fw-bold Right' : 'h3 fw-bold'}>{t("IntroTitle")}</h1>
-                <p className={MainLanguage === 'ar' ? 'h-5 Right' : 'h-5'}>{t("Intro1")}</p>
-                <p className={MainLanguage === 'ar' ? 'Right' : ''}>{t("Intro2")}.</p>
+                <h1 className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'h3 fw-bold Right' : 'h3 fw-bold'}>{t("IntroTitle")}</h1>
+                <p className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'h-5 Right' : 'h-5'}>{t("Intro1")}</p>
+                <p className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'Right' : ''}>{t("Intro2")}.</p>
             </article>
         </div>
         <div className="container Intro_Apps row w-100 justify-content-center px-3 ">
             <div className="Intro_Apps_inside d-flex flex-column align-items-center">
 
                 <div className="Intro_Apps_inside_cards row w-100 px-1 justify-content-evenly">
-                <div className="col-12 d-flex flex-column px-2 pe-4">
+                    <div className="col-12 d-flex flex-column px-2 pe-4">
 
-                <h1 className={MainLanguage === 'ar' ? 'title h3 align-self-end Right' : 'title h3 align-self-start'}>{t("LastApps")}</h1>
-                    
-                <Link to='/Apps' className={MainLanguage === 'ar' ?
-                    'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
-                    'd-flex justify-content-end align-items-center fs-5 align-self-end '}>
-                    {t("LastAppsViewAll")}{MainLanguage === 'ar' ? <LuChevronLeft className='mt-2 fs-5' />
-                        : <LuChevronRight />}</Link>
-                </div>
+                        <h1 className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'title h3 align-self-end Right' : 'title h3 align-self-start'}>{t("LastApps")}</h1>
+
+                        <Link to='/Apps' className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
+                            'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
+                            'd-flex justify-content-end align-items-center fs-5 align-self-end '}>
+                            {t("LastAppsViewAll")}{MainLanguage === 'ar' || MainLanguage === 'ur' ? <LuChevronLeft className='mt-2 fs-5' />
+                                : <LuChevronRight />}</Link>
+                    </div>
                     <AppCard Free={true} />
                     <AppCard Free={true} />
                     <AppCard Free={true} />
@@ -53,20 +53,20 @@ export default function Intro() {
             </div>
 
             <div className="Intro_Categories d-flex flex-column  justify-content-center my-5 pb-5">
- 
+
 
 
                 <div className="Intro_Categories_cards d-flex flex-wrap justify-content-lg-evenly justify-content-sm-start">
                     <div className="col-12 d-flex flex-column  px-2 pe-4">
 
-                        <h1 className={MainLanguage === 'ar' ? 'title h3 mt-4 Right align-self-end' : 'title h3 mt-4'}>{t("BrowserByCategory")}</h1>
+                        <h1 className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'title h3 mt-4 Right align-self-end' : 'title h3 mt-4'}>{t("BrowserByCategory")}</h1>
 
-                        <Link to='/Apps' className={MainLanguage === 'ar' ?
+                        <Link to='/Apps' className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
                             'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
                             'd-flex justify-content-end align-items-center fs-5 align-self-end'}>
-                        {t("LastAppsViewAll")}{MainLanguage === 'ar' ? <LuChevronLeft className='mt-2 fs-5' />
-                            : <LuChevronRight />}</Link>
-                        
+                            {t("LastAppsViewAll")}{MainLanguage === 'ar' || MainLanguage === 'ur' ? <LuChevronLeft className='mt-2 fs-5' />
+                                : <LuChevronRight />}</Link>
+
                     </div>
                     <Category Image={Quran} />
                     <Category Image={Salah} />

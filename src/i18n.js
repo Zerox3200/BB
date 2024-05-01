@@ -91,13 +91,13 @@ const resources = {
       'ContactInfoPhoneNumber': 'Telefon',
       'ContactInfoFacebook': 'Facebook',
       'ContactInfoYoutube': 'Youtube',
-      
+
       'quraaninfo': 'Kutsal Kur\'an',
       'tajweed': 'Tecvid',
       'relatedappsinfo': 'İlgili uygulamalar',
       'you': 'belki de ilginizi çeker',
       'submit': 'Gönder',
-      
+
       'Homeside': 'Ana Sayfa',
       'Apside': 'Uygulamalar',
       'contactside': 'Bizimle İletişime Geçin',
@@ -152,7 +152,6 @@ const resources = {
       'Apside': 'التطبيقات',
       'contactside': 'تواصل معنا',
       'policyside': 'السياسات'
-
     }
   },
   ur: {
@@ -191,18 +190,18 @@ const resources = {
       'ContactInfoPhoneNumber': 'فون نمبر',
       'ContactInfoFacebook': 'فیس بک',
       'ContactInfoYoutube': 'یوٹیوب',
-      
+
       'quraaninfo': 'قرآن مجید',
       'tajweed': 'تجوید',
       'relatedappsinfo': 'متعلقہ ایپلیکیشنز',
       'you': 'شاید آپ کو بھی پسند آئیں',
       'submit': 'جمع کریں',
-      
+
       'Homeside': 'ہوم',
       'Apside': 'ایپس',
       'contactside': 'ہم سے رابطہ کریں',
       'policyside': 'پالیسی',
-      'Contact': 'Contact'
+      'Contact': 'رابطہ کریں۔'
     }
 
   }

@@ -47,7 +47,7 @@ export default function Contactus() {
 
             <div className="cotact-container container">
 
-                <div className={MainLanguage === 'ar' ? "contact-text col-md-6 col-sm-12 Right" :
+                <div className={MainLanguage === 'ar' || MainLanguage === 'ur' ? "contact-text col-md-6 col-sm-12 Right" :
                     "contact-text col-md-6 col-sm-12"}>
 
                     <h2 className='font-color fw-bold'>{t("Contact")}</h2>
@@ -59,7 +59,7 @@ export default function Contactus() {
                 <div className="row contact-main">
 
                     <div className="contact-form col-md-5 col-sm-12">
-                        <form onSubmit={formik.handleSubmit} className={MainLanguage === 'ar' ? " Right" : ""}>
+                        <form onSubmit={formik.handleSubmit} className={MainLanguage === 'ar' || MainLanguage === 'ur' ? " Right" : ""}>
 
                             <div className='my-2'>
                                 <input className='form-control' placeholder={t("name")} onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="name" id="name" />
@@ -74,7 +74,7 @@ export default function Contactus() {
                             </div>
 
                             <div className='my-2'>
-                                <select className='form-select'  onBlur={formik.handleBlur} onChange={formik.handleChange} name="reason" id="reason">
+                                <select className='form-select' onBlur={formik.handleBlur} onChange={formik.handleChange} name="reason" id="reason">
                                     <option className='font-color' value={t("Choice1")}>{t("Choice1")}</option>
                                     <option className='font-color' value={t("Choice2")}>{t("Choice2")}</option>
                                     <option className='font-color' value={t("Choice3")}>{t("Choice3")}</option>
@@ -91,7 +91,7 @@ export default function Contactus() {
                             </div>
 
                             <div className='my-2 dir'>
-                                <textarea className='form-control'  placeholder={t("Message")} name="message" id="message" onBlur={formik.handleBlur} onChange={formik.handleChange} rows="10" cols="30">
+                                <textarea className='form-control' placeholder={t("Message")} name="message" id="message" onBlur={formik.handleBlur} onChange={formik.handleChange} rows="10" cols="30">
 
                                 </textarea >
                                 {formik.errors.message && formik.touched.message &&
@@ -107,13 +107,13 @@ export default function Contactus() {
                                 :
                                 <div className="submition text-end">
                                     <button type='submit' className='btn bg-main text-light'
-                                        disabled={!(formik.dirty && formik.isValid)}>{ t("submit")}</button>
+                                        disabled={!(formik.dirty && formik.isValid)}>{t("submit")}</button>
                                 </div>
                             }
                         </form>
                     </div>
 
-                    <div className={MainLanguage === 'ar' ? "contact-info col-md-4 col-sm-12 Right" : "contact-info col-md-4 col-sm-12"}>
+                    <div className={MainLanguage === 'ar' || MainLanguage === 'ur' ? "contact-info col-md-4 col-sm-12 Right" : "contact-info col-md-4 col-sm-12"}>
                         <h3 className='title mb-3 fw-bold'>{t("ContactInfo")}:</h3>
                         <span className='d-block font-color fs-5'>{t("ContactInfoEmail")} : email@deenbook.co.uk</span>
                         <span className='d-block font-color fs-5'>{t("ContactInfoPhoneNumber")} : +00011234578901</span>
