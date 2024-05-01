@@ -9,6 +9,7 @@ import { FaMessage } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa";
 import { NavContext } from '../../Context/NavContext';
 import { MdOutlinePolicy } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 
 export default function SideNav() {
     const { pathname } = useLocation();
@@ -19,7 +20,7 @@ export default function SideNav() {
         setRotate(Rotate => !Rotate);
         setMargin(Rotate ? false : true);
     }
-
+    const { t } = useTranslation();
     return <>
         <aside className={margin ? 'p-3 NavBigger' : 'p-3 NavSmall'}>
 
@@ -38,25 +39,25 @@ export default function SideNav() {
                         <li className={pathname === '/' ? 'Active' : null}>
                             <Link to='/' className='d-flex align-items-center'>
                                 <ImHome />
-                                <span>Home</span>
+                                <span>{t("Homeside")}</span>
                             </Link>
                         </li>
                         <li className={pathname === '/Apps' ? 'Active' : null}>
                             <Link to='/Apps' className='d-flex align-items-center'>
                                 <AiOutlineAppstoreAdd />
-                                <span>Apps</span>
+                                <span>{t("Apside") }</span>
                             </Link>
                         </li>
                         <li className={pathname === '/ContactUs' ? 'Active' : null}>
                             <Link to='ContactUs' className='d-flex align-items-center'>
                                 <FaMessage />
-                                <span style={{ textWrap: 'nowrap' }}>Contact Us</span>
+                                <span style={{ textWrap: 'nowrap' }}>{t("contactside") }</span>
                             </Link>
                         </li>
                         <li className={pathname === '/Policy' ? 'Active' : null}>
                             <Link className='d-flex align-items-center' to={'/Policy'}>
                                 <MdOutlinePolicy />
-                                <span style={{ textWrap: 'nowrap' }}>Policy</span>
+                                <span style={{ textWrap: 'nowrap' }}>{t("policyside") }</span>
                             </Link>
                         </li>
                     </ul>

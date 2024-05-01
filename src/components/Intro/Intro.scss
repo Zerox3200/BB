@@ -48,8 +48,11 @@
     --bs-gutter-x: 0;
     margin: 20px auto !important;
 
-    h1 {
+    .title {
         @include Title();
+        @include Breakpoints(mobile){
+            margin-bottom: 20px;
+        }
     }
 
     .Intro_Apps_inside {
@@ -66,9 +69,6 @@
     height: max-content;
     margin: auto !important;
 
-    h1 {
-        @include Title();
-    }
 
     .Intro_Categories_cards {
         @include Breakpoints(mobile) {

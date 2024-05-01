@@ -59,7 +59,7 @@ export default function Contactus() {
                 <div className="row contact-main">
 
                     <div className="contact-form col-md-5 col-sm-12">
-                        <form onSubmit={formik.handleSubmit}>
+                        <form onSubmit={formik.handleSubmit} className={MainLanguage === 'ar' ? " Right" : ""}>
 
                             <div className='my-2'>
                                 <input className='form-control' placeholder={t("name")} onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="name" id="name" />
@@ -74,7 +74,7 @@ export default function Contactus() {
                             </div>
 
                             <div className='my-2'>
-                                <select className='form-select' onBlur={formik.handleBlur} onChange={formik.handleChange} name="reason" id="reason">
+                                <select className='form-select'  onBlur={formik.handleBlur} onChange={formik.handleChange} name="reason" id="reason">
                                     <option className='font-color' value={t("Choice1")}>{t("Choice1")}</option>
                                     <option className='font-color' value={t("Choice2")}>{t("Choice2")}</option>
                                     <option className='font-color' value={t("Choice3")}>{t("Choice3")}</option>
@@ -90,10 +90,10 @@ export default function Contactus() {
                                     <div className="alert alert-danger py-2 mt-2">{formik.errors.subject}</div>}
                             </div>
 
-                            <div className='my-2'>
-                                <textarea className='form-control' placeholder={t("Message")} name="message" id="message" onBlur={formik.handleBlur} onChange={formik.handleChange} rows="10" cols="30">
+                            <div className='my-2 dir'>
+                                <textarea className='form-control'  placeholder={t("Message")} name="message" id="message" onBlur={formik.handleBlur} onChange={formik.handleChange} rows="10" cols="30">
 
-                                </textarea>
+                                </textarea >
                                 {formik.errors.message && formik.touched.message &&
                                     <div className="alert alert-danger py-2 mt-2">{formik.errors.message}</div>}
                             </div>
@@ -107,7 +107,7 @@ export default function Contactus() {
                                 :
                                 <div className="submition text-end">
                                     <button type='submit' className='btn bg-main text-light'
-                                        disabled={!(formik.dirty && formik.isValid)}>Submit</button>
+                                        disabled={!(formik.dirty && formik.isValid)}>{ t("submit")}</button>
                                 </div>
                             }
                         </form>

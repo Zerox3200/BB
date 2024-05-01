@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import EnglishFlag from './../../Assets/Images/united-kingdom_206592.png';
 import TurkishFlag from './../../Assets/Images/turkey_14009824.png';
 import ArabicFlag from './../../Assets/Images/saudi-arabia_5111862.png';
+import PakistanFlag from '../../Assets/Images/pakistan_5975520.png'
 import { IoMdClose } from 'react-icons/io';
 import './Language.scss';
 import { useTranslation } from 'react-i18next';
@@ -14,16 +15,17 @@ const Languages = React.memo(() => {
     const MainLanguage = reactLocalStorage.get("lan");
 
 
-    const handleLanguage = () => {
-        setShowLanguages(!showLanguages);
-    };
-
-
+    
+    
     // const HandleTranslatation = useCallback((Lan) => {
-    //     window.location.reload();
-    //     reactLocalStorage.set("lan", Lan.toLowerCase());
-    //     i18n.changeLanguage(Lan.toLowerCase());
+        //     window.location.reload();
+        //     reactLocalStorage.set("lan", Lan.toLowerCase());
+        //     i18n.changeLanguage(Lan.toLowerCase());
     // }, [i18n]);
+    
+        const handleLanguage = () => {
+            setShowLanguages(!showLanguages);
+        };
 
     const HandleTranslatation = (Lan) => {
         reactLocalStorage.set("lan", Lan.toLowerCase());
@@ -41,14 +43,15 @@ const Languages = React.memo(() => {
         { lang: 'En', flag: EnglishFlag },
         { lang: 'Tr', flag: TurkishFlag },
         { lang: 'Ar', flag: ArabicFlag },
+        { lang: 'ur', flag: PakistanFlag },
     ];
 
     return <div className="Language px-2 d-flex justify-content-between align-items-center" onClick={() => handleLanguage()}>
 
-        <h1 className="h5 m-0">{!MainLanguage ? 'En'
-            : MainLanguage.split('')[0].toUpperCase() + MainLanguage.split('')[1]}</h1>
+        <h1 className="h5 m-0">{!MainLanguage ? 'En' : MainLanguage.split('')[0].toUpperCase() + MainLanguage.split('')[1]}</h1>
+
         <img src={MainLanguage === "en" ? EnglishFlag : MainLanguage === "tr" ?
-            TurkishFlag : MainLanguage === 'ar' ? ArabicFlag : EnglishFlag}
+            TurkishFlag : MainLanguage === 'ar' ? ArabicFlag :MainLanguage === 'ur' ? PakistanFlag : EnglishFlag}
             alt="..." loading="lazy" />
 
         <div className={`LanguageChecking ${showLanguages ? 'Show' : ''}`}>

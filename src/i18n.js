@@ -1,4 +1,5 @@
 import i18n from 'i18next'
+import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 
 const resources = {
@@ -43,51 +44,65 @@ const resources = {
       'quraaninfo': 'Holy Quran',
       'tajweed': 'tajwed',
       'relatedappsinfo': 'Related apps',
-      'you': 'you might also like'
+      'you': 'you might also like',
+      'submit': 'Submit',
+
+      'Homeside': 'Home',
+      'Apside': 'Apps',
+      'contactside': 'Contact us',
+      'policyside': 'policy'
+
+
     }
   },
   tr: {
     translation: {
       'IntroTitle': 'Ümmet İçin Mobil Uygulama!',
-      'Intro1': `Deenbook Inc, Müslüman Ümmeti için İslami Mobil Uygulamalar ve Yardımcı Programlar sağlayıcısıdır..`,
-      'Intro2': `Amacımız Teknik Zekayı Klasik İslam Bilimiyle birleştirerek İslam Toplumuna hizmet etmektir.
-            ve Günlük kullanım için Faydalı Uygulamalar sunmak için İçtihat`,
-      'LastApps': 'En yeni uygulamalarımız',
-      'LastAppsViewAll': 'Hepsini gör',
-      'BrowserByCategory': `Kategoriye göre tarayıcı`,
+      'Intro1': `Deenbook Inc, Müslüman Ümmet için İslami Mobil Uygulamalar ve Araçlar sağlayıcısıdır.`,
+      'Intro2': `Amacımız, Teknik Yetenekleri Klasik İslami Bilim ve Fıkıh ile birleştirerek Günlük Kullanım için Faydalı Uygulamalar sunarak İslam Topluluğuna hizmet etmektir.`,
+      'LastApps': 'En Son Uygulamalarımız',
+      'LastAppsViewAll': 'Hepsini Gör',
+      'BrowserByCategory': `Kategoriye göre göz at`,
       'Categories': 'Kategoriler',
       'Price': 'Fiyat',
-      'AppStore': 'Uygulama mağazası',
-      'Home': 'yuva',
-      'Contact': 'Bize Ulaşın',
-      'ContactUSGreeting': 'Assalamu Alaykum',
-      'ContactUSGreeting2': 'Sizden haber almak istiyoruz',
+      'AppStore': 'App Store',
+      'Home': 'Ana Sayfa',
+      'ContactUs': 'Bize Ulaşın',
+      'ContactUSGreeting': 'Selamün Aleyküm',
+      'ContactUSGreeting2': 'Sizden duymak isteriz',
       'name': 'isim',
       'email': 'e-posta',
-      'Choice1': 'bir sorunum var',
-      'Choice2': 'bir geri bildirimim var',
-      'Choice3': 'bir önerim var',
-      'Choice4': 'İşbirliği yapmak istiyorum',
+      'Choice1': 'Bir sorunum var',
+      'Choice2': 'Bir geri bildirimim var',
+      'Choice3': 'Bir önerim var',
+      'Choice4': 'İş birliği yapmak istiyorum',
       'SubjectTitle': 'Konu başlığı',
-      'Message': 'İleti',
-      'NameRequired': 'İsim gerekli',
-      'EmailRequired': 'Email gereklidir',
-      'SubjectRequired': 'Konu gerekli',
-      'MessageRequired': 'Mesaj gerekli',
-      'Minimum': 'minimum uzunluk 3',
+      'Message': 'Mesaj',
+      'NameRequired': 'İsim gereklidir',
+      'EmailRequired': 'E-posta gereklidir',
+      'SubjectRequired': 'Konu gereklidir',
+      'MessageRequired': 'Mesaj gereklidir',
+      'Minimum': 'Minimum uzunluk 3',
       'InvalidEmail': 'Geçersiz e-posta',
-      'SubjectMinimum': 'minimum uzunluk 5',
-      'MessageMinimum': 'minimum uzunluk 10',
-      'ContactInfo': 'İletişim bilgilerimiz',
-      'ContactInfoEmail': 'E-postamız',
-      'ContactInfoPhoneNumber': 'Telefon Numaramız',
-      'ContactInfoFacebook': 'Facebook hesabımız',
-      'ContactInfoYoutube': 'Youtube kanalımız',
+      'SubjectMinimum': 'Minimum uzunluk 5',
+      'MessageMinimum': 'Minimum uzunluk 10',
+      'ContactInfo': 'İletişim Bilgilerimiz',
+      'ContactInfoEmail': 'E-posta',
+      'ContactInfoPhoneNumber': 'Telefon',
+      'ContactInfoFacebook': 'Facebook',
+      'ContactInfoYoutube': 'Youtube',
+      
+      'quraaninfo': 'Kutsal Kur\'an',
+      'tajweed': 'Tecvid',
+      'relatedappsinfo': 'İlgili uygulamalar',
+      'you': 'belki de ilginizi çeker',
+      'submit': 'Gönder',
+      
+      'Homeside': 'Ana Sayfa',
+      'Apside': 'Uygulamalar',
+      'contactside': 'Bizimle İletişime Geçin',
+      'policyside': 'Politika'
 
-      'quraaninfo': 'Kuran',
-      'tajweed': 'tecvit',
-      'relatedappsinfo': 'ilgili uygulamalar',
-      'you': 'Bunları da beğenebilirsin'
     }
   },
   ar: {
@@ -130,12 +145,70 @@ const resources = {
       'quraaninfo': 'قران',
       'tajweed': 'تجويد',
       'relatedappsinfo': 'التطبيقات ذات الصلة',
-      'you': 'قد يعجبك ايضا'
+      'you': 'قد يعجبك ايضا',
+      'submit': 'أرسال',
+
+      'Homeside': 'الأساسية',
+      'Apside': 'التطبيقات',
+      'contactside': 'تواصل معنا',
+      'policyside': 'السياسات'
+
     }
+  },
+  ur: {
+    translation: {
+      'IntroTitle': 'اسلامی امت کے لئے موبائل ایپلیکیشن!',
+      'Intro1': `Deenbook Inc اسلامی موبائل ایپلیکیشنز اور مسلمان امت کے لئے آسانیوں کا فراہم کنندہ ہے۔`,
+      'Intro2': `ہمارا مقصد اسلامی کمیونٹی کی خدمت کرنا ہے، جو تکنیکی استعداد کو کلاسیکی اسلامی سائنس اور فقہ کے ساتھ ملا کر روزمرہ کی استعمال کے لئے مفید ایپلیکیشنز فراہم کرتا ہے۔`,
+      'LastApps': 'ہماری تازہ ترین ایپلیکیشنز',
+      'LastAppsViewAll': 'سب دیکھیں',
+      'BrowserByCategory': `زمرہ کے مطابق براؤز کریں`,
+      'Categories': 'زمرے',
+      'Price': 'قیمت',
+      'AppStore': 'ایپ سٹور',
+      'Home': 'گھر',
+      'ContactUs': 'ہم سے رابطہ کریں',
+      'ContactUSGreeting': 'السلام علیکم',
+      'ContactUSGreeting2': 'ہمیں آپ سے ملنا پسند ہے',
+      'name': 'نام',
+      'email': 'ای میل',
+      'Choice1': 'میرے پاس ایک مسئلہ ہے',
+      'Choice2': 'میرے پاس ایک فیڈبیک ہے',
+      'Choice3': 'میرے پاس ایک تجاویز ہیں',
+      'Choice4': 'میں تعاون کرنا چاہتا ہوں',
+      'SubjectTitle': 'موضوع کا عنوان',
+      'Message': 'پیغام',
+      'NameRequired': 'نام ضروری ہے',
+      'EmailRequired': 'ای میل ضروری ہے',
+      'SubjectRequired': 'موضوع ضروری ہے',
+      'MessageRequired': 'پیغام ضروری ہے',
+      'Minimum': 'کم از کم لمبائی 3 ہے',
+      'InvalidEmail': 'غلط ای میل',
+      'SubjectMinimum': 'کم از کم لمبائی 5 ہے',
+      'MessageMinimum': 'کم از کم لمبائی 10 ہے',
+      'ContactInfo': 'ہماری رابطہ کی معلومات',
+      'ContactInfoEmail': 'ای میل',
+      'ContactInfoPhoneNumber': 'فون نمبر',
+      'ContactInfoFacebook': 'فیس بک',
+      'ContactInfoYoutube': 'یوٹیوب',
+      
+      'quraaninfo': 'قرآن مجید',
+      'tajweed': 'تجوید',
+      'relatedappsinfo': 'متعلقہ ایپلیکیشنز',
+      'you': 'شاید آپ کو بھی پسند آئیں',
+      'submit': 'جمع کریں',
+      
+      'Homeside': 'ہوم',
+      'Apside': 'ایپس',
+      'contactside': 'ہم سے رابطہ کریں',
+      'policyside': 'پالیسی'
+    }
+
   }
 }
 
 i18n
+  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
@@ -143,6 +216,8 @@ i18n
 
     interpolation: {
       escapeValue: false
+    }, react: {
+      useSuspense: true
     }
   })
 

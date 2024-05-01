@@ -53,6 +53,22 @@
         @include Breakpoints(mobile) {
             padding: 0 20px !important;
         }
+        .app-name{
+            @include Breakpoints(mobile){
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 20px;
+            }
+        }
+        // .app-name-info {
+        //     @include Breakpoints(mobile) {
+        //         display: flex;
+        //         flex-direction: column;
+        //         align-items: center;
+        //         justify-content: center;
+        //     }
+        // }
 
         .Main_height {
             height: 350px;
@@ -71,7 +87,11 @@
                 background-color: $BaseColor;
                 color: white;
                 border-radius: 5px;
-                padding: 3px;
+                padding: 3px 15px;
+                @include Breakpoints(mobile){
+                    padding: 3px 30px;
+
+                }
             }
         }
         a {
@@ -85,11 +105,17 @@
         }
 
         .app-icon {
-            width: 120px;
+            width: 100px;
+            padding: 0;
         }
 
         .app-link {
+            display: flex;
+            justify-content: end;
             gap: 20px;
+            @include Breakpoints(mobile){
+                justify-content: center;
+            }
 
             .share-link {
                 background-color: $BaseColor;
@@ -100,6 +126,14 @@
                 padding: 3px;
                 text-align: center;
                 border-radius: 7px 7px;
+
+                @include Breakpoints(mobile){
+                    height: 50px;
+                    width: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
 
             .google-play {
@@ -110,6 +144,12 @@
                 border-radius: 20px/100px;
                 display: flex;
 
+                @include Breakpoints(mobile){
+                    height: 50px;
+                    width: 150px;
+                    padding: 8px;
+                }
+      
                 span {
                     display: block;
                     line-height: 18px;

@@ -21,8 +21,8 @@ export default function Productsinfo() {
             <Search />
             <div className="prod-main-con ps-5 container">
 
-                <div className={MainLanguage === 'ar' ? 'row Right' : 'row'}>
-                    <div className="col-12 mt-5">
+                <div className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'row Right justify-content-center ' : 'row justify-content-center '}>
+                    <div className="col-11 mt-5">
                         <Link to={"/"}>{t('Home')}  /</Link>
                         <Link to={"/Apps"}> {t('AppStore')} /</Link>
                         <Link to={"/Apps"}> {t("quraaninfo")}/</Link>
@@ -30,25 +30,25 @@ export default function Productsinfo() {
                     </div>
                 </div>
 
-                <div className={MainLanguage === 'ar' ? 'row my-3 Right' : 'row my-3'}>
+                <div className='row my-3 justify-content-center '>
 
-                    <img className='col-md-2 app-icon' src={appIcon} alt="" />
+                    <img className='col-md-2 app-icon' src={appIcon} alt="..." loading='lazy'/>
 
                     <div className="col-md-4 app-name font-color">
                         <h1 className='mb-3'>Tajweed App</h1>
-                        <span className=' m-2 '>Free</span>
-                        <span className=' m-2'>78 MB</span>
+                        <span className='m-2 '>Free</span>
+                        <span className='m-2'>78 MB</span>
                     </div>
 
-                    <div className="app-link col-md-6 d-flex justify-content-end">
-                        <Link to={"/"}>
+                    <div className="app-link col-md-6">
+                        <Link className={MainLanguage === 'ar' || MainLanguage === "ur" ? " mt-3" : ""} to={"/"}>
                             <div className="share-link">
                                 <FaShareAlt />
                             </div>
                         </Link>
 
-                        <div className="google-play">
-                            <img src={googleplay} alt="" />
+                        <div className={MainLanguage === 'ar' || MainLanguage === "ur" ? "google-play mt-3" : "google-play "}>
+                            <img src={googleplay} alt="..." loading='lazy' />
                             <span>
                                 <span>Get it on</span>
                                 <span>google play</span>
@@ -57,11 +57,11 @@ export default function Productsinfo() {
                     </div>
                 </div>
 
-                <div className={MainLanguage === 'ar' ? 'row Main_height gap-3 Right' : 'row Main_height gap-3'}>
-                    <div className="app-slider col-lg-7 col-md-10 h-100 d-flex align-items-center">
+                <div className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'row Main_height gap-3 justify-content-center  Right' : 'row Main_height gap-3 justify-content-center '}>
+                    <div className="app-slider col-lg-7 col-md-12 h-100 d-flex align-items-center">
                         <MultipleItems></MultipleItems>
                     </div>
-                    <div className="new col-lg-4 col-md-10 h-100">
+                    <div className="new col-lg-4 col-md-12 h-100">
                         <h2 className='font-color'>What's new</h2>
                         <ul className='font-color'>
                             <li>removed email afds</li>
@@ -75,8 +75,8 @@ export default function Productsinfo() {
                 </div>
 
 
-                <div className={MainLanguage === 'ar' ? 'row  gap-3 my-3 Right' : 'row  gap-3 my-3'}>
-                    <div className="app-slider font-color col-lg-7 col-md-10">
+                <div className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'row  gap-3 my-3  justify-content-center Right' : 'row  gap-3 my-3 justify-content-center '}>
+                    <div className="app-slider font-color col-lg-7 col-md-12">
                         <h2>App description</h2>
                         <p >
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis veniam facere consectetur, vel placeat dolorem deserunt magni nemo distinctio consequatur, molestias itaque fuga accusamus, facilis id recusandae. Totam sequi at minus quibusdam incidunt, vitae cupiditate distinctio cumque sint eveniet voluptates consectetur voluptatem sunt necessitatibus quae animi vel alias pariatur neque!
@@ -84,7 +84,7 @@ export default function Productsinfo() {
 
                     </div>
 
-                    <div className="new font-color col-lg-4 col-md-10">
+                    <div className="new font-color col-lg-4 col-md-12">
                         <h2>App Info</h2>
                         <div>
                             <span>App language: </span>
@@ -110,35 +110,37 @@ export default function Productsinfo() {
                     </div>
                 </div>
 
-                <div className={MainLanguage === 'ar' ? 'row font-color mt-4 Right' : 'row font-color mt-4'}>
-                    <div className="related col-12">
+                <div className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'row font-color mt-4 Right pe-5' : 'row font-color mt-4'}>
+                    <div className="related col-12 ps-5">
                         <h2>{t("relatedappsinfo")}</h2>
                         {/* related */}
                     </div>
                 </div>
 
                 <div className="row" >
-                    <div className="related ">
-                        <h2 className={MainLanguage === 'ar' ? 'col-12 font-color Right' : 'col-12 font-color my-3'} >{t("you")}</h2>
 
-                        <div className="Intro_Apps_inside d-flex flex-column align-items-center">
 
-                            <Link to='/Apps' className={MainLanguage === 'ar' ?
-                                'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
-                                'd-flex justify-content-end align-items-center fs-5 align-self-end'}>
-                                {t("LastAppsViewAll")}{MainLanguage === 'ar' ? <LuChevronLeft className='mt-2 fs-5' />
+                    <div className="Intro_Apps_inside d-flex flex-column align-items-center">
+
+                    <div className="col-12 d-flex flex-column  px-2 pe-5">
+                    <h3 className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'col-12 ps-4 font-color Right' : 'col-12  ps-4  font-color my-2'} >{t("you")}</h3>
+
+                        <Link to='/Apps' className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
+                            'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
+                            'd-flex justify-content-end align-items-center fs-5 align-self-end'}>
+                            {t("LastAppsViewAll")}{MainLanguage === 'ar' || MainLanguage === 'ur' ? <LuChevronLeft className='mt-2 fs-5' />
                                     : <LuChevronRight />}</Link>
-
-                            <div className="Intro_Apps_inside_cards row px-5 gap-4">
-                                <AppCard Free={true} />
-                                <AppCard Free={true} />
-                                <AppCard Free={true} />
-                                <AppCard Free={true} />
-                            </div>
+                     </div>
+                        <div className="Intro_Apps_inside_cards row px-5 gap-4">
+                            <AppCard Free={true} />
+                            <AppCard Free={true} />
+                            <AppCard Free={true} />
+                            <AppCard Free={true} />
                         </div>
-
                     </div>
+
                 </div>
+
             </div>
         </section>
     </>

@@ -1,12 +1,17 @@
 @use "../../helpers/functions" as *;
 
 .card {
+
+    h1{
+        color: $BaseColor;
+    }
+
     border: none !important;
     height: max-content !important;
     background-color: transparent !important;
 
     @include Breakpoints(large) {
-        width: 22% !important;
+        width: 23% !important;
     }
 
     @include Breakpoints(medium) {

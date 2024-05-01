@@ -34,16 +34,17 @@ export default function Intro() {
         <div className="container Intro_Apps row w-100 justify-content-center px-3 ">
             <div className="Intro_Apps_inside d-flex flex-column align-items-center">
 
-                <h1 className={MainLanguage === 'ar' ? 'h3 align-self-end Right' : 'h3 align-self-start'}>{t("LastApps")}</h1>
+                <div className="Intro_Apps_inside_cards row w-100 px-1 justify-content-evenly">
+                <div className="col-12 d-flex flex-column px-2 pe-4">
 
+                <h1 className={MainLanguage === 'ar' ? 'title h3 align-self-end Right' : 'title h3 align-self-start'}>{t("LastApps")}</h1>
+                    
                 <Link to='/Apps' className={MainLanguage === 'ar' ?
                     'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
-                    'd-flex justify-content-end align-items-center fs-5 align-self-end'}>
+                    'd-flex justify-content-end align-items-center fs-5 align-self-end '}>
                     {t("LastAppsViewAll")}{MainLanguage === 'ar' ? <LuChevronLeft className='mt-2 fs-5' />
                         : <LuChevronRight />}</Link>
-
-
-                <div className="Intro_Apps_inside_cards row w-100 px-1 justify-content-evenly">
+                </div>
                     <AppCard Free={true} />
                     <AppCard Free={true} />
                     <AppCard Free={true} />
@@ -52,16 +53,21 @@ export default function Intro() {
             </div>
 
             <div className="Intro_Categories d-flex flex-column  justify-content-center my-5 pb-5">
-                <h1 className={MainLanguage === 'ar' ? 'h3 mt-4 Right align-self-end' : 'h3 mt-4'}>{t("BrowserByCategory")}</h1>
-
-                <Link to='/Apps' className={MainLanguage === 'ar' ?
-                    'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
-                    'd-flex justify-content-end align-items-center fs-5 align-self-end'}>
-                    {t("LastAppsViewAll")}{MainLanguage === 'ar' ? <LuChevronLeft className='mt-2 fs-5' />
-                        : <LuChevronRight />}</Link>
+ 
 
 
-                <div className="Intro_Categories_cards d-flex flex-wrap justify-content-lg-between justify-content-sm-start px-1">
+                <div className="Intro_Categories_cards d-flex flex-wrap justify-content-lg-evenly justify-content-sm-start">
+                    <div className="col-12 d-flex flex-column  px-2 pe-4">
+
+                        <h1 className={MainLanguage === 'ar' ? 'title h3 mt-4 Right align-self-end' : 'title h3 mt-4'}>{t("BrowserByCategory")}</h1>
+
+                        <Link to='/Apps' className={MainLanguage === 'ar' ?
+                            'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
+                            'd-flex justify-content-end align-items-center fs-5 align-self-end'}>
+                        {t("LastAppsViewAll")}{MainLanguage === 'ar' ? <LuChevronLeft className='mt-2 fs-5' />
+                            : <LuChevronRight />}</Link>
+                        
+                    </div>
                     <Category Image={Quran} />
                     <Category Image={Salah} />
                     <Category Image={Haj} />

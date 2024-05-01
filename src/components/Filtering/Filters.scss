@@ -155,6 +155,20 @@
 
 .FilteredApps {
     --bs-gutter-x: 0 !important;
+    
+    .FilteredApps_Title{
+        padding: 0 40px;
+
+        @include Breakpoints(medium){
+            padding: 0 30px;
+        }
+        @include Breakpoints(small){
+            padding: 0 49px;
+        }
+        @include Breakpoints(mobile){
+            padding: 0 35px;
+        }
+    }
 
 
     h1 {
