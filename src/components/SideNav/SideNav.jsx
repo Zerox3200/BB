@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import './SideNav.scss';
-import Logo from '../../Assets/Images/_icon.png';
-import LogoDesc from '../../Assets/Images/_wormark.png'
+import Logo from '../../Assets/Images/icon.png';
+import LogoDesc from '../../Assets/Images/wormark.png'
 import { Link, useLocation } from 'react-router-dom';
 import { ImHome } from "react-icons/im";
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
@@ -45,19 +45,19 @@ export default function SideNav() {
                         <li className={pathname === '/Apps' ? 'Active' : null}>
                             <Link to='/Apps' className='d-flex align-items-center'>
                                 <AiOutlineAppstoreAdd />
-                                <span>{t("Apside") }</span>
+                                <span>{t("Apside")}</span>
                             </Link>
                         </li>
                         <li className={pathname === '/ContactUs' ? 'Active' : null}>
                             <Link to='ContactUs' className='d-flex align-items-center'>
                                 <FaMessage />
-                                <span style={{ textWrap: 'nowrap' }}>{t("contactside") }</span>
+                                <span style={{ textWrap: 'nowrap' }}>{t("contactside")}</span>
                             </Link>
                         </li>
                         <li className={pathname === '/Policy' ? 'Active' : null}>
                             <Link className='d-flex align-items-center' to={'/Policy'}>
                                 <MdOutlinePolicy />
-                                <span style={{ textWrap: 'nowrap' }}>{t("policyside") }</span>
+                                <span style={{ textWrap: 'nowrap' }}>{t("policyside")}</span>
                             </Link>
                         </li>
                     </ul>

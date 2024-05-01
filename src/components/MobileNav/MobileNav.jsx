@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import './MobileNav.scss';
-import Logo from '../../Assets/Images/_icon.png';
-import LogoDesc from '../../Assets/Images/_wormark.png'
+import Logo from '../../Assets/Images/icon.png';
+import LogoDesc from '../../Assets/Images/wormark.png'
 import { Link, useLocation } from 'react-router-dom';
 import { ImHome } from "react-icons/im";
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
