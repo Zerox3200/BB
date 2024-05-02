@@ -16,16 +16,16 @@ import Duaa from '../../Assets/Images/Icons/Du_ā.svg';
 import Search from '../Search/Search';
 import { useTranslation } from 'react-i18next';
 import { reactLocalStorage } from 'reactjs-localstorage';
-import { motion,useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 export default function Intro() {
     const { t } = useTranslation();
     const Cat = useRef()
-    const Inview = useInView(Cat,{once:true});
+    const Inview = useInView(Cat, { once: true });
     const MainLanguage = reactLocalStorage.get('lan');
     return <>
         <Search />
-        <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.6,type:'spring'}} className="Intro_Text mt-3 d-flex flex-wrap align-items-center py-5 px-2 col-xl-11 col-sm-12">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, type: 'spring' }} className="Intro_Text mt-3 d-flex flex-wrap align-items-center py-5 px-2 col-xl-11 col-sm-12">
             {/* <img src={Icon} alt="..." loading='lazy' /> */}
             <article className='p-4 col-md-9'>
                 <h1 className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'h3 fw-bold Right' : 'h3 fw-bold'}>{t("IntroTitle")}</h1>
@@ -35,7 +35,7 @@ export default function Intro() {
         </motion.div>
         <div className="container Intro_Apps row w-100 justify-content-center px-3">
             <motion.div className="Intro_Apps_inside d-flex flex-column align-items-center"
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, type: 'spring' }} > 
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, type: 'spring' }} >
 
                 <div className="Intro_Apps_inside_cards row w-100 px-1 justify-content-evenly">
                     <div className="col-12 d-flex flex-column px-2 pe-4">
@@ -56,7 +56,7 @@ export default function Intro() {
             </motion.div>
 
             <motion.div className="Intro_Categories d-flex flex-column justify-content-center my-5 pb-5"
-               initial={{ opacity: 0 }} animate={Inview && { opacity: 1 }} transition={{ duration: 2, type: 'spring' }}> 
+                initial={{ opacity: 0 }} animate={Inview && { opacity: 1 }} transition={{ duration: 2, type: 'spring' }}>
                 <div className="Intro_Categories_cards d-flex flex-wrap justify-content-lg-evenly justify-content-sm-start">
                     <div className="col-12 d-flex flex-column  px-2 pe-4" ref={Cat}>
 
