@@ -7,6 +7,7 @@ import './Contact.scss';
 import { NavContext } from '../../Context/NavContext';
 import { useTranslation } from 'react-i18next';
 import { reactLocalStorage } from 'reactjs-localstorage';
+import {motion} from 'framer-motion'
 
 export default function Contactus() {
     const [loading, setloading] = useState(false)
@@ -19,7 +20,7 @@ export default function Contactus() {
         setloading(true);
     };
 
-    let validationSchema = Yup.object({
+    const validationSchema = Yup.object({
         name: Yup.string().required(t("NameRequired")).min(3, t("Minimum")),
         email: Yup.string().required(t("EmailRequired")).email(t("InvalidEmail")),
         reason: Yup.string(),
@@ -27,7 +28,7 @@ export default function Contactus() {
         message: Yup.string().min(10, t("MessageMinimum")).required(t("MessageRequired"))
     })
 
-    let formik = useFormik({
+    const formik = useFormik({
         initialValues: {
             name: "",
             email: "",
@@ -38,14 +39,15 @@ export default function Contactus() {
 
     })
 
-    return (
-        <section className={margin ? "ContactUs ContactMarined" : "ContactUs ContactConstant"}>
-            <Helmet>
+    return <>
+        <Helmet>
                 <title>Contact Us</title>
-            </Helmet>
+        </Helmet>
+        <section  className={margin ? "ContactUs ContactMarined" : "ContactUs ContactConstant"}>
+
             <Search />
 
-            <div className="cotact-container container">
+            <motion.div className="cotact-container container" initial={{opacity:0}} animate={{opacity:1}} transition={{type:"spring",duration:0.6}}>
 
                 <div className={MainLanguage === 'ar' || MainLanguage === 'ur' ? "contact-text col-md-6 col-sm-12 Right" :
                     "contact-text col-md-6 col-sm-12"}>
@@ -122,8 +124,8 @@ export default function Contactus() {
                     </div>
                 </div>
 
-            </div>
+            </motion.div>
 
         </section>
-    )
+    </>
 }

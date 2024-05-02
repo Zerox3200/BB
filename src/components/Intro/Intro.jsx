@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './Intro.scss'
 import { Link } from 'react-router-dom';
 import { LuChevronRight } from "react-icons/lu";
@@ -16,22 +16,26 @@ import Duaa from '../../Assets/Images/Icons/Du_ā.svg';
 import Search from '../Search/Search';
 import { useTranslation } from 'react-i18next';
 import { reactLocalStorage } from 'reactjs-localstorage';
+import { motion,useInView } from 'framer-motion';
 
 export default function Intro() {
     const { t } = useTranslation();
+    const Cat = useRef()
+    const Inview = useInView(Cat,{once:true});
     const MainLanguage = reactLocalStorage.get('lan');
     return <>
         <Search />
-        <div className="Intro_Text mt-3 d-flex flex-wrap align-items-center py-5 px-2 col-xl-11 col-sm-12">
+        <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.6,type:'spring'}} className="Intro_Text mt-3 d-flex flex-wrap align-items-center py-5 px-2 col-xl-11 col-sm-12">
             {/* <img src={Icon} alt="..." loading='lazy' /> */}
             <article className='p-4 col-md-9'>
                 <h1 className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'h3 fw-bold Right' : 'h3 fw-bold'}>{t("IntroTitle")}</h1>
                 <p className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'h-5 Right' : 'h-5'}>{t("Intro1")}</p>
                 <p className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'Right' : ''}>{t("Intro2")}.</p>
             </article>
-        </div>
-        <div className="container Intro_Apps row w-100 justify-content-center px-3 ">
-            <div className="Intro_Apps_inside d-flex flex-column align-items-center">
+        </motion.div>
+        <div className="container Intro_Apps row w-100 justify-content-center px-3">
+            <motion.div className="Intro_Apps_inside d-flex flex-column align-items-center"
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, type: 'spring' }} > 
 
                 <div className="Intro_Apps_inside_cards row w-100 px-1 justify-content-evenly">
                     <div className="col-12 d-flex flex-column px-2 pe-4">
@@ -49,14 +53,12 @@ export default function Intro() {
                     <AppCard Free={true} />
                     <AppCard Free={true} />
                 </div>
-            </div>
+            </motion.div>
 
-            <div className="Intro_Categories d-flex flex-column  justify-content-center my-5 pb-5">
-
-
-
+            <motion.div className="Intro_Categories d-flex flex-column justify-content-center my-5 pb-5"
+               initial={{ opacity: 0 }} animate={Inview && { opacity: 1 }} transition={{ duration: 2, type: 'spring' }}> 
                 <div className="Intro_Categories_cards d-flex flex-wrap justify-content-lg-evenly justify-content-sm-start">
-                    <div className="col-12 d-flex flex-column  px-2 pe-4">
+                    <div className="col-12 d-flex flex-column  px-2 pe-4" ref={Cat}>
 
                         <h1 className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'title h3 mt-4 Right align-self-end' : 'title h3 mt-4'}>{t("BrowserByCategory")}</h1>
 
@@ -76,7 +78,7 @@ export default function Intro() {
                     <Category Image={Wudouu} />
                     <Category Image={Duaa} />
                 </div>
-            </div>
+            </motion.div>
         </div>
     </>
 }
