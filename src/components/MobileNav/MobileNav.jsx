@@ -15,6 +15,10 @@ export default function MobileNav() {
     const { pathname } = useLocation();
     const { MobileNavShow, HandleMobileNav } = useContext(NavContext);
 
+    const handleLinkClick = () => {
+        HandleMobileNav();
+    };
+
     return <>
         <nav className={MobileNavShow ? 'MobileNav px-3 py-5' : 'MobileNav px-3 py-5 Show'} >
             <IoClose className='font-color' onClick={() => HandleMobileNav()} />
@@ -28,24 +32,24 @@ export default function MobileNav() {
                 <div className="menu">
                     <ul className='list-unstyled mt-3'>
                         <li className={pathname === '/' ? 'Active' : null}>
-                            <Link to='/' className='d-flex align-items-center'>
+                            <Link to='/' className='d-flex align-items-center' onClick={() => handleLinkClick()}>
                                 <ImHome />
                                 <span>Home</span>
                             </Link>
                         </li>
-                        <li className={pathname === '/Apps' ? 'Active' : null}>
+                        <li className={pathname === '/Apps' ? 'Active' : null} onClick={() => handleLinkClick()}>
                             <Link to='/Apps' className='d-flex align-items-center'>
                                 <AiOutlineAppstoreAdd />
                                 <span>Apps</span>
                             </Link>
                         </li>
-                        <li className={pathname === '/ContactUs' ? 'Active' : null}>
+                        <li className={pathname === '/ContactUs' ? 'Active' : null} onClick={() => handleLinkClick()}>
                             <Link to='ContactUs' className='d-flex align-items-center'>
                                 <FaMessage />
                                 <span style={{ textWrap: 'nowrap' }}>Contact Us</span>
                             </Link>
                         </li>
-                        <li className={pathname === '/Policy' ? 'Active' : null}>
+                        <li className={pathname === '/Policy' ? 'Active' : null} onClick={() => handleLinkClick()}>
                             <Link className='d-flex align-items-center' to={'/Policy'}>
                                 <MdOutlinePolicy />
                                 <span style={{ textWrap: 'nowrap' }}>Policy</span>

@@ -3,10 +3,11 @@ import './card.scss';
 import AppIcon from '../../Assets/Images/online-internet-symbol-icon.jpg';
 import MainApp from '../../Assets/Images/people-holding-pinterest-icon.jpg';
 import { Link } from 'react-router-dom';
-
+import { motion } from 'framer-motion'
 export default function AppCard({ Free }) {
 
-    return <div className="card p-0 mt-3">
+    return <motion.div className="card p-0 mt-3" animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        transition={{ duration: 0.5, type: "spring" }}>
         <Link to={"/ProductsInfo"}>
             <img src={MainApp} className="card-img-top mx-auto" alt="..." loading='lazy' />
         </Link>
@@ -26,5 +27,5 @@ export default function AppCard({ Free }) {
 
         </div>
 
-    </div>
+    </motion.div>
 }
