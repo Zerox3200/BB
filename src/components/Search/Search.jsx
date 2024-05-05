@@ -5,9 +5,11 @@ import { NavContext } from '../../Context/NavContext';
 import Languages from '../Language/Language';
 
 import './Search.scss';
+import { useTranslation } from 'react-i18next';
 
 function Search() {
     const { HandleMobileNav } = useContext(NavContext);
+    const {t} =useTranslation();
 
 
     return (
@@ -17,7 +19,7 @@ function Search() {
                 <label htmlFor="search">
                     <IoSearchOutline />
                 </label>
-                <input type="text" className="form-control" id='search' placeholder='Search' />
+                <input type="text" className="form-control" id='search' placeholder={t('Search')} />
             </form>
 
             <Languages />

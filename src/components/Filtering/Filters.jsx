@@ -105,17 +105,17 @@ export default function Filters() {
                     FreeOrPaidButtons('All');
                     PaidFilter('All', null)
                 }}
-                    type="button" className={Paid === 'All' ? 'btn mx-2 my-1 Active' : 'btn mx-2 my-1'}>All</button>
+                    type="button" className={Paid === 'All' ? 'btn mx-2 my-1 Active' : 'btn mx-2 my-1'}>{t("All") }</button>
                 <button onClick={() => {
                     FreeOrPaidButtons('Free');
                     PaidFilter('Free', true)
                 }}
-                    type="button" className={Paid === 'Free' ? 'btn mx-2 my-1 Active' : 'btn mx-2 my-1'}>Free</button>
+                    type="button" className={Paid === 'Free' ? 'btn mx-2 my-1 Active' : 'btn mx-2 my-1'}>{t("Free")}</button>
                 <button onClick={() => {
                     FreeOrPaidButtons('Paid');
                     PaidFilter("Paid", false)
                 }}
-                    type="button" className={Paid === 'Paid' ? 'btn mx-2 my-1 Active' : 'btn mx-2 my-1'}>Paid</button>
+                    type="button" className={Paid === 'Paid' ? 'btn mx-2 my-1 Active' : 'btn mx-2 my-1'}>{t("Paid") }</button>
             </div>
         </motion.section>
         <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: 'spring', duration: 0.6,delay:0.2 }}

@@ -3,12 +3,13 @@ import './MobileNav.scss';
 import Logo from '../../Assets/Images/icon.png';
 import LogoDesc from '../../Assets/Images/wormark.png'
 import { Link, useLocation } from 'react-router-dom';
-import { ImHome } from "react-icons/im";
+import { ImHome, ImYoutube } from "react-icons/im";
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { FaMessage } from "react-icons/fa6";
 import { NavContext } from '../../Context/NavContext';
 import { IoClose } from "react-icons/io5";
 import { MdOutlinePolicy } from 'react-icons/md';
+import { IoLogoFacebook } from 'react-icons/io';
 
 export default function MobileNav() {
     const { pathname } = useLocation();
@@ -52,6 +53,14 @@ export default function MobileNav() {
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div className="Icons d-flex w-100 ps-2 column-gap-1 position-absolute" style={{ bottom: "50px" }}>
+                <a href="">
+                    <IoLogoFacebook className='fs-4' />
+                </a>
+                <a href="">
+                    <ImYoutube className='fs-4' />
+                </a>
             </div>
         </nav>
     </>

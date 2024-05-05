@@ -10,6 +10,8 @@ import { FaChevronRight } from "react-icons/fa";
 import { NavContext } from '../../Context/NavContext';
 import { MdOutlinePolicy } from "react-icons/md";
 import { useTranslation } from 'react-i18next';
+import { IoLogoFacebook } from "react-icons/io";
+import { ImYoutube } from "react-icons/im";
 
 export default function SideNav() {
     const { pathname } = useLocation();
@@ -62,6 +64,15 @@ export default function SideNav() {
                         </li>
                     </ul>
                 </div>
+            </div>
+            
+            <div className="Icons d-flex w-100 ps-2 column-gap-1 position-absolute" style={{ bottom: "50px" }}>
+                <a href="">
+                    <IoLogoFacebook className='fs-4' />
+                </a>
+                <a href="">
+                    <ImYoutube className='fs-4' />
+                </a>
             </div>
 
         </aside>

@@ -13,7 +13,7 @@ const resources = {
       'LastAppsViewAll': 'View All',
       'BrowserByCategory': `Browser by category`,
       'Categories': 'Categories',
-      'Price': 'Kategoriler',
+      'Price': 'Price',
       'AppStore': 'App Store',
       'Home': 'Home',
       'ContactUs': 'Contact Us',
@@ -40,19 +40,20 @@ const resources = {
       'ContactInfoPhoneNumber': 'Phone',
       'ContactInfoFacebook': 'Facebbok',
       'ContactInfoYoutube': 'Youtube',
-
       'quraaninfo': 'Holy Quran',
       'tajweed': 'tajwed',
       'relatedappsinfo': 'Related apps',
       'you': 'you might also like',
       'submit': 'Submit',
-
       'Homeside': 'Home',
       'Apside': 'Apps',
       'contactside': 'Contact us',
-      'policyside': 'policy'
-
-
+      'policyside': 'policy',
+      'All': 'All',
+      'Free': 'Free',
+      'Paid': 'Paid',
+      'Search': 'Search',
+      'appstore': 'App store'
     }
   },
   tr: {
@@ -65,16 +66,16 @@ const resources = {
       'BrowserByCategory': `Kategoriye göre göz at`,
       'Categories': 'Kategoriler',
       'Price': 'Fiyat',
-      'AppStore': 'App Store',
+      'AppStore': 'Uygulama mağazası',
       'Home': 'Ana Sayfa',
       'ContactUs': 'Bize Ulaşın',
       'ContactUSGreeting': 'Selamün Aleyküm',
       'ContactUSGreeting2': 'Sizden duymak isteriz',
       'name': 'isim',
       'email': 'e-posta',
-      'Choice1': 'Bir sorunum var',
-      'Choice2': 'Bir geri bildirimim var',
-      'Choice3': 'Bir önerim var',
+      'Choice1': 'Sorunum var',
+      'Choice2': 'Geri bildirimim var',
+      'Choice3': 'Önerim var',
       'Choice4': 'İş birliği yapmak istiyorum',
       'SubjectTitle': 'Konu başlığı',
       'Message': 'Mesaj',
@@ -92,7 +93,7 @@ const resources = {
       'ContactInfoFacebook': 'Facebook',
       'ContactInfoYoutube': 'Youtube',
 
-      'quraaninfo': 'Kutsal Kur\'an',
+      'quraaninfo': "Kutsal Kur'an",
       'tajweed': 'Tecvid',
       'relatedappsinfo': 'İlgili uygulamalar',
       'you': 'belki de ilginizi çeker',
@@ -102,7 +103,11 @@ const resources = {
       'Apside': 'Uygulamalar',
       'contactside': 'Bizimle İletişime Geçin',
       'policyside': 'Politika',
-      'Contact': 'Temas etmek'
+      'Contact': 'Temas etmek',
+      'All': 'Tüm',
+      'Free': 'özgür',
+      'Paid': 'paralı',
+      'Search': 'Ara',
     }
   },
   ar: {
@@ -151,7 +156,12 @@ const resources = {
       'Homeside': 'الأساسية',
       'Apside': 'التطبيقات',
       'contactside': 'تواصل معنا',
-      'policyside': 'السياسات'
+      'policyside': 'السياسات',
+      'All': 'الكل',
+      'Free': 'مجاني',
+      'Paid': 'مدفوع',
+      'Search': 'بحث',
+      'appstore':'متجر التطبيقات'
     }
   },
   ur: {
@@ -201,7 +211,12 @@ const resources = {
       'Apside': 'ایپس',
       'contactside': 'ہم سے رابطہ کریں',
       'policyside': 'پالیسی',
-      'Contact': 'رابطہ کریں۔'
+      'Contact': 'رابطہ کریں۔',
+      'All': 'سب',
+      'Free': 'مفت',
+      'Paid': 'ادائیگی',
+      'Search': 'تلاش',
+      'appstore':"ایپ اسٹور"
     }
 
   }
