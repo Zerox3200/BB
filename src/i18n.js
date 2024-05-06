@@ -161,7 +161,7 @@ const resources = {
       'Free': 'مجاني',
       'Paid': 'مدفوع',
       'Search': 'بحث',
-      'appstore':'متجر التطبيقات'
+      'appstore': 'متجر التطبيقات'
     }
   },
   ur: {
@@ -216,7 +216,7 @@ const resources = {
       'Free': 'مفت',
       'Paid': 'ادائیگی',
       'Search': 'تلاش',
-      'appstore':"ایپ اسٹور"
+      'appstore': "ایپ اسٹور"
     }
 
   }
