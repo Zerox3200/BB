@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from "yup"
 import Search from '../../components/Search/Search'
@@ -7,7 +7,10 @@ import './Contact.scss';
 import { NavContext } from '../../Context/NavContext';
 import { useTranslation } from 'react-i18next';
 import { reactLocalStorage } from 'reactjs-localstorage';
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
+import Toast from '../../components/Toast/Toast';
 
 export default function Contactus() {
     const [loading, setloading] = useState(false)
@@ -15,9 +18,22 @@ export default function Contactus() {
     const { t } = useTranslation();
     const MainLanguage = reactLocalStorage.get('lan');
 
-    function loginsubmit(values) {
-        console.log(values);
+    const form = useRef();
+
+    function SendEmail(values) {
         setloading(true);
+        emailjs.sendForm('service_qpessc9', 'template_cf6eumt', form.current, {
+            publicKey: 'EZs2A8HuNHHUQa3cu',
+        }, {
+            name: formik.values.name,
+            email: formik.values.email,
+            message: formik.values.message,
+            subject: formik.values.subject,
+            reason: formik.values.reason
+        }).then(() => {
+            setloading(false);
+            toast(<Toast />)
+        })
     };
 
     const validationSchema = Yup.object({
@@ -35,19 +51,19 @@ export default function Contactus() {
             reason: MainLanguage === "ar" ? "لدي مشكله" : MainLanguage === "tr" ? 'bir sorunum var' : 'I have a feedback',
             subject: "",
             message: "",
-        }, validationSchema, onSubmit: loginsubmit,
+        }, validationSchema, onSubmit: SendEmail,
 
     })
 
     return <>
         <Helmet>
-                <title>Contact Us</title>
+            <title>Contact Us</title>
         </Helmet>
-        <section  className={margin ? "ContactUs ContactMarined" : "ContactUs ContactConstant"}>
+        <section className={margin ? "ContactUs ContactMarined" : "ContactUs ContactConstant"}>
 
             <Search />
 
-            <motion.div className="cotact-container container" initial={{opacity:0}} animate={{opacity:1}} transition={{type:"spring",duration:0.6}}>
+            <motion.div className="cotact-container container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: "spring", duration: 0.6 }}>
 
                 <div className={MainLanguage === 'ar' || MainLanguage === 'ur' ? "contact-text col-md-6 col-sm-12 Right" :
                     "contact-text col-md-6 col-sm-12"}>
@@ -61,7 +77,7 @@ export default function Contactus() {
                 <div className="row contact-main">
 
                     <div className="contact-form col-md-5 col-sm-12">
-                        <form onSubmit={formik.handleSubmit} className={MainLanguage === 'ar' || MainLanguage === 'ur' ? " Right" : ""}>
+                        <form ref={form} onSubmit={formik.handleSubmit} className={MainLanguage === 'ar' || MainLanguage === 'ur' ? " Right" : ""}>
 
                             <div className='my-2'>
                                 <input className='form-control' placeholder={t("name")} onBlur={formik.handleBlur} onChange={formik.handleChange} type="text" name="name" id="name" />

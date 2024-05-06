@@ -10,12 +10,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './i18n';
 import NavProvider from './Context/NavContext.jsx';
+import { Toaster } from 'react-hot-toast';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <NavProvider>
+    <Toaster position="bottom-right" toastOptions={{ className: "Toast" }} />
     <App />
   </NavProvider>
 );

@@ -88,6 +88,7 @@ aside {
                     align-items: center;
                     height: 50px;
                     margin-top: 20px;
+                    text-wrap: nowrap;
 
                     &.Active {
                         background-color: #d1e8e0;
@@ -142,8 +143,9 @@ aside {
             }
         }
     }
-    .Icons{
-        svg{
+
+    .Icons {
+        svg {
             color: $BaseColor;
         }
     }

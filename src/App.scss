@@ -1,3 +1,5 @@
+@use './helpers/functions' as *;
+
 * {
   font-family: Cairo;
 }
@@ -21,4 +23,53 @@
 
 .Right {
   direction: rtl !important;
+}
+
+
+.Toast {
+  width: 450px;
+  height: 120px;
+  color: white;
+  background-color: #30a27b !important;
+  display: flex;
+  align-items: center;
+
+  @include Breakpoints(small) {
+    width: 90%;
+  }
+
+  @include Breakpoints(mobile) {
+    width: 95%;
+  }
+
+  .Main_Icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #30a27b;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;
+
+    svg {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+
+  article {
+    margin-left: 15px;
+    color: white;
+
+    h1 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
 }
