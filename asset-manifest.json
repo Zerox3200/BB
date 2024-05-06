@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/BB/static/css/main.655ce76d.css",
-    "main.js": "/BB/static/js/main.5502284f.js",
-    "static/css/902.a2ffcd0a.chunk.css": "/BB/static/css/902.a2ffcd0a.chunk.css",
+    "main.css": "/BB/static/css/main.5bce4744.css",
+    "main.js": "/BB/static/js/main.fce44fc6.js",
+    "static/css/902.c10f0265.chunk.css": "/BB/static/css/902.c10f0265.chunk.css",
     "static/js/902.24dfada1.chunk.js": "/BB/static/js/902.24dfada1.chunk.js",
     "static/css/748.ba9ad528.chunk.css": "/BB/static/css/748.ba9ad528.chunk.css",
     "static/js/748.b9a65d2b.chunk.js": "/BB/static/js/748.b9a65d2b.chunk.js",
     "static/css/964.b3b01ba9.chunk.css": "/BB/static/css/964.b3b01ba9.chunk.css",
-    "static/js/964.f7259531.chunk.js": "/BB/static/js/964.f7259531.chunk.js",
+    "static/js/964.b3897e40.chunk.js": "/BB/static/js/964.b3897e40.chunk.js",
     "static/css/134.22c32414.chunk.css": "/BB/static/css/134.22c32414.chunk.css",
     "static/js/134.918efc77.chunk.js": "/BB/static/js/134.918efc77.chunk.js",
     "static/css/0.dd1619db.chunk.css": "/BB/static/css/0.dd1619db.chunk.css",
@@ -15,7 +15,6 @@
     "static/css/721.e436cfe1.chunk.css": "/BB/static/css/721.e436cfe1.chunk.css",
     "static/js/721.86cf5e3b.chunk.js": "/BB/static/js/721.86cf5e3b.chunk.js",
     "static/js/453.830471cf.chunk.js": "/BB/static/js/453.830471cf.chunk.js",
-    "static/js/423.01aa53fe.chunk.js": "/BB/static/js/423.01aa53fe.chunk.js",
     "static/js/880.e69d94ed.chunk.js": "/BB/static/js/880.e69d94ed.chunk.js",
     "static/js/305.8a7e0a6e.chunk.js": "/BB/static/js/305.8a7e0a6e.chunk.js",
     "static/js/150.89d330ea.chunk.js": "/BB/static/js/150.89d330ea.chunk.js",
@@ -53,15 +52,16 @@
     "static/media/icons8-google-play.svg": "/BB/static/media/icons8-google-play.794cb12ffed9fa1a7c20d10bbf6731d2.svg",
     "index.html": "/BB/index.html",
     "static/media/angle-right-solid.svg": "/BB/static/media/angle-right-solid.db45241f9b5420c9f636.svg",
+    "static/media/angle-down-solid.svg": "/BB/static/media/angle-down-solid.92c3413bb4bf151d0ef4.svg",
     "static/media/angle-left-solid (1).svg": "/BB/static/media/angle-left-solid (1).755b552480217fdf987e.svg",
-    "main.655ce76d.css.map": "/BB/static/css/main.655ce76d.css.map",
-    "main.5502284f.js.map": "/BB/static/js/main.5502284f.js.map",
-    "902.a2ffcd0a.chunk.css.map": "/BB/static/css/902.a2ffcd0a.chunk.css.map",
+    "main.5bce4744.css.map": "/BB/static/css/main.5bce4744.css.map",
+    "main.fce44fc6.js.map": "/BB/static/js/main.fce44fc6.js.map",
+    "902.c10f0265.chunk.css.map": "/BB/static/css/902.c10f0265.chunk.css.map",
     "902.24dfada1.chunk.js.map": "/BB/static/js/902.24dfada1.chunk.js.map",
     "748.ba9ad528.chunk.css.map": "/BB/static/css/748.ba9ad528.chunk.css.map",
     "748.b9a65d2b.chunk.js.map": "/BB/static/js/748.b9a65d2b.chunk.js.map",
     "964.b3b01ba9.chunk.css.map": "/BB/static/css/964.b3b01ba9.chunk.css.map",
-    "964.f7259531.chunk.js.map": "/BB/static/js/964.f7259531.chunk.js.map",
+    "964.b3897e40.chunk.js.map": "/BB/static/js/964.b3897e40.chunk.js.map",
     "134.22c32414.chunk.css.map": "/BB/static/css/134.22c32414.chunk.css.map",
     "134.918efc77.chunk.js.map": "/BB/static/js/134.918efc77.chunk.js.map",
     "0.dd1619db.chunk.css.map": "/BB/static/css/0.dd1619db.chunk.css.map",
@@ -69,14 +69,13 @@
     "721.e436cfe1.chunk.css.map": "/BB/static/css/721.e436cfe1.chunk.css.map",
     "721.86cf5e3b.chunk.js.map": "/BB/static/js/721.86cf5e3b.chunk.js.map",
     "453.830471cf.chunk.js.map": "/BB/static/js/453.830471cf.chunk.js.map",
-    "423.01aa53fe.chunk.js.map": "/BB/static/js/423.01aa53fe.chunk.js.map",
     "880.e69d94ed.chunk.js.map": "/BB/static/js/880.e69d94ed.chunk.js.map",
     "305.8a7e0a6e.chunk.js.map": "/BB/static/js/305.8a7e0a6e.chunk.js.map",
     "150.89d330ea.chunk.js.map": "/BB/static/js/150.89d330ea.chunk.js.map",
     "382.9d08f516.chunk.js.map": "/BB/static/js/382.9d08f516.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.655ce76d.css",
-    "static/js/main.5502284f.js"
+    "static/css/main.5bce4744.css",
+    "static/js/main.fce44fc6.js"
   ]
 }
