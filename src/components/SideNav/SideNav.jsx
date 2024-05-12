@@ -65,12 +65,12 @@ export default function SideNav() {
                     </ul>
                 </div>
             </div>
-            
+
             <div className="Icons d-flex w-100 ps-2 column-gap-1 position-absolute" style={{ bottom: "50px" }}>
-                <a href="">
+                <a href="https://www.google.com/?hl=ar" aria-label="Youtube">
                     <IoLogoFacebook className='fs-4' />
                 </a>
-                <a href="">
+                <a href="https://www.google.com/?hl=ar" aria-label="Facebook">
                     <ImYoutube className='fs-4' />
                 </a>
             </div>

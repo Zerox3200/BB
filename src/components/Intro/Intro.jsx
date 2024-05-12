@@ -5,24 +5,67 @@ import { LuChevronRight } from "react-icons/lu";
 import { LuChevronLeft } from "react-icons/lu";
 import AppCard from '../card/card';
 import Category from '../Category/Category';
-import Quran from '../../Assets/Images/Icons/Qur_ān.svg';
-import Salah from '../../Assets/Images/Icons/Salāh.svg';
-import Haj from '../../Assets/Images/Icons/Hajj.svg';
-import Masjed from '../../Assets/Images/Icons/Masjid.svg';
-import Azkar from '../../Assets/Images/Icons/Zakāh.svg';
-import Tasbeh from '../../Assets/Images/Icons/Tasbeeh.svg';
-import Wudouu from '../../Assets/Images/Icons/Wudu_.svg';
-import Duaa from '../../Assets/Images/Icons/Du_ā.svg';
 import Search from '../Search/Search';
 import { useTranslation } from 'react-i18next';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import { motion, useInView } from 'framer-motion';
+import { useQuery } from 'react-query';
+import axios from 'axios';
+import Loading from '../Loading/Loading';
 
 export default function Intro() {
     const { t } = useTranslation();
     const Cat = useRef()
     const Inview = useInView(Cat, { once: true });
     const MainLanguage = reactLocalStorage.get('lan');
+
+    const IntroCategoriesLink = "http://localhost:3000/Categories/IntroCats";
+    const IntroAppsLink = "http://localhost:3000/app/getlatestApp";
+
+    const GetIntroCats = () => {
+        return axios.get(IntroCategoriesLink)
+    }
+
+    const GetLatesApps = () => {
+        return axios.get(IntroAppsLink)
+    }
+
+    const { data: IntoCategories, isLoading: IntoCategoriesLaoding } = useQuery('Intro Categories', GetIntroCats,
+        {
+            cacheTime: 5000000
+        });
+
+    const { data: LatestApps, isLoading: LatestAppsLoading } = useQuery("Latest Apps", GetLatesApps, {
+        cacheTime: 5000000
+    })
+
+    const getAppTitle = (app, language) => {
+        switch (language) {
+            case 'ar':
+                return app.name[1].value;
+            case 'tr':
+                return app.name[2].value;
+            case 'ur':
+                return app.name[3].value;
+            default:
+                return app.name[0].value;
+        }
+    };
+
+    const getDesc = (app, language) => {
+        switch (language) {
+            case 'ar':
+                return app.description[1].value;
+            case 'tr':
+                return app.description[2].value;
+            case 'ur':
+                return app.description[3].value;
+            default:
+                return app.description[0].value;
+        }
+    }
+
+    console.log(LatestApps?.data.result);
     return <>
         <Search />
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, type: 'spring' }} className="Intro_Text mt-3 d-flex flex-wrap align-items-center py-5 px-2 col-xl-11 col-sm-12">
@@ -35,7 +78,7 @@ export default function Intro() {
         </motion.div>
         <div className="container Intro_Apps row w-100 justify-content-center px-3">
             <motion.div className="Intro_Apps_inside d-flex flex-column align-items-center"
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, type: 'spring' }} >
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, type: 'spring' }} >
 
                 <div className="Intro_Apps_inside_cards row w-100 px-1 justify-content-evenly">
                     <div className="col-12 d-flex flex-column px-2 pe-4">
@@ -43,15 +86,15 @@ export default function Intro() {
                         <h1 className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'title h3 align-self-end Right' : 'title h3 align-self-start'}>{t("LastApps")}</h1>
 
                         <Link to='/Apps' className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
-                            'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
-                            'd-flex justify-content-end align-items-center fs-5 align-self-end '}>
+                            'd-flex justify-content-start align-items-center fs-5 align-self-start Right mb-4' :
+                            'd-flex justify-content-end align-items-center fs-5 align-self-end mb-4'}>
                             {t("LastAppsViewAll")}{MainLanguage === 'ar' || MainLanguage === 'ur' ? <LuChevronLeft className='mt-2 fs-5' />
                                 : <LuChevronRight />}</Link>
                     </div>
-                    <AppCard Free={true} />
-                    <AppCard Free={true} />
-                    <AppCard Free={true} />
-                    <AppCard Free={true} />
+                    {LatestAppsLoading ? <Loading /> : LatestApps?.data.result.map((App) =>
+                        <AppCard key={App._id} Free={App.paid}
+                            Cover={App.appcover} Title={getAppTitle(App, MainLanguage)}
+                            Desc={getDesc(App, MainLanguage)} Icon={App.appicon} AppId={App._id} />)}
                 </div>
             </motion.div>
 
@@ -69,14 +112,9 @@ export default function Intro() {
                                 : <LuChevronRight />}</Link>
 
                     </div>
-                    <Category Image={Quran} />
-                    <Category Image={Salah} />
-                    <Category Image={Haj} />
-                    <Category Image={Masjed} />
-                    <Category Image={Azkar} />
-                    <Category Image={Tasbeh} />
-                    <Category Image={Wudouu} />
-                    <Category Image={Duaa} />
+                    {IntoCategoriesLaoding ? <Loading /> : IntoCategories?.data.result.map((Cat, index) =>
+                        <Category key={index} Image={Cat.Icon} />)}
+
                 </div>
             </motion.div>
         </div>

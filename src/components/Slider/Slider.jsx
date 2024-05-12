@@ -2,9 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import './Slider.scss'
 // import app from '../../Assets/Images/people-holding-pinterest-icon.jpg'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
-function CenterMode() {
+function CenterMode({ SliderImages }) {
     var settings = {
         infinite: false,
         speed: 500,
@@ -43,30 +44,10 @@ function CenterMode() {
     return (
         <div className="slider-container">
             <Slider {...settings} >
-                <div>
-                    <img alt="..." loading="lazy" />
+                {SliderImages?.map((Images, index) => <div key={index}>
+                    <LazyLoadImage src={`http://localhost:3000/${Images}`} alt="..." />
                 </div>
-                <div>
-                    <img alt="..." loading="lazy" />
-                </div>
-                <div>
-                    <img alt="..." loading="lazy" />
-                </div>
-                <div>
-                    <img alt="..." loading="lazy" />
-                </div>
-                <div>
-                    <img alt="..." loading="lazy" />
-                </div>
-                <div>
-                    <img alt="..." loading="lazy" />
-                </div>
-                <div>
-                    <img alt="..." loading="lazy" />
-                </div>
-                <div>
-                    <img alt="..." loading="lazy" />
-                </div>
+                )}
             </Slider>
         </div>
     );

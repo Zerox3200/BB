@@ -73,7 +73,7 @@
         // }
 
         .Main_height {
-            height: 350px;
+            height: 380px;
 
             @include Breakpoints(small) {
                 height: max-content;

@@ -53,7 +53,8 @@ const resources = {
       'Free': 'Free',
       'Paid': 'Paid',
       'Search': 'Search',
-      'appstore': 'App store'
+      'appstore': 'App store',
+      "Details": "More Details"
     }
   },
   tr: {
@@ -108,6 +109,7 @@ const resources = {
       'Free': 'özgür',
       'Paid': 'paralı',
       'Search': 'Ara',
+      "Details": "Daha fazla detay"
     }
   },
   ar: {
@@ -161,7 +163,8 @@ const resources = {
       'Free': 'مجاني',
       'Paid': 'مدفوع',
       'Search': 'بحث',
-      'appstore': 'متجر التطبيقات'
+      'appstore': 'متجر التطبيقات',
+      "Details": "المزيد من التفاصيل"
     }
   },
   ur: {
@@ -216,7 +219,8 @@ const resources = {
       'Free': 'مفت',
       'Paid': 'ادائیگی',
       'Search': 'تلاش',
-      'appstore': "ایپ اسٹور"
+      'appstore': "ایپ اسٹور",
+      "Details": "مزید تفصیلات"
     }
 
   }

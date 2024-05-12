@@ -59,10 +59,10 @@ export default function MobileNav() {
                 </div>
             </div>
             <div className="Icons d-flex w-100 ps-2 column-gap-1 position-absolute" style={{ bottom: "50px" }}>
-                <a href="">
+                <a href="https://www.google.com/?hl=ar" aria-label="Facebook">
                     <IoLogoFacebook className='fs-4' />
                 </a>
-                <a href="">
+                <a href="https://www.google.com/?hl=ar" aria-label="Youtube">
                     <ImYoutube className='fs-4' />
                 </a>
             </div>

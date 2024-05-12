@@ -1,6 +1,7 @@
 @use "../../helpers/functions" as *;
 
 .card {
+    @include Animtation(0.5s, linear, all);
 
     h1 {
         color: $BaseColor;
@@ -32,6 +33,24 @@
     .card-body {
         padding: 10px 0 0 0;
 
+        .Details {
+            position: absolute;
+            font-size: 10px;
+            height: max-content;
+            padding: 2px 15px;
+            border-radius: 2px;
+            color: $BaseColor;
+            text-decoration: none;
+
+            &.RightPos {
+                left: 0;
+            }
+
+            &.LeftPos {
+                right: 0;
+            }
+        }
+
         img {
             border-radius: 10px;
             object-fit: cover;
@@ -56,8 +75,16 @@
 
             .Price {
                 position: absolute;
-                right: 10px;
-                top: -5px;
+
+                &.RightPos {
+                    left: 10px;
+                    top: -5px;
+                }
+
+                &.LeftPos {
+                    right: 10px;
+                    top: -5px;
+                }
             }
 
             span {

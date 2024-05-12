@@ -14,22 +14,19 @@ const Languages = React.memo(() => {
     const { i18n } = useTranslation();
     const MainLanguage = reactLocalStorage.get("lan");
 
-
-    
-    
     // const HandleTranslatation = useCallback((Lan) => {
-        //     window.location.reload();
-        //     reactLocalStorage.set("lan", Lan.toLowerCase());
-        //     i18n.changeLanguage(Lan.toLowerCase());
+    //     // window.location.reload();
+    //     reactLocalStorage.set("lan", Lan.toLowerCase());
+    //     i18n.changeLanguage(Lan.toLowerCase());
     // }, [i18n]);
-    
-        const handleLanguage = () => {
-            setShowLanguages(!showLanguages);
-        };
+
+    const handleLanguage = () => {
+        setShowLanguages(!showLanguages);
+    };
 
     const HandleTranslatation = (Lan) => {
         reactLocalStorage.set("lan", Lan.toLowerCase());
-        window.location.reload();
+        window.location.reload(true);
     };
 
     useEffect(() => {
@@ -51,7 +48,7 @@ const Languages = React.memo(() => {
         <h1 className="h5 m-0">{!MainLanguage ? 'En' : MainLanguage.split('')[0].toUpperCase() + MainLanguage.split('')[1]}</h1>
 
         <img src={MainLanguage === "en" ? EnglishFlag : MainLanguage === "tr" ?
-            TurkishFlag : MainLanguage === 'ar' ? ArabicFlag :MainLanguage === 'ur' ? PakistanFlag : EnglishFlag}
+            TurkishFlag : MainLanguage === 'ar' ? ArabicFlag : MainLanguage === 'ur' ? PakistanFlag : EnglishFlag}
             alt="..." loading="lazy" />
 
         <div className={`LanguageChecking ${showLanguages ? 'Show' : ''}`}>

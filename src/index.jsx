@@ -11,15 +11,21 @@ import "slick-carousel/slick/slick-theme.css";
 import './i18n';
 import NavProvider from './Context/NavContext.jsx';
 import { Toaster } from 'react-hot-toast';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools'
 
+let query = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <NavProvider>
-    <Toaster position="bottom-right" toastOptions={{ className: "Toast" }} />
-    <App />
-  </NavProvider>
+  <QueryClientProvider client={query}>
+    <NavProvider>
+      <Toaster position="bottom-right" toastOptions={{ className: "Toast" }} />
+      <App />
+    </NavProvider>
+    <ReactQueryDevtools initialIsOpen={false} />
+  </QueryClientProvider>
 );
 
 
