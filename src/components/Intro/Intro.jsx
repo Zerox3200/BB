@@ -94,7 +94,8 @@ export default function Intro() {
                     {LatestAppsLoading ? <Loading /> : LatestApps?.data.result.map((App) =>
                         <AppCard key={App._id} Free={App.paid}
                             Cover={App.appcover} Title={getAppTitle(App, MainLanguage)}
-                            Desc={getDesc(App, MainLanguage)} Icon={App.appicon} AppId={App._id} />)}
+                            Desc={getDesc(App, MainLanguage)} Icon={App.appicon}
+                            AppId={App._id} />)}
                 </div>
             </motion.div>
 

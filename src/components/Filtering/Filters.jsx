@@ -199,7 +199,7 @@ export default function Filters() {
             <div className="FilteredApps_Title">
                 <h1 className='h4'><Link to='/'>{t('Home')}</Link> / {t("AppStore")}</h1>
             </div>
-            <div className="row column-gap-4 row-gap-4">
+            <div className="row gap-4">
                 <AnimatePresence>
                     {TotalAppsLoading ? <Loading /> : Apps.map((App) =>
                         <AppCard key={App._id} Title={getAppTitle(App, MainLanguage)} Desc={getDesc(App, MainLanguage)}

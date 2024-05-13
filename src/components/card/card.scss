@@ -27,14 +27,16 @@
 
     @include Breakpoints(mobile) {
         margin: 15px auto;
-        width: 90% !important;
+        width: 80% !important;
     }
 
     .card-body {
+        position: relative;
         padding: 10px 0 0 0;
 
         .Details {
             position: absolute;
+            bottom: 2px;
             font-size: 10px;
             height: max-content;
             padding: 2px 15px;
@@ -43,11 +45,11 @@
             text-decoration: none;
 
             &.RightPos {
-                left: 0;
+                left: -15px;
             }
 
             &.LeftPos {
-                right: 0;
+                right: -15px;
             }
         }
 
@@ -65,6 +67,11 @@
         .card-body-details {
             position: relative;
 
+            .UpdatePos {
+                position: relative;
+                bottom: 15px;
+            }
+
             @include Breakpoints(mobile) {
                 width: 70%;
             }
@@ -77,13 +84,13 @@
                 position: absolute;
 
                 &.RightPos {
-                    left: 10px;
-                    top: -5px;
+                    left: 0px;
+                    top: 0px;
                 }
 
                 &.LeftPos {
-                    right: 10px;
-                    top: -5px;
+                    right: 0px;
+                    top: 0px;
                 }
             }
 
