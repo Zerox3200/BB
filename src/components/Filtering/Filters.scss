@@ -42,16 +42,30 @@
             justify-content: center;
         }
 
+        .All {
+            font-size: 20px;
+        }
+
         .btn {
             height: max-content;
-            width: 120px;
+            width: 140px;
+            height: 45px;
             background-color: white;
             font-weight: bold;
             border: none;
 
+            img {
+                width: 30px;
+                filter: brightness(0) saturate(100%) invert(50%) sepia(76%) saturate(375%) hue-rotate(108deg) brightness(92%) contrast(85%);
+            }
+
             &.Active {
                 background-color: $BaseColor;
                 color: white;
+
+                img {
+                    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7481%) hue-rotate(11deg) brightness(102%) contrast(97%);
+                }
             }
 
             @include Breakpoints(medium) {
@@ -69,6 +83,10 @@
             &:hover {
                 background-color: $BaseColor;
                 color: white;
+
+                img {
+                    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7481%) hue-rotate(11deg) brightness(102%) contrast(97%);
+                }
             }
         }
     }

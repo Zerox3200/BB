@@ -6,6 +6,7 @@
     background-color: white;
     position: relative;
     cursor: pointer;
+    z-index: 2;
 
     @include Breakpoints(mobile) {
         margin-top: 15px;

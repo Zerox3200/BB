@@ -2,20 +2,36 @@ import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import "./Login.scss"
+import axios from 'axios'
+import { reactLocalStorage } from 'reactjs-localstorage'
+import { useNavigate } from 'react-router-dom'
 
-
+// .matches(/^[A-Z][\w @]{5,8}$/, "invalid password ex(Ahmed123)")
 export default function Login() {
-    const [loading, setloading] = useState(false)
+    const [loading, setloading] = useState(false);
+    const [Error, setError] = useState();
+    const navigate = useNavigate();
 
     // yup validation 
     let validationSchema = Yup.object({
         email: Yup.string().required("email is required").email('invalid email'),
-        password: Yup.string().required("password is required").matches(/^[A-Z][\w @]{5,8}$/, "invalid password ex(Ahmed123)"),
+        password: Yup.string().required("password is required"),
     })
 
     // callApi 
     async function loginsubmit(values) {
         setloading(true)
+        return await axios.post("http://localhost:3000/auth/login", {
+            email: values.email,
+            password: values.password
+        }).then((res) => {
+            setloading(false);
+            reactLocalStorage.set("token", res.data.token);
+            navigate("/Dashboard2030")
+        }).catch((err) => {
+            setError(err)
+            setloading(false);
+        })
     }
     // Fromik 
     let formik = useFormik({
@@ -33,13 +49,15 @@ export default function Login() {
 
                     {/* {apiError && <div className="alert alert-danger">{apiError}</div>} */}
 
-                    <label htmlFor="email" className='form-label'></label>
-                    <input className='form-control' onBlur={formik.handleBlur} onChange={formik.handleChange} type="email" name='email' id='email' />
-                    {formik.errors.email &&
+                    <label htmlFor="email" className='form-label mt-3'>Email</label>
+                    <input className='form-control' placeholder='Email' onBlur={formik.handleBlur}
+                        onChange={formik.handleChange} type="email" name='email' id='email' />
+                    {formik.errors.email && formik.touched.email &&
                         <div className="alert alert-danger py-2 mt-2">{formik.errors.email}</div>}
 
-                    <label htmlFor="password" className='form-label'></label>
-                    <input className='form-control' onBlur={formik.handleBlur} onChange={formik.handleChange} type="password" name='password' id='password' />
+                    <label htmlFor="password" className='form-label mt-3'>Password</label>
+                    <input className='form-control' placeholder='Password' onBlur={formik.handleBlur}
+                        onChange={formik.handleChange} type="password" name='password' id='password' />
                     {formik.errors.password && formik.touched.password &&
                         <div className="alert alert-danger py-2 mt-2">{formik.errors.password}</div>}
 
@@ -47,6 +65,8 @@ export default function Login() {
                         <i className='fas fa-spinner fa-spin '></i>
                     </button> : <button type='submit'
                         disabled={!(formik.isValid && formik.dirty)} className='btn bg-main text-light mt-2'>Login</button>}
+                    {Error &&
+                        <div className="alert alert-danger py-2 mt-2">{Error}</div>}
                 </form>
 
             </div>

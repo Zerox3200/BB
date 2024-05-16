@@ -13,6 +13,7 @@ import NavProvider from './Context/NavContext.jsx';
 import { Toaster } from 'react-hot-toast';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools'
+import UserProvider from './Context/UserContext.jsx';
 
 let query = new QueryClient();
 
@@ -21,10 +22,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <QueryClientProvider client={query}>
     <NavProvider>
-      <Toaster position="bottom-right" toastOptions={{ className: "Toast" }} />
-      <App />
+      <UserProvider>
+        <Toaster position="bottom-right" toastOptions={{ className: "Toast" }} />
+        <App />
+      </UserProvider>
     </NavProvider>
-    <ReactQueryDevtools initialIsOpen={false} />
+    {/* <ReactQueryDevtools initialIsOpen={false} /> */}
   </QueryClientProvider>
 );
 

@@ -1,0 +1,57 @@
+@use '../../helpers/functions' as *;
+
+.DashSideNav {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 150px;
+    background-color: white;
+
+    img {
+        width: 100%;
+    }
+
+    .Links {
+        li {
+            @include Animtation(0.2s, linear, all);
+            border-radius: 40px;
+            padding: 4px 10px;
+            margin-top: 10px;
+
+            &:hover {
+                background-color: $BaseColor;
+                color: white;
+
+                a {
+                    color: white
+                }
+            }
+
+            a {
+                @include Animtation(0.5s, linear, all);
+                font-size: 20px;
+                text-decoration: none;
+                color: $BaseColor;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+
+    .Logout {
+        color: $BaseColor;
+        @include Animtation(0.2s, linear, all);
+        font-size: 20px;
+        padding: 4px 10px;
+        border-radius: 40px;
+        position: absolute;
+        left: 10px;
+        bottom: 40px;
+        width: 80% !important;
+
+        &:hover {
+            background-color: $BaseColor;
+            color: white;
+        }
+    }
+}

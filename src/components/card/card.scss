@@ -2,6 +2,7 @@
 
 .card {
     @include Animtation(0.5s, linear, all);
+    cursor: pointer;
 
     h1 {
         color: $BaseColor;

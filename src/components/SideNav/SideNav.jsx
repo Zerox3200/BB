@@ -24,7 +24,7 @@ export default function SideNav() {
     }
     const { t } = useTranslation();
     return <>
-        <aside className={margin ? 'p-3 NavBigger' : 'p-3 NavSmall'}>
+        <aside className={margin ? 'MainNav p-3 NavBigger' : 'MainNav p-3 NavSmall'}>
 
             <div className="position-relative">
                 <div className="nav_Title w-100 d-flex align-items-center">

@@ -68,7 +68,7 @@ export default function Contactus() {
                 <div className={MainLanguage === 'ar' || MainLanguage === 'ur' ? "contact-text col-md-6 col-sm-12 Right" :
                     "contact-text col-md-6 col-sm-12"}>
 
-                    <h2 className='font-color fw-bold'>{t("Contact")}</h2>
+                    <h2 className='font-color fw-bold'>{t("ContactUs")}</h2>
                     <p className='font-color fs-6 fw-bold '>{t("ContactUSGreeting")},<br />
                         {t("ContactUSGreeting2")}.
                     </p>

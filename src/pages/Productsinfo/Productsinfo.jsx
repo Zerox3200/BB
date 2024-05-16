@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import "./productsinfo.scss"
 import Search from '../../components/Search/Search'
 import { Link, useParams } from 'react-router-dom'
@@ -22,18 +22,80 @@ export default function Productsinfo() {
     const Inview = useInView(Related, { once: true });
     const MainLanguage = reactLocalStorage.get('lan');
     const { AppId } = useParams();
+    const [Loader, setLoader] = useState(false);
+    const [queryEnabled, setQueryEnabled] = useState(true);
 
 
     const GetApp = () => {
         return axios.get(`http://localhost:3000/app/GetOneApp/${AppId}`)
     }
+    const { data: SpeceficApp, isLoading, refetch } = useQuery("Get One App", GetApp, {
+        enabled: queryEnabled
+    });
 
-    const { data: SpeceficApp, isLoading, isFetched } = useQuery("Get One App", GetApp)
+    const HandleChangeId = async () => {
+        setQueryEnabled(false)
+        setLoader(true);
+        await refetch();
+        setQueryEnabled(true)
+        setLoader(false);
+    }
+
+    const getAppTitle = (language) => {
+        switch (language) {
+            case 'ar':
+                return name[1].value;
+            case 'tr':
+                return name[2].value;
+            case 'ur':
+                return name[3].value;
+            default:
+                return name[0].value;
+        }
+    };
+
+    const getAppDesc = (language) => {
+        switch (language) {
+            case 'ar':
+                return description[1].value;
+            case 'tr':
+                return description[2].value;
+            case 'ur':
+                return description[3].value;
+            default:
+                return description[0].value;
+        }
+    };
+
+    const getAppTitleForCard = (app, language) => {
+        switch (language) {
+            case 'ar':
+                return app.name[1].value;
+            case 'tr':
+                return app.name[2].value;
+            case 'ur':
+                return app.name[3].value;
+            default:
+                return app.name[0].value;
+        }
+    };
+    const getAppDescForCard = (app, language) => {
+        switch (language) {
+            case 'ar':
+                return app.description[1].value;
+            case 'tr':
+                return app.description[2].value;
+            case 'ur':
+                return app.description[3].value;
+            default:
+                return app.description[0].value;
+        }
+    };
 
     let { name, paid, size, news, description, appinfo, appslider, appicon } = SpeceficApp?.data.result || {};
 
     return <>
-        {isLoading ? isFetched && <Loading /> : <section className={margin ? "prod-info  prod-info-Marined " : "prod-info  prod-info-Constant"} >
+        {isLoading || Loader ? <Loading /> : <section className={margin ? "prod-info  prod-info-Marined " : "prod-info  prod-info-Constant"} >
             <Search />
             <div className="prod-main-con ps-5 container">
 
@@ -46,13 +108,15 @@ export default function Productsinfo() {
                     </div>
                 </motion.div>
 
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, type: "spring" }} className='row my-3 justify-content-center'>
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, type: "spring" }}
+                    className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
+                        'row my-3 justify-content-center Right' : 'row my-3 justify-content-center'}>
 
                     <img className='col-md-2 app-icon' src={`http://localhost:3000/${appicon}`} alt="..." loading='lazy' />
 
                     <div className="col-md-4 app-name font-color">
-                        <h1 className='mb-3'>{name[0].value}</h1>
-                        {paid && <span className='m-2'>Free</span>}
+                        <h1 className='mb-3'>{getAppTitle(MainLanguage)}</h1>
+                        {paid && <span className='m-2'>{t("Free")}</span>}
                         <span className='m-2'>{size}</span>
                     </div>
 
@@ -63,10 +127,10 @@ export default function Productsinfo() {
                             </div>
                         </Link>
 
-                        <div className={MainLanguage === 'ar' || MainLanguage === "ur" ? "google-play mt-3" : "google-play "}>
+                        <div className={MainLanguage === 'ar' || MainLanguage === "ur" ? "google-play  mt-3" : "google-play  "}>
                             <img src={googleplay} alt="..." loading='lazy' />
                             <span>
-                                <span>Get it on</span>
+                                <span>{t("GetItOn")}</span>
                                 <span>google play</span>
                             </span>
                         </div>
@@ -78,9 +142,12 @@ export default function Productsinfo() {
                         <MultipleItems SliderImages={appslider}></MultipleItems>
                     </div>
                     <div className="new col-lg-4 col-md-12 h-100">
-                        <h2 className='font-color'>What's new</h2>
+                        <h2 className='font-color'>{t("WhatsNew")}</h2>
                         <ul className='font-color'>
-                            {news.en.map((News, index) => <li key={index}>{News}</li>)}
+                            {MainLanguage === "ar" ? news.ar.map((News, index) => <li key={index}>{News}</li>) :
+                                MainLanguage === "tr" ? news.tr.map((News, index) => <li key={index}>{News}</li>) :
+                                    MainLanguage === "ur" ? news.ur.map((News, index) => <li key={index}>{News}</li>) :
+                                        news.en.map((News, index) => <li key={index}>{News}</li>)}
                         </ul>
                     </div>
                 </motion.div>
@@ -88,45 +155,45 @@ export default function Productsinfo() {
 
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, type: "spring", delay: 0.3 }} className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'row  gap-3 my-3  justify-content-center Right' : 'row  gap-3 my-3 justify-content-center '}>
                     <div className="app-slider font-color col-lg-7 col-md-12">
-                        <h2>App description</h2>
+                        <h2>{t("Appdescription")}</h2>
                         <p>
-                            {description[0].value}
+                            {getAppDesc(MainLanguage)}
                         </p>
 
                     </div>
 
                     <div className="new font-color col-lg-4 col-md-12">
-                        <h2>App Info</h2>
+                        <h2>{t("AppInfo")}</h2>
                         <div>
-                            <span>App Architecture: </span>
+                            <span>{t("AppArchitecture")}: </span>
                             <span className='fw-bold'>{appinfo[0].appArchitecture}</span>
                         </div>
                         <div>
-                            <span>App Package Name: </span>
+                            <span>{t("AppPackageName")}: </span>
                             <span className='fw-bold'>{appinfo[0].appPackageName}</span>
                         </div>
                         <div>
-                            <span>App Release Date: </span>
+                            <span>{t("AppReleaseDate")}: </span>
                             <span className='fw-bold'>{appinfo[0].appReleaseDate}</span>
                         </div>
                         <div>
-                            <span>App Ubdate Date: </span>
+                            <span>{t("AppUbdateDate")}: </span>
                             <span className='fw-bold'>{appinfo[0].appUbdateDate}</span>
                         </div>
                         <div>
-                            <span>App language: </span>
+                            <span>{t("AppLanguage")}: </span>
                             <span className='fw-bold'>{appinfo[0].applanguage}</span>
                         </div>
                         <div>
-                            <span>App Required: </span>
+                            <span>{t("AppRequired")}: </span>
                             <span className='fw-bold'>{appinfo[0].apprequired}</span>
                         </div>
                         <div>
-                            <span>App Version: </span>
+                            <span>{t("AppVersion")}: </span>
                             <span className='fw-bold'>{appinfo[0].appversion}</span>
                         </div>
                         <div>
-                            <span>App Size: </span>
+                            <span>{t("AppSize")}: </span>
                             <span className='fw-bold'>{appinfo[0].appsize}</span>
                         </div>
                     </div>
@@ -139,8 +206,7 @@ export default function Productsinfo() {
                     </div>
                 </motion.div>
 
-                <motion.div ref={Related} className="row" initial={{ opacity: 0, y: 10 }} animate={Inview && { opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, type: "spring" }} >
+                <div className="row">
 
 
                     <div className="Intro_Apps_inside d-flex flex-column align-items-center" >
@@ -149,20 +215,20 @@ export default function Productsinfo() {
                             <h3 className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'col-12 ps-4 font-color Right' : 'col-12  ps-4  font-color my-2'} >{t("you")}</h3>
 
                             <Link to='/Apps' className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
-                                'd-flex justify-content-start align-items-center fs-5 align-self-start Right' :
-                                'd-flex justify-content-end align-items-center fs-5 align-self-end'}>
+                                'd-flex justify-content-start align-items-center mb-3 fs-5 align-self-start Right' :
+                                'd-flex justify-content-end align-items-center mb-3 fs-5 align-self-end'}>
                                 {t("LastAppsViewAll")}{MainLanguage === 'ar' || MainLanguage === 'ur' ? <LuChevronLeft className='mt-2 fs-5' />
                                     : <LuChevronRight />}</Link>
                         </div>
-                        <div className="Intro_Apps_inside_cards row px-5 gap-4">
-                            <AppCard Free={true} />
-                            <AppCard Free={true} />
-                            <AppCard Free={true} />
-                            <AppCard Free={true} />
+                        <div className="Intro_Apps_inside_cards row px-5 gap-4 pb-5">
+                            {SpeceficApp?.data.realted.map((Related) =>
+                                <AppCard key={Related._id} Free={Related.paid} Title={getAppTitleForCard(Related, MainLanguage)}
+                                    Desc={(getAppDescForCard(Related, MainLanguage))} Cover={Related.appcover}
+                                    Icon={Related.appicon} AppId={Related._id} Turn={true} IdHandler={HandleChangeId} />)}
                         </div>
                     </div>
 
-                </motion.div>
+                </div>
 
             </div>
         </section>}

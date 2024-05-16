@@ -1,0 +1,23 @@
+@use '../../../helpers/functions' as *;
+
+.AdminControl {
+    margin-left: 150px;
+    box-shadow: 0px 0px 6px 0px $BaseColor;
+
+    nav {
+        padding: 10px 0;
+
+        a {
+            text-decoration: none;
+            color: $BaseColor;
+            @include Animtation(0.4s, linear, all);
+            padding: 10px 20px;
+            border-radius: 50px;
+
+            &:hover {
+                background-color: $BaseColor;
+                color: white;
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+@use '../../../helpers/functions' as *;
+
+.AddApp {
+    background-color: #d3e8df;
+    --bs-gutter-x: 0 !important;
+    padding: 30px 0;
+
+    label,
+    h1 {
+        color: $BaseColor;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .inputs {
+        width: 49%;
+
+        @include Breakpoints(small) {
+            width: 100%;
+        }
+
+        @include Breakpoints(mobile) {
+            width: 100%;
+        }
+    }
+
+    .Descs {
+        width: 100%;
+
+        span {
+            color: $BaseColor;
+            font-weight: bold;
+        }
+    }
+
+    input,
+    select,
+    textarea {
+        border-radius: 0;
+
+        &:focus {
+            border-color: $BaseColor;
+            box-shadow: none;
+        }
+    }
+
+    button {
+        background-color: $BaseColor;
+        color: white;
+        width: 250px;
+        padding: 10px 0px;
+        margin: auto;
+
+        &:hover {
+            background-color: $BaseColor;
+            color: white;
+        }
+    }
+}

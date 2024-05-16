@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import Loading from '../Loading/Loading';
+import AllIcon from '../../Assets/Images/earth-americas-solid.svg'
 
 export default function Filters() {
     const [Category, setCategory] = useState('All');
@@ -40,7 +41,6 @@ export default function Filters() {
         }
     })
 
-    console.log(TotalApps?.data.result);
 
     const FilterButtons = (Filter) => {
         setCategory(Filter);
@@ -158,15 +158,18 @@ export default function Filters() {
                     onClick={() => {
                         FilterButtons("All");
                         AppsFilters("All");
-                    }} className={Category === "All" ? 'btn mx-2 my-1 Active' : 'btn mx-2 my-1'}>
-                    All</button>
+                    }} className={Category === "All" ? 'btn mx-2 my-1 All Active' : 'All btn mx-2 my-1'}>
+                    {t("All")}</button>
                 {isLoading ? <Loading /> : GetCategories?.data.result.map(Cat =>
                     <button key={Cat._id} type="button"
                         onClick={() => {
                             FilterButtons(Cat.name.en);
                             AppsFilters(Cat.name.en);
-                        }} className={Category === Cat.name.en ? 'btn mx-2 my-1 Active' : 'btn mx-2 my-1'}>
-                        {GetCat(Cat, MainLanguage)}</button>)
+                        }} className={Category === Cat.name.en ?
+                            'btn mx-2 my-1 d-flex justify-content-center align-items-center column-gap 3 Active'
+                            : 'btn mx-2 my-1 d-flex justify-content-center align-items-center column-gap 3'}>
+                        <img alt='...' src={`http://localhost:3000/${Cat.Icon}`} />  {GetCat(Cat, MainLanguage)}</button>
+                )
                 }
             </div>
         </motion.section>

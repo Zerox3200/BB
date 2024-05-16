@@ -16,7 +16,7 @@ const resources = {
       'Price': 'Price',
       'AppStore': 'App Store',
       'Home': 'Home',
-      'ContactUs': 'Contact Us',
+      'ContactUs': 'Contact us',
       'ContactUSGreeting': 'Assalamu Alaykum',
       'ContactUSGreeting2': 'We would like to hear from you',
       'name': 'name',
@@ -54,7 +54,20 @@ const resources = {
       'Paid': 'Paid',
       'Search': 'Search',
       'appstore': 'App store',
-      "Details": "More Details"
+      "Details": "More Details",
+      "WhatsNew": "What's new",
+      "Appdescription": "App description",
+      "AppInfo": "App Info",
+      "AppArchitecture": "App Architecture",
+      "AppPackageName": "App Package Name",
+      "AppReleaseDate": "App Release Date",
+      "AppUbdateDate": "App Update Date",
+      "AppLanguage": "App language",
+      "AppRequired": "App Required",
+      "AppVersion": "App Version",
+      "AppSize": "App Size",
+      "GetItOn": "Get it on",
+      "GooglePlay": "google play"
     }
   },
   tr: {
@@ -109,7 +122,19 @@ const resources = {
       'Free': 'özgür',
       'Paid': 'paralı',
       'Search': 'Ara',
-      "Details": "Daha fazla detay"
+      "Details": "Daha fazla detay",
+      "WhatsNew": "Ne var ne yok",
+      "Appdescription": "Uygulama açıklaması",
+      "AppInfo": "Uygulama bilgisi",
+      "AppArchitecture": "Uygulama Mimarisi",
+      "AppPackageName": "Uygulama Paketi Adı",
+      "AppReleaseDate": "Uygulama Yayın Tarihi",
+      "AppUbdateDate": "Uygulama Güncelleme Tarihi",
+      "AppLanguage": "Uygulama dili",
+      "AppRequired": "Uygulama Gerekli",
+      "AppVersion": "Uygulama sürümü",
+      "AppSize": "Uygulama Boyutu",
+      "GetItOn": "Başla"
     }
   },
   ar: {
@@ -124,7 +149,7 @@ const resources = {
       'Price': `سعر`,
       'AppStore': 'متجر البرامج',
       'Home': 'الرئيسية',
-      'Contact': 'التواصل  معنا',
+      'ContactUs': 'التواصل  معنا',
       'ContactUSGreeting': 'السلام عليكم',
       'ContactUSGreeting2': 'نود أن نسمع منك',
       'name': 'أسم',
@@ -164,7 +189,19 @@ const resources = {
       'Paid': 'مدفوع',
       'Search': 'بحث',
       'appstore': 'متجر التطبيقات',
-      "Details": "المزيد من التفاصيل"
+      "Details": "المزيد من التفاصيل",
+      "WhatsNew": "ما الجديد",
+      "Appdescription": 'وصف التطبيق',
+      "AppInfo": "معلومات التطبيق",
+      "AppArchitecture": "هندسة التطبيق",
+      "AppPackageName": "أسم مجموعة التطبيق",
+      "AppReleaseDate": "تاريخ اصدار التطبيق",
+      "AppUbdateDate": "تاريخ تحديث التصدير",
+      "AppLanguage": "لغة التطبيق",
+      "AppRequired": "المطلوب للتشغيل",
+      "AppVersion": "نسخة التطبيق",
+      "AppSize": "حجم التطبيق",
+      "GetItOn": "التنزيل من"
     }
   },
   ur: {
@@ -220,7 +257,19 @@ const resources = {
       'Paid': 'ادائیگی',
       'Search': 'تلاش',
       'appstore': "ایپ اسٹور",
-      "Details": "مزید تفصیلات"
+      "Details": "مزید تفصیلات",
+      "WhatsNew": "نیا کیا ہے",
+      "Appdescription": 'ایپ کی تفصیل',
+      "AppInfo": "ایپ کی معلومات",
+      "AppArchitecture": "ایپ آرکیٹیکچر",
+      "AppPackageName": "ایپ پیکیج کا نام",
+      "AppReleaseDate": "ایپ کی ریلیز کی تاریخ",
+      "AppUbdateDate": "ایپ اپ ڈیٹ کی تاریخ",
+      "AppLanguage": "ایپ کی زبان",
+      "AppRequired": "ایپ درکار ہے۔",
+      "AppVersion": "ایپ ورژن",
+      "AppSize": "ایپ کا سائز",
+      "GetItOn": "ڈاؤن لوڈ"
     }
 
   }
