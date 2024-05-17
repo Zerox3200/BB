@@ -26,7 +26,6 @@ export default function Login() {
             password: values.password
         }).then((res) => {
             setloading(false);
-
             if (res.data.token) {
                 reactLocalStorage.set("token", res.data.token);
                 navigate("/DashApps2030")
