@@ -27,7 +27,7 @@ export default function Login() {
         }).then((res) => {
             setloading(false);
             reactLocalStorage.set("token", res.data.token);
-            navigate("/Dashboard2030")
+            navigate("/DashApps2030")
         }).catch((err) => {
             setError(err)
             setloading(false);
