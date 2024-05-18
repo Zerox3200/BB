@@ -36,8 +36,6 @@
     input,
     select,
     textarea {
-        border-radius: 0;
-
         &:focus {
             border-color: $BaseColor;
             box-shadow: none;

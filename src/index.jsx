@@ -12,7 +12,7 @@ import './i18n';
 import NavProvider from './Context/NavContext.jsx';
 import { Toaster } from 'react-hot-toast';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools'
+// import { ReactQueryDevtools } from 'react-query/devtools'
 import UserProvider from './Context/UserContext.jsx';
 
 let query = new QueryClient();

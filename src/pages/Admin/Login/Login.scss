@@ -4,6 +4,16 @@
     background-color: #d1e8df;
     @include Animtation(0.4s, linear, all);
     padding: 1px;
+    h1 {
+        text-align: center;
+    }
+    form {
+        background-color: white;
+        padding: 20px;
+        height: 300px;
+        border-radius: 50px;
+        box-shadow: 12px 12px 19px;
+    }
 
     .btn {
         width: 200px;
@@ -18,8 +28,6 @@
         font-weight: bold;
         font-size: 15px;
     }
-
-
 
     .login-main {
         width: 40%;

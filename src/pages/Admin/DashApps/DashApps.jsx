@@ -4,8 +4,10 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 
 export default function DashApps() {
     const { pathname } = useLocation();
+
     return <div className='AppControl'>
-        <nav className='d-flex flex-wrap justify-content-evenly align-items-center'>
+
+        <nav className='d-flex flex-wrap justify-content-evenly align-items-center py-1'>
             <Link to='' className={pathname === "/DashApps2030" ? "Active" : ""}>Add App</Link>
             <Link to='DeleteApp' className={pathname === "/DashApps2030/DeleteApp" ? "Active" : ""}>
                 Delete App

@@ -54,6 +54,7 @@ export default function Login() {
                     {/* {apiError && <div className="alert alert-danger">{apiError}</div>} */}
 
                     <label htmlFor="email" className='form-label mt-3'>Email</label>
+
                     <input className='form-control' placeholder='Email' onBlur={formik.handleBlur}
                         onChange={formik.handleChange} type="email" name='email' id='email' />
                     {formik.errors.email && formik.touched.email &&
@@ -64,11 +65,12 @@ export default function Login() {
                         onChange={formik.handleChange} type="password" name='password' id='password' />
                     {formik.errors.password && formik.touched.password &&
                         <div className="alert alert-danger py-2 mt-2">{formik.errors.password}</div>}
+                    
 
                     {loading ? <button type='button' className='btn bg-main text-light mt-2'>
                         <i className='fas fa-spinner fa-spin '></i>
                     </button> : <button type='submit'
-                        disabled={!(formik.isValid && formik.dirty)} className='btn bg-main text-light mt-2'>Login</button>}
+                        disabled={!(formik.isValid && formik.dirty)} className='btn  bg-main text-light mt-2'>Login</button>}
                     {Error &&
                         <div className="alert alert-danger py-2 mt-2">{Error}</div>}
                 </form>

@@ -108,13 +108,14 @@ export default function AddApp() {
 
     return <form className='AddApp container mt-4 m-auto row justify-content-between' onSubmit={Formik.handleSubmit}>
         <div className="mb-3 inputs d-flex flex-column">
-            <label htmlFor="Appname">App Name</label>
+            <label className='form-label' htmlFor="Appname">App Name</label>
             <input type="text" placeholder='App name' className="form-control mt-1"
                 onChange={Formik.handleChange} onBlur={Formik.handleBlur}
                 id="Appname" name='name' aria-describedby="emailHelp" />
             {Formik.errors.name && Formik.touched.name &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.name}</div>}
         </div>
+
         <div className="mb-3 inputs d-flex flex-column">
             <label htmlFor="AppCat">App Category</label>
             <select className="form-select mt-1" id='AppCat' aria-label="Default select example" name='appcat'
@@ -124,6 +125,7 @@ export default function AddApp() {
                 <option value="Mosque">Mosque</option>
             </select>
         </div>
+
         <div className="mb-3 Descs d-flex flex-column">
             <label htmlFor="AppDesc">App Description</label>
             <textarea className="form-control" placeholder="Descirption" name='description'
@@ -132,6 +134,7 @@ export default function AddApp() {
             {Formik.errors.description && Formik.touched.description &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.description}</div>}
         </div>
+
         <div className="mb-3 inputs d-flex flex-column">
             <label htmlFor="AppLink">App Link</label>
             <input type="text" placeholder='Store Link' className="form-control mt-1"
@@ -139,6 +142,7 @@ export default function AddApp() {
             {Formik.errors.applink && Formik.touched.applink &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.applink}</div>}
         </div>
+
         <div className="mb-3 inputs d-flex flex-column">
             <label htmlFor="AppSize">App Size</label>
             <input type="text" placeholder='Size' className="form-control mt-1"
@@ -148,6 +152,7 @@ export default function AddApp() {
             {Formik.errors.size && Formik.touched.size &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.size}</div>}
         </div>
+
         <div className="mb-3 Descs d-flex flex-column">
             <label htmlFor="Appname">App News</label>
             <span id="emailHelp" className="form-text">please add [-] before every new like this - new one , - new two , etc</span>
@@ -159,6 +164,7 @@ export default function AddApp() {
         </div>
 
         <h1 className='h3'>App Info</h1>
+
         <div className="mb-3 inputs d-flex flex-column">
             <label htmlFor="AppLanguage">App Language</label>
             <input type="text" placeholder='Language' className="form-control mt-1"
@@ -168,6 +174,7 @@ export default function AddApp() {
             {Formik.errors.applanguage && Formik.touched.applanguage &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.applanguage}</div>}
         </div>
+
         <div className="mb-3 inputs d-flex flex-column">
             <label htmlFor="AppVersion">App Version</label>
             <input type="text" placeholder='Version' className="form-control mt-1"
@@ -176,6 +183,7 @@ export default function AddApp() {
             {Formik.errors.appversion && Formik.touched.appversion &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.appversion}</div>}
         </div>
+
         <div className="mb-3 inputs d-flex flex-column">
             <label htmlFor="AppRequired">App Required</label>
             <input type="text" placeholder='Required' className="form-control mt-1"
@@ -185,6 +193,7 @@ export default function AddApp() {
             {Formik.errors.apprequired && Formik.touched.apprequired &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.apprequired}</div>}
         </div>
+
         <div className="mb-3 inputs d-flex flex-column">
             <label htmlFor="AppUpdateDate">App Update Date</label>
             <input type="date" className="form-control mt-1"
@@ -194,6 +203,7 @@ export default function AddApp() {
             {Formik.errors.appUbdateDate && Formik.touched.appUbdateDate &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.appUbdateDate}</div>}
         </div>
+
         <div className="mb-3 inputs d-flex flex-column">
             <label htmlFor="AppReleaseDate">App Release Date</label>
             <input type="date" className="form-control mt-1"
@@ -203,6 +213,7 @@ export default function AddApp() {
             {Formik.errors.appReleaseDate && Formik.touched.appReleaseDate &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.appReleaseDate}</div>}
         </div>
+
         <div className="mb-3 inputs d-flex flex-column">
             <label htmlFor="AppArchitecture">App Architecture</label>
             <input type="text" placeholder='Architecture' className="form-control mt-1"
@@ -212,6 +223,7 @@ export default function AddApp() {
             {Formik.errors.appArchitecture && Formik.touched.appArchitecture &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.appArchitecture}</div>}
         </div>
+
         <div className="mb-3 inputs d-flex flex-column">
             <label htmlFor="AppPackageName">App Package Name</label>
             <input type="text" placeholder='Package Name' className="form-control mt-1"
@@ -230,6 +242,7 @@ export default function AddApp() {
             {Formik.errors.appicon && Formik.touched.appicon &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.appicon}</div>}
         </div>
+
         <div className="mb-3 inputs d-flex flex-column">
             <label htmlFor="AppCover">App Cover</label>
             <input type="file" className="form-control" id="AppCover" name='appcover'
@@ -238,6 +251,7 @@ export default function AddApp() {
             {Formik.errors.appcover && Formik.touched.appcover &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.appcover}</div>}
         </div>
+
         <div className="mb-3 Descs d-flex flex-column">
             <label htmlFor="AppSlider">App Slider</label>
             <input type="file" className="form-control" id="AppSlider" name='appslider' multiple
@@ -246,6 +260,7 @@ export default function AddApp() {
             {Formik.errors.appslider && Formik.touched.appslider &&
                 <div className="alert alert-danger py-2 mt-2">{Formik.errors.appslider}</div>}
         </div>
+
         <div className="mb-3 form-check">
             <input type="checkbox" name='paid' className="form-check-input" id="Free"
                 checked={Formik.values.paid} onChange={Formik.handleChange} onBlur={Formik.handleBlur} />
@@ -254,6 +269,7 @@ export default function AddApp() {
 
         {loading ? <button type='button' className='btn bg-main text-light mt-2'>
             <i className='fas fa-spinner fa-spin '></i>
-        </button> : <button type='submit' className='btn bg-main text-light mt-2'>Upload App</button>}    </form>
+        </button> : <button type='submit' className='btn bg-main text-light mt-2'>Upload App</button>}
+    </form>
 
 }
