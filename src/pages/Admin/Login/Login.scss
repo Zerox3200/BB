@@ -4,15 +4,25 @@
     background-color: #d1e8df;
     @include Animtation(0.4s, linear, all);
     padding: 1px;
+
     h1 {
         text-align: center;
     }
+
     form {
         background-color: white;
-        padding: 20px;
-        height: 300px;
+        padding: 31px;
+        height: 323px;
         border-radius: 50px;
         box-shadow: 12px 12px 19px;
+
+        @include Breakpoints(medium) {
+            width: 80%;
+        }
+
+        @include Breakpoints(mobile) {
+            width: 100%;
+        }
     }
 
     .btn {

@@ -37,7 +37,7 @@ function App() {
         { index: true, element: <Home /> },
         { path: "Apps", element: <Suspense fallback={<Loading />}><AppsFilter /> </Suspense> },
         { path: "Contactus", element: <Suspense fallback={<Loading />}><Contactus /> </Suspense> },
-        { path: "/:AppId", element: <Suspense fallback={<Loading />}><Productsinfo /> </Suspense> },
+        { path: "AppInfo/:AppId", element: <Suspense fallback={<Loading />}><Productsinfo /> </Suspense> },
         { path: "Policy", element: <Suspense fallback={<Loading />}><Policy /> </Suspense> },
       ]
     }, {

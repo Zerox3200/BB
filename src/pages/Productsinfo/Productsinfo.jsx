@@ -166,35 +166,35 @@ export default function Productsinfo() {
                         <h2>{t("AppInfo")}</h2>
                         <div>
                             <span>{t("AppArchitecture")}: </span>
-                            <span className='fw-bold'>{appinfo[0].appArchitecture}</span>
+                            <span className='fw-bold'>{appinfo.appArchitecture}</span>
                         </div>
                         <div>
                             <span>{t("AppPackageName")}: </span>
-                            <span className='fw-bold'>{appinfo[0].appPackageName}</span>
+                            <span className='fw-bold'>{appinfo.appPackageName}</span>
                         </div>
                         <div>
                             <span>{t("AppReleaseDate")}: </span>
-                            <span className='fw-bold'>{appinfo[0].appReleaseDate}</span>
+                            <span className='fw-bold'>{appinfo.appReleaseDate}</span>
                         </div>
                         <div>
                             <span>{t("AppUbdateDate")}: </span>
-                            <span className='fw-bold'>{appinfo[0].appUbdateDate}</span>
+                            <span className='fw-bold'>{appinfo.appUbdateDate}</span>
                         </div>
                         <div>
                             <span>{t("AppLanguage")}: </span>
-                            <span className='fw-bold'>{appinfo[0].applanguage}</span>
+                            <span className='fw-bold'>{appinfo.applanguage}</span>
                         </div>
                         <div>
                             <span>{t("AppRequired")}: </span>
-                            <span className='fw-bold'>{appinfo[0].apprequired}</span>
+                            <span className='fw-bold'>{appinfo.apprequired}</span>
                         </div>
                         <div>
                             <span>{t("AppVersion")}: </span>
-                            <span className='fw-bold'>{appinfo[0].appversion}</span>
+                            <span className='fw-bold'>{appinfo.appversion}</span>
                         </div>
                         <div>
                             <span>{t("AppSize")}: </span>
-                            <span className='fw-bold'>{appinfo[0].appsize}</span>
+                            <span className='fw-bold'>{appinfo.appsize}</span>
                         </div>
                     </div>
                 </motion.div>
@@ -212,7 +212,8 @@ export default function Productsinfo() {
                     <div className="Intro_Apps_inside d-flex flex-column align-items-center" >
 
                         <div className="col-12 d-flex flex-column  px-2 pe-5">
-                            <h3 className={MainLanguage === 'ar' || MainLanguage === 'ur' ? 'col-12 ps-4 font-color Right' : 'col-12  ps-4  font-color my-2'} >{t("you")}</h3>
+                            <h3 className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
+                                'col-12 ps-4 font-color Right' : 'col-12  ps-4  font-color my-2'} >{t("relatedappsinfo")}</h3>
 
                             <Link to='/Apps' className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
                                 'd-flex justify-content-start align-items-center mb-3 fs-5 align-self-start Right' :

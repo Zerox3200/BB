@@ -1,4 +1,5 @@
 @use "../../../helpers/functions" as *;
+
 .admin-apps {
     .app {
         width: 70%;
@@ -10,6 +11,7 @@
         box-shadow: 9px 10px 12px $BaseColor;
         padding: 20px 0px;
     }
+
     .appicon {
         img {
             width: 100px;
@@ -17,9 +19,11 @@
             border: 2px dotted $BaseColor;
         }
     }
+
     .deletespan {
         color: red;
         font-size: 40px;
         text-align: end;
+        cursor: pointer;
     }
 }

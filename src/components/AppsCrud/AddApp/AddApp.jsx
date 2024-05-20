@@ -1,32 +1,59 @@
 import React, { useState } from 'react'
 import './AddApp.scss';
 import { useFormik } from 'formik';
-// import axios from 'axios';
+import axios from 'axios';
 import * as Yup from 'yup'
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 export default function AddApp() {
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     const UploadApp = async (values) => {
         setLoading(true);
-        console.log(values);
+        const formData = new FormData();
+        formData.append('name[0][language]', 'en');
+        formData.append('name[0][value]', values.name);
+        formData.append('description[0][language]', 'en');
+        formData.append('description[0][value]', values.description);
+
+        for (let i = 0; i < values.news.length; i++) {
+            formData.append(`news[en][${i}]`, values.news[i]);
+        }
+
+        formData.append('appinfo[applanguage]', values.applanguage);
+        formData.append('appinfo[appsize]', values.size);
+        formData.append('appinfo[appversion]', values.appversion);
+        formData.append('appinfo[apprequired]', values.apprequired);
+        formData.append('appinfo[appUbdateDate]', values.appUbdateDate);
+        formData.append('appinfo[appReleaseDate]', values.appReleaseDate);
+        formData.append('appinfo[appArchitecture]', values.appArchitecture);
+        formData.append('appinfo[appPackageName]', values.appPackageName);
+        formData.append('appcat[en]', values.appcat);
+        formData.append('applink', values.applink);
+        formData.append('size', values.size);
+        formData.append('paid', values.paid);
+
+        if (values.appicon) {
+            formData.append('appicon', values.appicon);
+        }
+        if (values.appcover) {
+            formData.append('appcover', values.appcover);
+        }
+        if (values.appslider && values.appslider.length > 0) {
+            values.appslider.forEach((image) => {
+                formData.append('appslider', image);
+            });
+        }
+
+        await axios.post("http://localhost:3000/app/uploadapp", formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                token: reactLocalStorage.get("token")
+            }
+        })
+
         setLoading(false);
-        // await axios.post("http://localhost:3000/app/uploadapp", {
-        //     name: [{
-        //         value: values.name,
-        //         language: "en"
-        //     }],
-        //     description: [{
-        //         value: values.description,
-        //         language: "en"
-        //     }],
-        //     paid: values.paid,
-        //     news: {
-        //         en: [values.news]
-        //     },
-        //     appicon: values.appicon
-        // })
-    }
+    };
 
     const Validation = Yup.object({
         name: Yup.string().required("Name is required"),
@@ -35,7 +62,7 @@ export default function AddApp() {
         applink: Yup.string().matches(/(?:https?|ftp):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?/, "Please Add Link")
             .required("Link is required"),
         size: Yup.string().required("App Size is required"),
-        news: Yup.array().required("News is required"),
+        news: Yup.array().min(1, "You should atleast add one new").required("News is required"),
 
         appicon: Yup.mixed()
             .test("File_Type", "Invalid!!", (value) => value && ['image/png', 'image/jpeg', 'image/jpg'].includes(value.type))
@@ -91,6 +118,7 @@ export default function AddApp() {
 
     const HandleCoverImage = (event) => {
         const CoverImage = event.target.files[0];
+        // const ImageCoverForm = new FormData();
         Formik.setFieldValue("appcover", CoverImage)
     }
 
@@ -156,7 +184,7 @@ export default function AddApp() {
         <div className="mb-3 Descs d-flex flex-column">
             <label htmlFor="Appname">App News</label>
             <span id="emailHelp" className="form-text">please add [-] before every new like this - new one , - new two , etc</span>
-            <textarea className="form-control" placeholder="News" onChange={HandleNews}
+            <textarea className="form-control" placeholder="News" onChange={HandleNews} onBlur={Formik.handleBlur}
                 id="AppNews" rows='10' name='news' />
 
             {Formik.errors.news && Formik.touched.news &&

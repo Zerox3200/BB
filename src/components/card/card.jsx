@@ -17,7 +17,7 @@ export default function AppCard({ Free, Title, Desc, Cover, Icon, AppId, IdHandl
     return <motion.div onClick={() => Turn && IdHandler()} className={MainLanguage === 'ar' || MainLanguage === 'ur' ? "card p-0 Right" : "card p-0"}
         animate={{ opacity: 1 }} exit={{ opacity: 0 }}
         transition={{ duration: 0.5, type: "spring" }}>
-        <Link to={`/${AppId}`}>
+        <Link to={`/AppInfo/${AppId}`}>
             <img src={`http://localhost:3000/${Cover}`}
                 className="card-img-top mx-auto"
                 alt="..." />
@@ -26,7 +26,7 @@ export default function AppCard({ Free, Title, Desc, Cover, Icon, AppId, IdHandl
 
             <img src={`http://localhost:3000/${Icon}`} alt="..." loading='lazy' className='col-md-4' />
 
-            <Link to={`/${AppId}`} className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
+            <Link to={`/AppInfo/${AppId}`} className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
                 'fw-bold Details RightPos' : "fw-bold Details LeftPos"}>{t("Details")}</Link>
 
 
