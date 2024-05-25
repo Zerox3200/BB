@@ -72,8 +72,8 @@ function App() {
       ]
     }
   ]);
-  const MainLanguage = reactLocalStorage.get("lan");
 
+  const MainLanguage = reactLocalStorage.get("lan");
   useEffect(() => {
     if (MainLanguage) {
       i18n.changeLanguage(MainLanguage.toLowerCase());

@@ -75,8 +75,8 @@ export default function AddApp() {
         appslider: Yup.array().required("App Slider is required").of(
             Yup.mixed()
                 .test("File_Type", "Invalid!!", (value) => value && ['image/png', 'image/jpeg', 'image/jpg'].includes(value.type))
-                .test("File_Size", "Image size should be less than 200 KB \n", (value) => value && value.size <= 200 * 1024)
-        ),
+                .test("File_Size", "Image size should be less than 200 KB \n", (value) => value && value.size <= 200 * 1024)),
+
         applanguage: Yup.string().required("App Language is required"),
         appversion: Yup.string().required("App Version is required"),
         apprequired: Yup.string().required("App Required is required"),
@@ -297,7 +297,7 @@ export default function AddApp() {
 
         {loading ? <button type='button' className='btn bg-main text-light mt-2'>
             <i className='fas fa-spinner fa-spin '></i>
-        </button> : <button type='submit' className='btn bg-main text-light mt-2'>Upload App</button>}
+        </button> : <button type='submit' disabled={!(Formik.isValid && Formik.dirty)} className='btn bg-main text-light mt-2'>Upload App</button>}
     </form>
 
 }

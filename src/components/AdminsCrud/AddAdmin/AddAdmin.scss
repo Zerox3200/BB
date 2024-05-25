@@ -1,0 +1,26 @@
+@use "../../../helpers/functions" as *;
+.mainadd {
+    background-color: #d1e8df;
+    margin-left: 150px;
+    width: 90%;
+    padding: 10px;
+
+    form {
+        h1 {
+            margin-left: 30% !important;
+        }
+        input {
+            border: 2px solid #ccc;
+            font-size: 16px;
+            &:focus {
+                border-color: $BaseColor;
+                box-shadow: 0 0 5px $BaseColor;
+                outline: none;
+            }
+        }
+        button {
+            padding: 10xp;
+            width: 100px;
+        }
+    }
+}

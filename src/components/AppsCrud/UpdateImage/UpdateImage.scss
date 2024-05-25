@@ -1,0 +1,88 @@
+@use "../../../helpers/functions" as *;
+
+.admin-apps {
+    .app {
+        width: 70%;
+        margin: 40px auto 15px auto;
+        background-color: white;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        box-shadow: 9px 10px 12px $BaseColor;
+        padding: 20px 0px;
+
+        @include Breakpoints(mobile) {
+            text-align: center;
+        }
+    }
+
+    .appicon {
+        @include Breakpoints(mobile) {
+            text-align: center;
+        }
+        img {
+            width: 100px;
+            border-radius: 20px;
+            border: 2px dotted $BaseColor;
+        }
+    }
+
+    .actions {
+        span {
+            border-radius: 5px;
+            background-color: $BaseColor;
+            margin-top: 20px;
+            margin-left: 10px;
+            padding-top: 4px;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+}
+.popup {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.132);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    .form {
+        position: absolute;
+        transform: translate(50%, 50%);
+        background-color: white;
+        width: 50%;
+        height: 50%;
+        border-radius: 50px;
+        text-align: center;
+        padding: 20px;
+        z-index: 9999;
+        input {
+            border: 2px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+            &:focus {
+                border-color: $BaseColor;
+                box-shadow: 0 0 5px $BaseColor;
+                outline: none;
+            }
+        }
+        svg {
+            position: relative;
+            right: -47%;
+            font-size: 25px;
+            color: $BaseColor;
+        }
+        label {
+            color: $BaseColor;
+            margin-bottom: 5px;
+        }
+        button {
+            margin-top: 3px;
+            color: white;
+            background-color: $BaseColor;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    }
+}
