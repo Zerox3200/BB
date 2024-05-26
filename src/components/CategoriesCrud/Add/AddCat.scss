@@ -1,0 +1,53 @@
+@use '../../../helpers/functions' as *;
+
+.CatForm {
+    margin: auto;
+    width: 900px;
+
+    @include Breakpoints(medium) {
+        width: 80%;
+    }
+
+    @include Breakpoints(small) {
+        width: 90%;
+    }
+
+    @include Breakpoints(mobile) {
+        width: 90%;
+    }
+
+    input {
+        border: 2px solid #ccc;
+        font-size: 16px;
+        width: 700px;
+        @include Animtation(0.2s, linear, all);
+
+        @include Breakpoints(mobile) {
+            width: 100%;
+        }
+
+        &:focus {
+            border-color: $BaseColor;
+            box-shadow: 0 0 5px $BaseColor;
+            outline: none;
+        }
+    }
+
+    .alert {
+        width: 700px;
+
+        @include Breakpoints(mobile) {
+            width: 100%;
+        }
+    }
+
+    button {
+        padding: 7px;
+        width: 150px;
+        @include Animtation(0.2s, linear, all);
+
+        &:hover {
+            background-color: rgba($BaseColor, 0.9) !important;
+        }
+    }
+}

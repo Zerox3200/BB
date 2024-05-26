@@ -1,4 +1,5 @@
 @use "../../../helpers/functions" as *;
+
 .mainadd {
     background-color: #d1e8df;
     margin-left: 150px;
@@ -9,18 +10,26 @@
         h1 {
             margin-left: 30% !important;
         }
+
         input {
             border: 2px solid #ccc;
             font-size: 16px;
+
             &:focus {
                 border-color: $BaseColor;
                 box-shadow: 0 0 5px $BaseColor;
                 outline: none;
             }
         }
+
         button {
-            padding: 10xp;
+            padding: 10px;
             width: 100px;
+            @include Animtation(0.2s, linear, all);
+
+            &:hover {
+                background-color: rgba($BaseColor, 0.9) !important;
+            }
         }
     }
 }

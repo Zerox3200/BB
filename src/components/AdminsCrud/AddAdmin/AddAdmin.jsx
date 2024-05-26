@@ -68,11 +68,11 @@ export default function AddAdmin() {
                 {Formik.errors.confirmpassword && Formik.touched.confirmpassword && <div className="alert alert-danger py-2 mt-2">{Formik.errors.confirmpassword}</div>}
 
 
-                {loading ? <button type='button' className='btn bg-main text-light mt-2'>
+                {loading ? <button type='button' className='btn bg-main text-light mt-3'>
                     <i className='fas fa-spinner fa-spin '></i>
                 </button>
                     : <button type='submit'
-                        disabled={!(Formik.isValid && Formik.dirty)} className='btn  bg-main text-light mt-2'>Add</button>}
+                        disabled={!(Formik.isValid && Formik.dirty)} className='btn  bg-main text-light mt-3'>Add</button>}
                 {Error && <div className="alert alert-danger py-2 mt-2">{Error}</div>}
 
             </form>

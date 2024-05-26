@@ -17,14 +17,21 @@ const Productsinfo = lazy(() => import("./pages/Productsinfo/Productsinfo.jsx"))
 const AppsFilter = lazy(() => import("./pages/AppsFilters/AppsFilter"));
 const AdminLogin = lazy(() => import('./pages/Admin/Login/Login.jsx'));
 const Policy = lazy(() => import("./pages/Policy/Policy.jsx"));
+
 const DashApps = lazy(() => import("./pages/Admin/DashApps/DashApps.jsx"));
 const DeleteApp = lazy(() => import("./components/AppsCrud/DeleteApp/DeleteApp.jsx"));
 const AddApp = lazy(() => import("./components/AppsCrud/AddApp/AddApp.jsx"));
 const UpdateImage = lazy(() => import("./components/AppsCrud/UpdateImage/UpdateImage.jsx"));
 const UpdateApp = lazy(() => import("./components/AppsCrud/UpdateImage/UpdateImage.jsx"));
+
 const DashAdmins = lazy(() => import("./pages/Admin/DashAdmins/DashAdmins.jsx"));
 const AddAdmin = lazy(() => import("./components/AdminsCrud/AddAdmin/AddAdmin.jsx"));
 const DeleteAdmin = lazy(() => import("./components/AdminsCrud/DeleteAdmin/DeleteAdmin.jsx"));
+
+const Categories = lazy(() => import('./pages/Admin/Categories/Categories.jsx'));
+const AddCat = lazy(() => import("./components/CategoriesCrud/Add/AddCat.jsx"));
+const DeleteCat = lazy(() => import("./components/CategoriesCrud/Delete/DeleteCat.jsx"));
+const UpdateCat = lazy(() => import("./components/CategoriesCrud/Update/UpdateCat.jsx"));
 
 function App() {
 
@@ -67,6 +74,20 @@ function App() {
           children: [
             { index: true, element: <Suspense fallback={<Loading />}><AddAdmin /> </Suspense> },
             { path: "DeleteAdmin", element: <Suspense fallback={<Loading />}><DeleteAdmin /> </Suspense> }
+          ]
+        },
+        {
+          path: "Categories", element: <Suspense fallback={<Loading />}><Categories /></Suspense>,
+          children: [
+            {
+              index: true, element: <Suspense fallback={<Loading />}><AddCat /></Suspense>
+            },
+            {
+              path: "DeleteCategories", element: <Suspense fallback={<Loading />}><DeleteCat /></Suspense>
+            },
+            {
+              path: "UpdateCategories", element: <Suspense fallback={<Loading />}><UpdateCat /></Suspense>
+            }
           ]
         }
       ]

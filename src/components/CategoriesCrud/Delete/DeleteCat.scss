@@ -1,0 +1,33 @@
+@use '../../../helpers/functions' as *;
+
+.DelForm {
+    margin: auto;
+    width: 900px;
+
+    @include Breakpoints(medium) {
+        width: 80%;
+    }
+
+    @include Breakpoints(small) {
+        width: 90%;
+    }
+
+    @include Breakpoints(mobile) {
+        width: 90%;
+    }
+
+    .card {
+        background-color: white !important;
+        width: 100% !important;
+
+        img {
+            width: 70px;
+            height: 70px;
+        }
+
+        button {
+            color: white;
+            width: 100px;
+        }
+    }
+}

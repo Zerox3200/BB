@@ -6,6 +6,7 @@ import { MdApps } from "react-icons/md";
 import { BsPersonFill } from "react-icons/bs";
 import { TbLogout2 } from "react-icons/tb";
 import axios from 'axios';
+import { BiSolidCategoryAlt } from "react-icons/bi";
 
 export default function DashSideNav() {
     const { pathname } = useLocation();
@@ -32,6 +33,10 @@ export default function DashSideNav() {
                     </li>
                     <li>
                         <Link to='/Admins' className='d-flex align-items-center column-gap-2'><BsPersonFill />Admins</Link>
+                    </li>
+                    <li>
+                        <Link to='/Categories' className='d-flex align-items-center column-gap-2'>
+                            <BiSolidCategoryAlt />Categories</Link>
                     </li>
                 </ul>
 

@@ -6,6 +6,7 @@ import Loading from '../../Loading/Loading';
 import { useFormik } from 'formik';
 import { RiCloseCircleLine } from "react-icons/ri";
 import * as Yup from 'yup'
+import { motion } from 'framer-motion';
 
 export default function Updateimage() {
 
@@ -158,8 +159,10 @@ export default function Updateimage() {
 
                                 </div>
                                 {updatecover ?
-                                    <div className="popup">
-                                        <div className="form">
+                                    <motion.div className="popup" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.8, type: 'spring' }}>
+                                        <motion.div className="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                                            transition={{ duration: 1, type: 'spring' }}>
                                             <div onClick={handleclose} className="close">
                                                 <RiCloseCircleLine />
                                             </div>
@@ -169,13 +172,15 @@ export default function Updateimage() {
 
                                                 <input type="hidden" name="Appid" value={Formik.values.id = Userid} id='Appid' />
 
-                                                <button type='submit'>Submit</button>
+                                                <button className='btn' type='submit'>Submit</button>
                                             </form>
-                                        </div>
-                                    </div >
+                                        </motion.div>
+                                    </motion.div >
                                     : updateicon ?
-                                        <div className="popup">
-                                            <div className="form">
+                                        <motion.div className="popup" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                                            transition={{ duration: 0.8, type: 'spring' }}>
+                                            <motion.div className="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                                                transition={{ duration: 1, type: 'spring' }}>
                                                 <div onClick={handleclose} className="close">
                                                     <RiCloseCircleLine />
                                                 </div>
@@ -185,13 +190,15 @@ export default function Updateimage() {
 
                                                     <input type="hidden" name="Appid" value={Formik.values.id = Userid} id='Appid' />
 
-                                                    <button type='submit'>Submit</button>
+                                                    <button className='btn' type='submit'>Submit</button>
                                                 </form>
-                                            </div>
-                                        </div >
+                                            </motion.div>
+                                        </motion.div >
                                         : updateslider ?
-                                            <div className="popup">
-                                                <div className="form">
+                                            <motion.div className="popup" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                                                transition={{ duration: 0.8, type: 'spring' }}>
+                                                <motion.div className="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                                                    transition={{ duration: 1, type: 'spring' }}>
                                                     <div onClick={handleclose} className="close">
                                                         <RiCloseCircleLine />
                                                     </div>
@@ -201,10 +208,10 @@ export default function Updateimage() {
 
                                                         <input type="hidden" name="Appid" value={Formik.values.id = Userid} id='Appid' />
 
-                                                        <button type='submit' >Submit</button>
+                                                        <button className='btn' type='submit' >Submit</button>
                                                     </form>
-                                                </div>
-                                            </div >
+                                                </motion.div>
+                                            </motion.div >
                                             : ''}
                             </div>
 
