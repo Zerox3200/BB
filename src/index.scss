@@ -9,7 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   &::-webkit-scrollbar {
-    width: 14px;
+    width: 12px;
   }
 
   /* Track */
@@ -20,6 +20,7 @@ body {
   /* Handle */
   &::-webkit-scrollbar-thumb {
     background: $BaseColor;
+    border-radius: 20px;
   }
 }
 
