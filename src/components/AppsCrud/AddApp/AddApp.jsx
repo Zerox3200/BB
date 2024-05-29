@@ -5,11 +5,14 @@ import axios from 'axios';
 import * as Yup from 'yup'
 import { reactLocalStorage } from 'reactjs-localstorage';
 import { useQuery } from 'react-query';
+import toast from 'react-hot-toast';
+import SubmitToast from '../../SubmitToast/SubmitToast';
 
 export default function AddApp() {
     const [loading, setLoading] = useState(false);
 
     const UploadApp = async (values) => {
+        console.log(values.appcat);
         setLoading(true);
         const formData = new FormData();
         formData.append('name[0][language]', 'en');
@@ -51,7 +54,7 @@ export default function AddApp() {
                 'Content-Type': 'multipart/form-data',
                 token: reactLocalStorage.get("token")
             }
-        })
+        }).then(() => toast(<SubmitToast Message='Upload Application Successfully' />))
 
         setLoading(false);
     };
@@ -91,7 +94,7 @@ export default function AddApp() {
     const Formik = useFormik({
         initialValues: {
             name: "",
-            appcat: "pilgrimage",
+            appcat: "",
             description: "",
             applink: "",
             size: "",
@@ -138,7 +141,10 @@ export default function AddApp() {
     }
 
     const { data: Categories } = useQuery("Get Categories", GetAllCats, {
-        cacheTime: 3000000
+        cacheTime: 3000000,
+        onSettled: (data) => {
+            Formik.setFieldValue("appcat", data.data?.result[0]?.name?.en)
+        }
     })
 
 
@@ -159,7 +165,7 @@ export default function AddApp() {
                 onChange={Formik.handleChange} onBlur={Formik.handleBlur}>
                 {Categories?.data?.result?.length === 0 ?
                     <option>Not Found</option> : Categories?.data?.result?.map((Category, index) =>
-                        <option value={Category.name.en} key={index}>{Category.name.en}</option>)}
+                        <option defaultChecked={index === 0 ? true : false} value={Category.name.en} key={index}>{Category.name.en}</option>)}
             </select>
         </div>
 

@@ -36,7 +36,7 @@ const UpdateCat = lazy(() => import("./components/CategoriesCrud/Update/UpdateCa
 function App() {
 
   const { i18n } = useTranslation();
-  const { setUserInformation, UserInformation } = useContext(UserContext);
+  const { setUserInformation } = useContext(UserContext);
 
   const routers = createHashRouter([
     {
@@ -110,7 +110,6 @@ function App() {
   useEffect(() => {
     if (token) {
       setUserInformation(jwtDecode(token));
-      console.log(UserInformation);
     }
   }, [token, setUserInformation])
 
