@@ -36,7 +36,7 @@ const UpdateCat = lazy(() => import("./components/CategoriesCrud/Update/UpdateCa
 function App() {
 
   const { i18n } = useTranslation();
-  const { setUserInformation } = useContext(UserContext);
+  const { setUserInformation, UserInformation } = useContext(UserContext);
 
   const routers = createHashRouter([
     {
@@ -70,23 +70,27 @@ function App() {
           }]
         },
         {
-          path: "Admins", element: <Suspense fallback={<Loading />}><DashAdmins /> </Suspense>,
+          path: "Admins", element: <Protector><Suspense fallback={<Loading />}><DashAdmins /> </Suspense></Protector>,
           children: [
-            { index: true, element: <Suspense fallback={<Loading />}><AddAdmin /> </Suspense> },
-            { path: "DeleteAdmin", element: <Suspense fallback={<Loading />}><DeleteAdmin /> </Suspense> }
+            {
+              index: true, element: <Protector><Suspense fallback={<Loading />}><AddAdmin /> </Suspense></Protector>
+            },
+            {
+              path: "DeleteAdmin", element: <Protector><Suspense fallback={<Loading />}><DeleteAdmin /> </Suspense></Protector>
+            }
           ]
         },
         {
-          path: "Categories", element: <Suspense fallback={<Loading />}><Categories /></Suspense>,
+          path: "Categories", element: <Protector><Suspense fallback={<Loading />}><Categories /></Suspense></Protector>,
           children: [
             {
-              index: true, element: <Suspense fallback={<Loading />}><AddCat /></Suspense>
+              index: true, element: <Protector><Suspense fallback={<Loading />}><AddCat /></Suspense></Protector>
             },
             {
-              path: "DeleteCategories", element: <Suspense fallback={<Loading />}><DeleteCat /></Suspense>
+              path: "DeleteCategories", element: <Protector><Suspense fallback={<Loading />}><DeleteCat /></Suspense></Protector>
             },
             {
-              path: "UpdateCategories", element: <Suspense fallback={<Loading />}><UpdateCat /></Suspense>
+              path: "UpdateCategories", element: <Protector><Suspense fallback={<Loading />}><UpdateCat /></Suspense></Protector>
             }
           ]
         }
@@ -104,7 +108,10 @@ function App() {
   const token = reactLocalStorage.get("token");
 
   useEffect(() => {
-    if (token) setUserInformation(jwtDecode(token));
+    if (token) {
+      setUserInformation(jwtDecode(token));
+      console.log(UserInformation);
+    }
   }, [token, setUserInformation])
 
   return <>

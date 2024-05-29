@@ -27,6 +27,7 @@ export default function Name({ HandleShow, ID, refetch }) {
         ).then((res) => {
             setLoadingButton(false);
             refetch();
+            HandleShow();
         }).catch((err) => {
             console.log(err);
         })

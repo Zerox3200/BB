@@ -44,6 +44,7 @@ export default function Info({ HandleShow, ID, refetch, DefultLanguage,
         ).then((res) => {
             setLoadingButton(false);
             refetch();
+            HandleShow();
         }).catch((err) => {
             console.log(err);
         })

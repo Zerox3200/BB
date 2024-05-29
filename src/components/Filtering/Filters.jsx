@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import Loading from '../Loading/Loading';
-import AllIcon from '../../Assets/Images/earth-americas-solid.svg'
+import Empty from '../Empty/Empty';
 
 export default function Filters() {
     const [Category, setCategory] = useState('All');
@@ -204,7 +204,7 @@ export default function Filters() {
             </div>
             <div className="row gap-4">
                 <AnimatePresence>
-                    {TotalAppsLoading ? <Loading /> : Apps.map((App) =>
+                    {TotalAppsLoading ? <Loading /> : Apps.length === 0 ? <Empty /> : Apps?.map((App) =>
                         <AppCard key={App._id} Title={getAppTitle(App, MainLanguage)} Desc={getDesc(App, MainLanguage)}
                             Cover={App.appcover} Icon={App.appicon} Free={App.paid} AppId={App._id} />)
                     }

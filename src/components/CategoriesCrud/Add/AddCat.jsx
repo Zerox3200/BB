@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import './AddCat.scss';
 import * as Yup from 'yup'
 import axios from 'axios';
+import toast from 'react-hot-toast';
+import SubmitToast from '../../SubmitToast/SubmitToast';
 
 export default function AddCat() {
     const [loading, setLoading] = useState(false);
@@ -29,7 +31,8 @@ export default function AddCat() {
         }).then((res) => {
             if (res.data.success) {
                 setError(null)
-                setLoading(false)
+                setLoading(false);
+                toast(<SubmitToast Message='Category Added Successfully' />);
             } else if (!res.data.success) {
                 setError(res.data.Message)
                 setLoading(false)
@@ -52,27 +55,29 @@ export default function AddCat() {
         Formik.setFieldValue("catIcon", IconImage)
     }
 
-    return <form className='CatForm' onSubmit={Formik.handleSubmit}>
-        <h1 className='h5 form-label mt-4 font-color'>Add Categoty</h1>
-        {Error === null ? null : <div className="alert alert-danger py-2 mt-2">{Error}</div>}
-        <div className="Add_Cat d-flex flex-column">
-            <label htmlFor="CatName" className='form-label mt-3 font-color'>Category Name</label>
-            <input type="text" name="name" className='form-control' id='CatName'
-                onChange={Formik.handleChange} onBlur={Formik.handleBlur} />
-            {Formik.errors.name && Formik.touched.name ?
-                <div className="alert alert-danger py-2 mt-2">{Formik.errors.name}</div> : null}
-        </div>
+    return <>
+        <form className='CatForm' onSubmit={Formik.handleSubmit}>
+            <h1 className='h5 form-label mt-4 font-color'>Add Categoty</h1>
+            {Error === null ? null : <div className="alert alert-danger py-2 mt-2">{Error}</div>}
+            <div className="Add_Cat d-flex flex-column">
+                <label htmlFor="CatName" className='form-label mt-3 font-color'>Category Name</label>
+                <input type="text" name="name" className='form-control' id='CatName'
+                    onChange={Formik.handleChange} onBlur={Formik.handleBlur} />
+                {Formik.errors.name && Formik.touched.name ?
+                    <div className="alert alert-danger py-2 mt-2">{Formik.errors.name}</div> : null}
+            </div>
 
-        <div className="Add_Cat_Image d-flex flex-column">
-            <label htmlFor="CatImage" className='form-label mt-3 font-color'>Category Name</label>
-            <input type="file" name="catIcon" className='form-control' id='CatImage'
-                onChange={HandleIcon} />
-            {Formik.errors.catIcon && Formik.touched.catIcon ?
-                <div className="alert alert-danger py-2 mt-2">{Formik.errors.catIcon}</div> : null}
-        </div>
-        {loading ? <button type='button' className='btn bg-main text-light mt-3'>
-            <i className='fas fa-spinner fa-spin '></i>
-        </button> : <button className='btn bg-main text-light mt-3'>Add Category</button>}
+            <div className="Add_Cat_Image d-flex flex-column">
+                <label htmlFor="CatImage" className='form-label mt-3 font-color'>Category Name</label>
+                <input type="file" name="catIcon" className='form-control' id='CatImage'
+                    onChange={HandleIcon} />
+                {Formik.errors.catIcon && Formik.touched.catIcon ?
+                    <div className="alert alert-danger py-2 mt-2">{Formik.errors.catIcon}</div> : null}
+            </div>
+            {loading ? <button type='button' className='btn bg-main text-light mt-3'>
+                <i className='fas fa-spinner fa-spin '></i>
+            </button> : <button className='btn bg-main text-light mt-3'>Add Category</button>}
 
-    </form>
+        </form>
+    </>
 }

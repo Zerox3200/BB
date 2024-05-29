@@ -24,6 +24,7 @@ root.render(
     <NavProvider>
       <UserProvider>
         <Toaster position="bottom-right" toastOptions={{ className: "Toast" }} />
+        {/* <Toaster position="bottom-right" /> */}
         <App />
       </UserProvider>
     </NavProvider>

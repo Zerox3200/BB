@@ -30,6 +30,7 @@ export default function News({ HandleShow, ID, refetch }) {
             console.log(res);
             setLoadingButton(false);
             refetch();
+            HandleShow();
         }).catch((err) => {
             console.log(err);
         })

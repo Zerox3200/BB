@@ -115,8 +115,9 @@ export default function Intro() {
                                 : <LuChevronRight />}</Link>
 
                     </div>
-                    {IntoCategoriesLaoding ? <Loading /> : IntoCategories?.data?.result.map((Cat, index) =>
-                        <Category key={index} Image={Cat.Icon} />)}
+                    {IntoCategoriesLaoding ? <Loading /> : IntoCategories?.data?.result?.length === 0 ?
+                        <h1 className='font-color'>No Categories</h1> : IntoCategories?.data?.result?.map((Cat, index) =>
+                            <Category key={index} Image={Cat.Icon} />)}
 
                 </div>
             </motion.div>

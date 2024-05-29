@@ -32,11 +32,11 @@ export default function DashSideNav() {
                         <Link to='/DashApps2030' className='d-flex align-items-center column-gap-2'><MdApps /> Apps</Link>
                     </li>
                     <li>
-                        <Link to='/Admins' className='d-flex align-items-center column-gap-2'><BsPersonFill />Admins</Link>
-                    </li>
-                    <li>
                         <Link to='/Categories' className='d-flex align-items-center column-gap-2'>
                             <BiSolidCategoryAlt />Categories</Link>
+                    </li>
+                    <li>
+                        <Link to='/Admins' className='d-flex align-items-center column-gap-2'><BsPersonFill />Admins</Link>
                     </li>
                 </ul>
 

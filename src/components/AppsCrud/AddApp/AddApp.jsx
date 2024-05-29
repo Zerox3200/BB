@@ -91,7 +91,7 @@ export default function AddApp() {
     const Formik = useFormik({
         initialValues: {
             name: "",
-            appcat: "Pilgrimage",
+            appcat: "pilgrimage",
             description: "",
             applink: "",
             size: "",
@@ -119,7 +119,6 @@ export default function AddApp() {
 
     const HandleCoverImage = (event) => {
         const CoverImage = event.target.files[0];
-        // const ImageCoverForm = new FormData();
         Formik.setFieldValue("appcover", CoverImage)
     }
 
@@ -144,6 +143,7 @@ export default function AddApp() {
 
 
     return <form className='AddApp container mt-4 m-auto row justify-content-between' onSubmit={Formik.handleSubmit}>
+        {Categories?.data?.result?.length === 0 ? <div className='alert alert-danger'>You should add Category</div> : null}
         <div className="mb-3 inputs d-flex flex-column">
             <label className='form-label' htmlFor="Appname">App Name</label>
             <input type="text" placeholder='App name' className="form-control mt-1"
@@ -157,8 +157,9 @@ export default function AddApp() {
             <label htmlFor="AppCat">App Category</label>
             <select className="form-select mt-1" id='AppCat' aria-label="Default select example" name='appcat'
                 onChange={Formik.handleChange} onBlur={Formik.handleBlur}>
-                {Categories?.data?.result.map((Category, index) =>
-                    <option value={Category.name.en} key={index}>{Category.name.en}</option>)}
+                {Categories?.data?.result?.length === 0 ?
+                    <option>Not Found</option> : Categories?.data?.result?.map((Category, index) =>
+                        <option value={Category.name.en} key={index}>{Category.name.en}</option>)}
             </select>
         </div>
 

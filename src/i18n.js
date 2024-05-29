@@ -11,7 +11,7 @@ const resources = {
             and Juriprudence to deliver Useful Applications for everyday use`,
       'LastApps': 'Our latest apps',
       'LastAppsViewAll': 'View All',
-      'BrowserByCategory': `Browser by category`,
+      'BrowserByCategory': `Browse by category`,
       'Categories': 'Categories',
       'Price': 'Price',
       'AppStore': 'App Store',

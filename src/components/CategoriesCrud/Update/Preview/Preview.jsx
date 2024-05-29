@@ -36,6 +36,7 @@ export default function Preview({ HandleShow, ID, setLoading, refetch }) {
             setLoading(false);
             setLoadingButton(false)
             refetch();
+            HandleShow();
         }).catch((err) => console.log(err))
     }
 
