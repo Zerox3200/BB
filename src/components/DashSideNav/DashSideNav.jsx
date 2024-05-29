@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './DashSideNav.scss';
 import Logo from '../../Assets/Images/_combo.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -7,9 +7,11 @@ import { BsPersonFill } from "react-icons/bs";
 import { TbLogout2 } from "react-icons/tb";
 import axios from 'axios';
 import { BiSolidCategoryAlt } from "react-icons/bi";
+import { UserContext } from '../../Context/UserContext';
 
 export default function DashSideNav() {
     const { pathname } = useLocation();
+    const { UserInformation } = useContext(UserContext);
     let Navigate = useNavigate()
 
     let logout = async () => {
@@ -19,10 +21,12 @@ export default function DashSideNav() {
         });
         console.log(logedout)
         if (logedout) {
-            Navigate('/')
+            Navigate('/Login2030')
             localStorage.removeItem("token");
         }
     }
+
+
     return <>
         <div className="main-dashsidenav">
             {pathname === "/Login2030" ? null : <aside className='DashSideNav py-2 px-2'>
@@ -35,9 +39,10 @@ export default function DashSideNav() {
                         <Link to='/Categories' className='d-flex align-items-center column-gap-2'>
                             <BiSolidCategoryAlt />Categories</Link>
                     </li>
-                    <li>
+                    {UserInformation.role === "Owner" ? <li>
                         <Link to='/Admins' className='d-flex align-items-center column-gap-2'><BsPersonFill />Admins</Link>
-                    </li>
+                    </li> : null}
+
                 </ul>
 
                 <div className="Logout w-100 d-flex column-gap-2 align-items-center">

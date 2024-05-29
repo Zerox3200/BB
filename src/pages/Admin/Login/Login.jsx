@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import "./Login.scss"
 import axios from 'axios'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../../../Context/UserContext'
+import { jwtDecode } from 'jwt-decode'
 
 // .matches(/^[A-Z][\w @]{5,8}$/, "invalid password ex(Ahmed123)")
 export default function Login() {
     const [loading, setloading] = useState(false);
     const [Error, setError] = useState();
+    const { setUserInformation } = useContext(UserContext);
     const navigate = useNavigate();
 
     // yup validation 
@@ -28,6 +31,7 @@ export default function Login() {
             setloading(false);
             if (res.data.token) {
                 reactLocalStorage.set("token", res.data.token);
+                setUserInformation(jwtDecode(res.data.token))
                 navigate("/DashApps2030")
             }
             setError(res.data)

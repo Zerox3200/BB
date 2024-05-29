@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { UserContext } from './Context/UserContext.jsx';
 import { jwtDecode } from "jwt-decode";
 import Protector from './components/Protector/Protector.jsx';
+import AdminProtector from './components/AdminProtector/AdminProtector.jsx';
 
 
 const Contactus = lazy(() => import("./pages/Contactus/Contactus.jsx"));
@@ -70,7 +71,8 @@ function App() {
           }]
         },
         {
-          path: "Admins", element: <Protector><Suspense fallback={<Loading />}><DashAdmins /> </Suspense></Protector>,
+          path: "Admins", element:
+            <Protector><AdminProtector><Suspense fallback={<Loading />}><DashAdmins /> </Suspense></AdminProtector></Protector>,
           children: [
             {
               index: true, element: <Protector><Suspense fallback={<Loading />}><AddAdmin /> </Suspense></Protector>
