@@ -22,7 +22,7 @@ const DashApps = lazy(() => import("./pages/Admin/DashApps/DashApps.jsx"));
 const DeleteApp = lazy(() => import("./components/AppsCrud/DeleteApp/DeleteApp.jsx"));
 const AddApp = lazy(() => import("./components/AppsCrud/AddApp/AddApp.jsx"));
 const UpdateImage = lazy(() => import("./components/AppsCrud/UpdateImage/UpdateImage.jsx"));
-const UpdateApp = lazy(() => import("./components/AppsCrud/UpdateImage/UpdateImage.jsx"));
+const UpdateApp = lazy(() => import("./components/AppsCrud/UpdateApp/UpdateApp.jsx"));
 
 const DashAdmins = lazy(() => import("./pages/Admin/DashAdmins/DashAdmins.jsx"));
 const AddAdmin = lazy(() => import("./components/AdminsCrud/AddAdmin/AddAdmin.jsx"));

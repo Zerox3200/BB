@@ -4,6 +4,7 @@ import "./DeleteApp.scss"
 import { useState } from 'react'
 import { MdDeleteForever } from "react-icons/md";
 import Loading from '../../Loading/Loading';
+import Empty from '../../Empty/Empty';
 
 export default function DeleteApp() {
 
@@ -32,13 +33,13 @@ export default function DeleteApp() {
     }, [refetch])
     return (
         <>
-            {loading ? <Loading /> : <div className='admin-apps'>
+            {loading ? <Loading /> : Apps?.length === 0 ? <Empty /> : <div className='admin-apps'>
                 {Apps.map((ele) => {
                     return (
                         <div key={ele._id} className="container">
                             <div className="row app">
                                 <div className="appicon col-3 ">
-                                    <img src={`http://localhost:3000/${ele.appicon}`} alt="" />
+                                    <img src={`http://localhost:3000/${ele.appicon}`} alt="..." />
                                 </div>
 
                                 <div className="app-name col-7">

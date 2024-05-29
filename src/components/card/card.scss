@@ -3,6 +3,7 @@
 .card {
     @include Animtation(0.5s, linear, all);
     cursor: pointer;
+    // box-shadow: 4px 5px 5px #00000070;
 
     h1 {
         color: $BaseColor;
@@ -13,22 +14,29 @@
     background-color: transparent !important;
 
     @include Breakpoints(large) {
-        width: 23% !important;
+        width: 279px !important;
     }
 
     @include Breakpoints(medium) {
-        width: 30% !important;
+        width: 279px !important;
         margin: 15px auto;
     }
 
     @include Breakpoints(small) {
         margin: 15px auto;
-        width: 40% !important;
+        width: 279px !important;
     }
 
     @include Breakpoints(mobile) {
         margin: 15px auto;
-        width: 80% !important;
+        width: 279px !important;
+    }
+
+    a {
+        img {
+            height: 220px;
+            object-fit: cover;
+        }
     }
 
     .card-body {

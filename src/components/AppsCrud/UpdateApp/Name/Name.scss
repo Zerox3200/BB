@@ -1,0 +1,63 @@
+@use '../../../../helpers/functions' as *;
+
+.popup {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(black, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Nameform {
+        background-color: white;
+        width: 50%;
+        height: 50%;
+        border-radius: 50px;
+        padding: 20px;
+        z-index: 9999;
+        position: relative;
+
+        input {
+            border: 2px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+
+            &:focus {
+                border-color: $BaseColor;
+                box-shadow: 0 0 5px $BaseColor;
+                outline: none;
+            }
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+
+            svg {
+                font-size: 25px;
+                color: $BaseColor;
+                cursor: pointer;
+                z-index: 2;
+            }
+        }
+
+
+        label {
+            color: $BaseColor;
+            margin-bottom: 5px;
+        }
+
+        button {
+            margin-top: 5px;
+            color: white;
+            background-color: #30a27b;
+            padding: 10px 100px;
+            border-radius: 5px;
+        }
+    }
+}

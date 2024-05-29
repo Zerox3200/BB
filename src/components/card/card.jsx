@@ -14,7 +14,8 @@ export default function AppCard({ Free, Title, Desc, Cover, Icon, AppId, IdHandl
 
     const Description = Desc?.split(" ");
 
-    return <motion.div onClick={() => Turn && IdHandler()} className={MainLanguage === 'ar' || MainLanguage === 'ur' ? "card p-0 Right" : "card p-0"}
+    return <motion.div onClick={() => Turn && IdHandler()} className={MainLanguage === 'ar' ||
+        MainLanguage === 'ur' ? "card p-0 Right" : "card p-0"}
         animate={{ opacity: 1 }} exit={{ opacity: 0 }}
         transition={{ duration: 0.5, type: "spring" }}>
         <Link to={`/AppInfo/${AppId}`}>
@@ -22,7 +23,7 @@ export default function AppCard({ Free, Title, Desc, Cover, Icon, AppId, IdHandl
                 className="card-img-top mx-auto"
                 alt="..." />
         </Link>
-        <div className="card-body d-flex justify-content-between align-items-center py-1">
+        <div className="card-body d-flex justify-content-between align-items-center py-1 mt-2">
 
             <img src={`http://localhost:3000/${Icon}`} alt="..." loading='lazy' className='col-md-4' />
 

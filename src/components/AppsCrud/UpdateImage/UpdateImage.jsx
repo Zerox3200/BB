@@ -7,6 +7,7 @@ import { useFormik } from 'formik';
 import { RiCloseCircleLine } from "react-icons/ri";
 import * as Yup from 'yup'
 import { motion } from 'framer-motion';
+import Empty from '../../Empty/Empty';
 
 export default function Updateimage() {
 
@@ -129,7 +130,7 @@ export default function Updateimage() {
     }, [refetch])
     return (
         <>
-            {loading ? <Loading /> : <div className='admin-apps'>
+            {loading ? <Loading /> : Apps?.length === 0 ? <Empty /> : <div className='admin-apps'>
                 {Apps.map((ele) => {
                     return (
                         <div key={ele._id} className="container">

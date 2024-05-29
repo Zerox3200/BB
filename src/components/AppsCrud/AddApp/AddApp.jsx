@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup'
 import { reactLocalStorage } from 'reactjs-localstorage';
+import { useQuery } from 'react-query';
 
 export default function AddApp() {
     const [loading, setLoading] = useState(false);
@@ -133,6 +134,14 @@ export default function AddApp() {
         Formik.setFieldValue("news", SecondNews);
     }
 
+    const GetAllCats = () => {
+        return axios.get("http://localhost:3000/Categories/GetAllCats")
+    }
+
+    const { data: Categories } = useQuery("Get Categories", GetAllCats, {
+        cacheTime: 3000000
+    })
+
 
     return <form className='AddApp container mt-4 m-auto row justify-content-between' onSubmit={Formik.handleSubmit}>
         <div className="mb-3 inputs d-flex flex-column">
@@ -148,9 +157,8 @@ export default function AddApp() {
             <label htmlFor="AppCat">App Category</label>
             <select className="form-select mt-1" id='AppCat' aria-label="Default select example" name='appcat'
                 onChange={Formik.handleChange} onBlur={Formik.handleBlur}>
-                <option value="Pilgrimage">Pilgrimage</option>
-                <option value="Quran">Quran</option>
-                <option value="Mosque">Mosque</option>
+                {Categories?.data?.result.map((Category, index) =>
+                    <option value={Category.name.en} key={index}>{Category.name.en}</option>)}
             </select>
         </div>
 

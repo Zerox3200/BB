@@ -12,6 +12,7 @@ import { motion, useInView } from 'framer-motion';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import Loading from '../Loading/Loading';
+import Empty from '../Empty/Empty';
 
 export default function Intro() {
     const { t } = useTranslation();
@@ -91,11 +92,12 @@ export default function Intro() {
                             {t("LastAppsViewAll")}{MainLanguage === 'ar' || MainLanguage === 'ur' ? <LuChevronLeft className='mt-2 fs-5' />
                                 : <LuChevronRight />}</Link>
                     </div>
-                    {LatestAppsLoading ? <Loading /> : LatestApps?.data.result.map((App) =>
-                        <AppCard key={App._id} Free={App.paid}
-                            Cover={App.appcover} Title={getAppTitle(App, MainLanguage)}
-                            Desc={getDesc(App, MainLanguage)} Icon={App.appicon}
-                            AppId={App._id} />)}
+                    {LatestAppsLoading ? <Loading /> : LatestApps?.data?.message === "No apps found" ? <Empty />
+                        : LatestApps?.data?.result?.map((App) =>
+                            <AppCard key={App._id} Free={App.paid}
+                                Cover={App.appcover} Title={getAppTitle(App, MainLanguage)}
+                                Desc={getDesc(App, MainLanguage)} Icon={App.appicon}
+                                AppId={App._id} />)}
                 </div>
             </motion.div>
 
@@ -113,7 +115,7 @@ export default function Intro() {
                                 : <LuChevronRight />}</Link>
 
                     </div>
-                    {IntoCategoriesLaoding ? <Loading /> : IntoCategories?.data.result.map((Cat, index) =>
+                    {IntoCategoriesLaoding ? <Loading /> : IntoCategories?.data?.result.map((Cat, index) =>
                         <Category key={index} Image={Cat.Icon} />)}
 
                 </div>

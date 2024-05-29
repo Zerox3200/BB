@@ -1,6 +1,6 @@
 @use '../../../helpers/functions' as *;
 
-.UpdateForm {
+.UpdateText {
     margin: auto;
     width: 900px;
 
@@ -16,9 +16,25 @@
         width: 90%;
     }
 
-    .card {
+    .UpdateCard {
         background-color: white !important;
         width: 100% !important;
+        cursor: auto;
+        border: solid rgba($BaseColor, 0.8) 1px !important;
+
+        svg,
+        .FreeLoading {
+            color: white;
+            background-color: $BaseColor;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            padding: 7px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
         img {
             width: 70px;
