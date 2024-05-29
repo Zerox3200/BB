@@ -54,11 +54,7 @@ export default function AddApp() {
                 'Content-Type': 'multipart/form-data',
                 token: reactLocalStorage.get("token")
             }
-<<<<<<< HEAD
-        }).then((err) => { console.log(err); })
-=======
         }).then(() => toast(<SubmitToast Message='Upload Application Successfully' />))
->>>>>>> 7d7214036e8573b9d9a77b8619105d14aa953c66
 
         setLoading(false);
     };
@@ -168,13 +164,8 @@ export default function AddApp() {
             <select className="form-select mt-1" id='AppCat' aria-label="Default select example" name='appcat'
                 onChange={Formik.handleChange} onBlur={Formik.handleBlur}>
                 {Categories?.data?.result?.length === 0 ?
-<<<<<<< HEAD
-                    <option>Not Found</option> : <option>choose category</option>}
-                {Categories?.data?.result?.map((Category, index) => <option value={Category.name.en} key={index}>{Category.name.en}</option>)}
-=======
                     <option>Not Found</option> : Categories?.data?.result?.map((Category, index) =>
                         <option defaultChecked={index === 0 ? true : false} value={Category.name.en} key={index}>{Category.name.en}</option>)}
->>>>>>> 7d7214036e8573b9d9a77b8619105d14aa953c66
             </select>
         </div>
 

@@ -202,12 +202,16 @@ export default function Filters() {
             <div className="FilteredApps_Title">
                 <h1 className='h4'><Link to='/'>{t('Home')}</Link> / {t("AppStore")}</h1>
             </div>
-            <div className="row gap-4">
+            <div className="row">
                 <AnimatePresence>
-                    {TotalAppsLoading ? <Loading /> : Apps.length === 0 ? <Empty /> : Apps?.map((App) =>
-                        <AppCard key={App._id} Title={getAppTitle(App, MainLanguage)} Desc={getDesc(App, MainLanguage)}
-                            Cover={App.appcover} Icon={App.appicon} Free={App.paid} AppId={App._id} />)
-                    }
+                    {TotalAppsLoading ? <Loading /> : Apps.map((App) => {
+                        return (
+                            <div className="cardparent col-3 my-2">
+                                < AppCard key={App._id} Title={getAppTitle(App, MainLanguage)} Desc={getDesc(App, MainLanguage)}
+                                    Cover={App.appcover} Icon={App.appicon} Free={App.paid} AppId={App._id} />
+                            </div>
+                        )
+                    })}
                 </AnimatePresence>
             </div>
         </motion.section>

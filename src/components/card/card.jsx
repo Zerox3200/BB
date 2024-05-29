@@ -15,7 +15,7 @@ export default function AppCard({ Free, Title, Desc, Cover, Icon, AppId, IdHandl
     const Description = Desc?.split(" ");
 
     return <motion.div onClick={() => Turn && IdHandler()} className={MainLanguage === 'ar' ||
-        MainLanguage === 'ur' ? "card p-0 Right" : "card p-0"}
+        MainLanguage === 'ur' ? "card p-0 Right mx-auto" : "card p-0 mx-auto"}
         animate={{ opacity: 1 }} exit={{ opacity: 0 }}
         transition={{ duration: 0.5, type: "spring" }}>
         <Link to={`/AppInfo/${AppId}`}>
