@@ -10,7 +10,6 @@
     visibility: hidden;
     opacity: 0;
 
-
     &.Showing {
         visibility: visible;
         opacity: 1;
@@ -25,7 +24,7 @@
         height: max-content;
     }
 
-    >svg {
+    > svg {
         background-color: $BaseColor;
         color: white;
         width: 30px;
@@ -59,14 +58,13 @@
             width: 70%;
         }
 
-        >label {
+        > label {
             position: absolute;
             color: $BaseColor;
             right: 7px;
             top: 1px;
             cursor: pointer;
         }
-
 
         input[type="text"] {
             height: 30px;
@@ -76,5 +74,43 @@
                 box-shadow: 0 0 5px 2px $BaseColor;
             }
         }
+    }
+}
+.droplist-search-parent {
+    position: absolute;
+    top: 32px;
+    background-color: white;
+    svg {
+        font-size: 22px;
+        width: 5%;
+    }
+    .close {
+        color: $BaseColor;
+        position: relative;
+        right: -320px;
+    }
+}
+.searchDropLit {
+    width: 346px;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+    z-index: 3;
+    text-decoration: none;
+    a {
+        text-decoration: none;
+        color: $BaseColor;
+        padding: 5px;
+    }
+
+    @include Breakpoints(mobile) {
+        width: 100%;
+    }
+    img {
+        width: 22%;
+    }
+    svg {
+        background-color: white;
+        width: 20%;
     }
 }

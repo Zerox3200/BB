@@ -66,7 +66,7 @@ export default function Intro() {
         }
     }
 
-    console.log(LatestApps?.data.result);
+    // console.log(LatestApps?.data.result);
     return <>
         <Search />
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, type: 'spring' }} className="Intro_Text mt-3 d-flex flex-wrap align-items-center py-5 px-2 col-xl-11 col-sm-12">
