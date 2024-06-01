@@ -1,0 +1,118 @@
+@use "../../helpers/functions" as *;
+
+.Control {
+    margin-left: 150px;
+    background-color: #d3e8df;
+    padding: 10px;
+
+    @include Breakpoints(medium) {
+        margin-left: 0;
+    }
+
+    @include Breakpoints(small) {
+        margin-left: 0;
+    }
+
+    @include Breakpoints(mobile) {
+        margin-left: 0;
+    }
+
+
+
+    nav {
+        padding: 10px;
+        box-shadow: 0px 0px 6px 0px $BaseColor;
+        background-color: white;
+        width: 90%;
+        padding: 1px;
+        margin: 10px auto;
+        display: block;
+        align-items: center;
+        border-radius: 50px;
+        padding: 5px 0;
+
+        @include Breakpoints(medium) {
+            width: 97%;
+        }
+
+        @include Breakpoints(small) {
+            width: 97%;
+        }
+
+        @include Breakpoints(mobile) {
+            width: 97%;
+        }
+
+        svg {
+            color: $BaseColor;
+            font-size: 30px;
+
+            @include Breakpoints(large) {
+                display: none;
+            }
+
+            @include Breakpoints(medium) {
+                display: block;
+            }
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: $BaseColor;
+            @include Animtation(0.4s, linear, all);
+            padding: 10px 20px;
+            border-radius: 50px;
+
+            &:hover {
+                background-color: $BaseColor;
+                color: white;
+            }
+
+            @include Breakpoints(large) {
+                display: none;
+            }
+
+            @include Breakpoints(medium) {
+                display: block;
+            }
+
+            @include Breakpoints(small) {
+                display: block;
+            }
+
+            @include Breakpoints(mobile) {
+                display: block;
+            }
+        }
+
+        .Links {
+            text-decoration: none;
+            color: $BaseColor;
+            @include Animtation(0.4s, linear, all);
+            padding: 10px 20px;
+            border-radius: 50px;
+
+            &.Active {
+                background-color: $BaseColor;
+                color: white;
+            }
+
+            &:hover {
+                background-color: $BaseColor;
+                color: white;
+            }
+
+            @include Breakpoints(medium) {
+                display: none;
+            }
+
+            @include Breakpoints(small) {
+                display: none;
+            }
+
+            @include Breakpoints(mobile) {
+                display: none;
+            }
+        }
+    }
+}

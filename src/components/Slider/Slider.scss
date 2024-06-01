@@ -14,6 +14,10 @@
         background-color: $BaseColor;
         border-radius: 10px;
         object-fit: cover;
+
+        @include Breakpoints(mobile) {
+            width: 100%;
+        }
     }
 
     .slick-arrow.slick-prev.slick-disabled {

@@ -42,7 +42,7 @@ export default function LinkUpdate({ HandleShow, ID, refetch }) {
     });
 
     return <>
-        <motion.div className="popup" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+        <motion.div className="popupLink" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.8, type: 'spring' }}>
             <motion.div className="Linkform" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                 transition={{ duration: 1, type: 'spring' }}>

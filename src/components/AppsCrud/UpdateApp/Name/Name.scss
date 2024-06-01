@@ -1,13 +1,13 @@
 @use '../../../../helpers/functions' as *;
 
-.popup {
+.popupName {
     width: 100%;
     height: 100%;
     background-color: rgba(black, 0.5);
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +20,18 @@
         padding: 20px;
         z-index: 9999;
         position: relative;
+
+        @include Breakpoints(medium) {
+            width: 97%;
+        }
+
+        @include Breakpoints(small) {
+            width: 97%;
+        }
+
+        @include Breakpoints(mobile) {
+            width: 97%;
+        }
 
         input {
             border: 2px solid #ccc;

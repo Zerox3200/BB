@@ -8,10 +8,14 @@ import { TbLogout2 } from "react-icons/tb";
 import axios from 'axios';
 import { BiSolidCategoryAlt } from "react-icons/bi";
 import { UserContext } from '../../Context/UserContext';
+import { NavContext } from '../../Context/NavContext';
+import { IoClose } from "react-icons/io5";
 
 export default function DashSideNav() {
     const { pathname } = useLocation();
     const { UserInformation } = useContext(UserContext);
+    const { DashSideNav, ShowDashNav } = useContext(NavContext);
+
     let Navigate = useNavigate()
 
     let logout = async () => {
@@ -28,8 +32,13 @@ export default function DashSideNav() {
 
 
     return <>
+        <div className={DashSideNav ? "DashNavDropBox" : "DashNavDropBox hide"}>
+            <IoClose onClick={() => ShowDashNav()} />
+        </div>
         <div className="main-dashsidenav">
-            {pathname === "/Login2030" ? null : <aside className='DashSideNav py-2 px-2'>
+            {pathname === "/Login2030" ? null : <aside className={DashSideNav ? 'DashSideNav py-2 px-2' :
+                'DashSideNav py-2 px-2 DashSideNav_close'}>
+
                 <img src={Logo} alt="..." loading='lazy' />
                 <ul className="Links w-100 d-flex flex-column row-gap-2 list-unstyled mt-3">
                     <li>
@@ -42,6 +51,8 @@ export default function DashSideNav() {
                     {UserInformation.role === "Owner" ? <li>
                         <Link to='/Admins' className='d-flex align-items-center column-gap-2'><BsPersonFill />Admins</Link>
                     </li> : null}
+
+
 
                 </ul>
 

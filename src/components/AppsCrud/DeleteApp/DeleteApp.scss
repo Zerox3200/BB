@@ -10,6 +10,18 @@
         align-items: center;
         box-shadow: 9px 10px 12px $BaseColor;
         padding: 20px 0px;
+
+        @include Breakpoints(medium) {
+            width: 97% !important;
+        }
+
+        @include Breakpoints(small) {
+            width: 97% !important;
+        }
+
+        @include Breakpoints(mobile) {
+            width: 97% !important;
+        }
     }
 
     .appicon {

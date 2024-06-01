@@ -41,7 +41,7 @@ export default function Size({ HandleShow, ID, refetch }) {
     });
 
     return <>
-        <motion.div className="popup" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+        <motion.div className="popupSize" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.8, type: 'spring' }}>
             <motion.div className="formSize" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                 transition={{ duration: 1, type: 'spring' }}>

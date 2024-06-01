@@ -1,5 +1,48 @@
 @use '../../helpers/functions' as *;
 
+.DashNavDropBox {
+    background-color: rgba($BaseColor, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    visibility: visible;
+    opacity: 1;
+    @include Animtation(0.2s, linear, all);
+
+    @include Breakpoints(large) {
+        display: none;
+    }
+
+    @include Breakpoints(medium) {
+        display: block;
+    }
+
+    @include Breakpoints(small) {
+        display: block;
+    }
+
+    @include Breakpoints(mobile) {
+        display: block;
+    }
+
+    svg {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    &.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 .DashSideNav {
     position: fixed;
     top: 0;
@@ -7,6 +50,16 @@
     height: 100%;
     width: 150px;
     background-color: white;
+    @include Animtation(0.2s, linear, all);
+    z-index: 3;
+
+    &.DashSideNav_close {
+        left: -150px;
+
+        @include Breakpoints(large) {
+            left: 0px;
+        }
+    }
 
     img {
         width: 100%;

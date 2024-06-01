@@ -41,7 +41,7 @@ export default function Description({ HandleShow, ID, refetch }) {
     });
 
     return <>
-        <motion.div className="popup" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+        <motion.div className="popupDescription" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.8, type: 'spring' }}>
             <motion.div className="Descform" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                 transition={{ duration: 1, type: 'spring' }}>

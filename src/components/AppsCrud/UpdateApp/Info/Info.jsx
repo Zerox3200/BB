@@ -66,7 +66,7 @@ export default function Info({ HandleShow, ID, refetch, DefultLanguage,
     });
 
     return <>
-        <motion.div className="popup" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+        <motion.div className="popupInfo" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.8, type: 'spring' }}>
             <motion.div className="Infoform" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                 transition={{ duration: 1, type: 'spring' }}>
@@ -140,7 +140,8 @@ export default function Info({ HandleShow, ID, refetch, DefultLanguage,
                     {LoadingButton ? <button type='button' className='btn bg-main text-light mt-2'>
                         <i className='fas fa-spinner fa-spin '></i>
                     </button> :
-                        <button className='btn mt-3' type='submit'>Submit</button>}
+                        <button className='btn mt-3 d-flex justify-content-center align-content-center' type='submit'>
+                            Submit</button>}
                 </form>
             </motion.div>
         </motion.div >

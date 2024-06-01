@@ -101,7 +101,7 @@ export default function UpdateApp() {
             <LinkUpdate HandleShow={ShowLink} ID={Id} refetch={refetch} /></Suspense>}
 
         <div className='UpdateText'>
-            {isLoading ? <isLoading /> : Apps?.data?.result?.length === 0 ? <Empty /> : Apps?.data?.result.map((App, index) => <div className="UpdateCard card p-3 mt-3" key={index}>
+            {isLoading ? <Loading /> : Apps?.data?.result?.length === 0 ? <Empty /> : Apps?.data?.result.map((App, index) => <div className="UpdateCard card p-3 mt-3" key={index}>
                 <div className="card-body d-flex flex-column align-items-start">
                     <div className="w-100 d-flex justify-content-between">
                         <h5 className="card-title">{App?.name[0]?.value}</h5>
@@ -140,9 +140,11 @@ export default function UpdateApp() {
                         <MdModeEdit onClick={() => ShowSize(App?._id)} />
                     </div>
                     <hr className='w-100' />
-                    <div className="w-100 d-flex justify-content-between mt-2">
-                        <p className="card-title"><b>App Link: </b>{App?.applink}</p>
-                        <MdModeEdit onClick={() => ShowLink(App?._id)} />
+                    <div className="w-100 d-flex flex-column mt-2">
+                        <p className="card-title"><b>App Link: </b></p>
+                        <span className='position-relative'>{App?.applink}
+                            <MdModeEdit onClick={() => ShowLink(App?._id)} className='position-absolute bottom-100 end-0' />
+                        </span>
                     </div>
                     <hr className='w-100' />
                     <div className="w-100 d-flex justify-content-between mt-2">
