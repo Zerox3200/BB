@@ -3,6 +3,8 @@ import { useFormik } from 'formik';
 import * as Yup from "yup"
 import axios from 'axios';
 import "./AddAdmin.scss"
+import toast from 'react-hot-toast';
+import SubmitToast from '../../SubmitToast/SubmitToast';
 
 export default function AddAdmin() {
     const [loading, setloading] = useState(false);
@@ -21,8 +23,8 @@ export default function AddAdmin() {
                     token: localStorage.getItem("token")
                 }
             }).then(() => {
-
                 setloading(false)
+                toast(<SubmitToast Message='New Admin Added Successfully' />)
             }).catch((err) => {
                 setError(err)
                 setloading(false);
