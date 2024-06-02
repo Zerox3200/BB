@@ -206,8 +206,8 @@ export default function Filters() {
                 <AnimatePresence>
                     {TotalAppsLoading ? <Loading /> : Apps.map((App) => {
                         return (
-                            <div className="cardparent col-xl-3 col-lg-4 col-md-3 col-sm-2 my-2" key={App._id}>
-                                <AppCard Title={getAppTitle(App, MainLanguage)} Desc={getDesc(App, MainLanguage)}
+                            <div className="cardparent col-md-4 col-sm-12 my-2">
+                                <AppCard key={App._id} Title={getAppTitle(App, MainLanguage)} Desc={getDesc(App, MainLanguage)}
                                     Cover={App.appcover} Icon={App.appicon} Free={App.paid} AppId={App._id} />
                             </div>
                         )
