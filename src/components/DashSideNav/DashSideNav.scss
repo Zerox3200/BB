@@ -12,6 +12,7 @@
     opacity: 1;
     @include Animtation(0.2s, linear, all);
 
+
     @include Breakpoints(large) {
         display: none;
     }
@@ -52,6 +53,14 @@
     background-color: white;
     @include Animtation(0.2s, linear, all);
     z-index: 3;
+
+    .Active {
+        background-color: $BaseColor;
+
+        a {
+            color: white !important;
+        }
+    }
 
     &.DashSideNav_close {
         left: -150px;

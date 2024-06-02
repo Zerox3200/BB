@@ -35,10 +35,10 @@ function Search() {
         setSearchData(response.data.result)
 
         if (SearchData.length > 0) {
-            console.log(SearchData);
+            // console.log(SearchData);
             setsearchDropList(true)
         };
-        if (vlaue == "") {
+        if (vlaue === "") {
             setsearchDropList(false)
 
         }
@@ -71,9 +71,9 @@ function Search() {
                                     <IoMdCloseCircleOutline onClick={handleClose} />
                                 </div>
                                 {
-                                    SearchData.map((ele) => {
+                                    SearchData.map((ele, index) => {
                                         return (
-                                            <div className="searchDropLit" key={ele._id} >
+                                            <div className="searchDropLit" key={index} >
                                                 <Link className='d-flex justify-content-between align-items-center' to={`/AppInfo/${ele._id}`}>
                                                     <img src={`http://localhost:3000/${ele.appicon}`} alt="" />
                                                     <h5 className='font-color'>

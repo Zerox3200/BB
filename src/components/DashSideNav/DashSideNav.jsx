@@ -41,15 +41,18 @@ export default function DashSideNav() {
 
                 <img src={Logo} alt="..." loading='lazy' />
                 <ul className="Links w-100 d-flex flex-column row-gap-2 list-unstyled mt-3">
-                    <li>
-                        <Link to='/DashApps2030' className='d-flex align-items-center column-gap-2'><MdApps /> Apps</Link>
+                    <li className={pathname === "/DashApps2030" ? "Active" : ""}>
+                        <Link onClick={() => ShowDashNav()}
+                            to='/DashApps2030' className='d-flex align-items-center column-gap-2'><MdApps /> Apps</Link>
                     </li>
-                    <li>
-                        <Link to='/Categories' className='d-flex align-items-center column-gap-2'>
+                    <li className={pathname === "/Categories" ? "Active" : ""}>
+                        <Link onClick={() => ShowDashNav()}
+                            to='/Categories' className='d-flex align-items-center column-gap-2'>
                             <BiSolidCategoryAlt />Categories</Link>
                     </li>
-                    {UserInformation.role === "Owner" ? <li>
-                        <Link to='/Admins' className='d-flex align-items-center column-gap-2'><BsPersonFill />Admins</Link>
+                    {UserInformation.role === "Owner" ? <li className={pathname === "/Admins" ? "Active" : ""}>
+                        <Link onClick={() => ShowDashNav()}
+                            to='/Admins' className='d-flex align-items-center column-gap-2'><BsPersonFill />Admins</Link>
                     </li> : null}
 
 
