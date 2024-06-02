@@ -35,7 +35,12 @@ function Search() {
         setSearchData(response.data.result)
 
         if (SearchData.length > 0) {
-            // console.log(SearchData);
+            console.log(SearchData);
+            setsearchDropList(true)
+        };
+
+        if (SearchData.length < 0) {
+            console.log(SearchData);
             setsearchDropList(true)
         };
         if (vlaue === "") {
@@ -46,6 +51,9 @@ function Search() {
     }
 
     const handlechange = (value) => {
+        if (value.indexOf(value.length) === " ") {
+            console.log('Space');
+        }
         setinput(value)
         fetchdData(value)
     }
