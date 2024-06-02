@@ -15,7 +15,7 @@ export default function AppCard({ Free, Title, Desc, Cover, Icon, AppId, IdHandl
     const Description = Desc?.split(" ");
 
     return <motion.div onClick={() => Turn && IdHandler()} className={MainLanguage === 'ar' ||
-        MainLanguage === 'ur' ? "card p-0 Right" : "card p-0"}
+        MainLanguage === 'ur' ? "card p-0 Right mx-auto" : "card p-0 mx-auto"}
         animate={{ opacity: 1 }} exit={{ opacity: 0 }}
         transition={{ duration: 0.5, type: "spring" }}>
         <Link to={`/AppInfo/${AppId}`}>
@@ -26,9 +26,9 @@ export default function AppCard({ Free, Title, Desc, Cover, Icon, AppId, IdHandl
         <div className="card-body d-flex justify-content-between align-items-center py-1 mt-2">
 
             <img src={`http://localhost:3000/${Icon}`} alt="..." loading='lazy' className='col-md-4' />
-
+{/* 
             <Link to={`/AppInfo/${AppId}`} className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
-                'fw-bold Details RightPos' : "fw-bold Details LeftPos"}>{t("Details")}</Link>
+                'fw-bold Details RightPos' : "fw-bold Details LeftPos"}>{t("Details")}</Link> */}
 
 
             <div className="card-body-details col-md-8">
@@ -40,7 +40,7 @@ export default function AppCard({ Free, Title, Desc, Cover, Icon, AppId, IdHandl
 
                     <p className={pathname === "/Apps" ? 'm-0 px-2 UpdatePos' : "m-0 px-2"}>
                         {Description?.length > 7 ? Description?.slice(0, 7).join(" ") + `........`
-                            : Desc}
+                            : Desc +"  ........."}
                     </p>
                 </article>
 

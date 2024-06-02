@@ -25,7 +25,7 @@ export default function DashSideNav() {
         });
         console.log(logedout)
         if (logedout) {
-            Navigate('/Login2030')
+            Navigate('/')
             localStorage.removeItem("token");
         }
     }

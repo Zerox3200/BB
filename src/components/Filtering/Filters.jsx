@@ -202,7 +202,7 @@ export default function Filters() {
             <div className="FilteredApps_Title">
                 <h1 className='h4'><Link to='/'>{t('Home')}</Link> / {t("AppStore")}</h1>
             </div>
-            <div className="row gap-4 px-5">
+            <div className="row gap-3 px-5">
                 <AnimatePresence>
                     {TotalAppsLoading ? <Loading /> : Apps.map((App) => {
                         return (

@@ -16,88 +16,70 @@ function Search() {
     const { pathname } = useLocation();
     const { t } = useTranslation();
 
-    const [input, setinput] = useState("")
-
-    const [searchDropList, setsearchDropList] = useState(false)
-
-    const [SearchData, setSearchData] = useState([])
+    const [input, setInput] = useState("");
+    const [searchDropList, setSearchDropList] = useState(false);
+    const [searchData, setSearchData] = useState([]);
 
     const handleClose = () => {
-        setsearchDropList(false)
+        setSearchDropList(false);
     }
 
-    const fetchdData = async (vlaue) => {
+    const fetchdData = async (value) => {
         const response = await axios.get('http://localhost:3000/app/SearchApp?', {
             params: {
-                name: vlaue
+                name: value
             }
         });
-        setSearchData(response.data.result)
-
-        if (SearchData.length > 0) {
-            console.log(SearchData);
-            setsearchDropList(true)
-        };
-
-        if (vlaue === "") {
-            setsearchDropList(false)
+        setSearchData(response.data.result);
+        if (response.data.result.length > 0) {
+            setSearchDropList(true);
+        } else {
+            setSearchDropList(false);
+        }
+        if (value == "") {
+            setSearchDropList(false);
 
         }
-
     }
 
-    const handlechange = (value) => {
-        if (value.indexOf(value.length) === " ") {
-            console.log('Space');
-        }
-        setinput(value)
-        fetchdData(value)
+    const handleChange = (value) => {
+        setInput(value);
+        fetchdData(value);
     }
-
-    useEffect(() => {
-
-    }, [pathname])
-
 
     return (
-        <>
-            <div className={pathname === "/Policy" ? "Intro py-3 row w-100 column-gap-3 align-items-center" : "Intro py-3 px-4 row w-100 column-gap-3 align-items-center"}>
-                <MdOutlineMenu onClick={HandleMobileNav} />
-                {pathname === "/Policy" ? null : <>
+        <div className={pathname === "/Policy" ? "Intro py-3 row w-100 column-gap-3 align-items-center" : "Intro py-3 px-4 row w-100 column-gap-3 align-items-center"}>
+            <MdOutlineMenu onClick={HandleMobileNav} />
+            {pathname === "/Policy" ? null : (
+                <>
                     <form className="Intro_Search">
                         <label htmlFor="search">
                             <IoSearchOutline />
                         </label>
-                        <input type="text" value={input} onChange={(e) => { handlechange(e.target.value) }} className="form-control" id='search' placeholder={t('Search')} />
-                        {searchDropList ?
+                        <input type="text" value={input} onChange={(e) => { handleChange(e.target.value) }} className="form-control" id='search' placeholder={t('Search')} />
+                        {searchDropList &&
                             <div className="droplist-search-parent">
                                 <div className="close">
                                     <IoMdCloseCircleOutline onClick={handleClose} />
                                 </div>
-                                {
-                                    SearchData.map((ele, index) => {
-                                        return (
-                                            <div className="searchDropLit" key={index} >
-                                                <Link className='d-flex justify-content-between align-items-center' to={`/AppInfo/${ele._id}`}>
-                                                    <img src={`http://localhost:3000/${ele.appicon}`} alt="" />
-                                                    <h5 className='font-color'>
-                                                        {ele.name[0].value}
-                                                    </h5>
-                                                    <FaAngleRight />
-                                                </Link>
-                                            </div >
-                                        )
-                                    })
-                                }
-                            </div> : null}
+                                {searchData.map((ele, index) => (
+                                    <div className="searchDropLit" key={ele._id}>
+                                        <Link className='d-flex justify-content-between align-items-center' to={`/AppInfo/${ele._id}`}>
+                                            <img src={`http://localhost:3000/${ele.appicon}`} alt="" />
+                                            <h5 className='font-color'>
+                                                {ele.name[0].value}
+                                            </h5>
+                                            <FaAngleRight />
+                                        </Link>
+                                    </div>
+                                ))}
+                            </div>}
                     </form>
                     <Languages />
                 </>
-                }
-
-            </div>
-        </>
+            )}
+        </div>
     );
-};
+}
 
 export default Search;
