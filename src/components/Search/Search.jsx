@@ -39,10 +39,6 @@ function Search() {
             setsearchDropList(true)
         };
 
-        if (SearchData.length < 0) {
-            console.log(SearchData);
-            setsearchDropList(true)
-        };
         if (vlaue === "") {
             setsearchDropList(false)
 
