@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/BB/static/css/main.12138634.css",
-    "main.js": "/BB/static/js/main.66a37a9b.js",
+    "main.js": "/BB/static/js/main.d5fc3fd2.js",
     "static/css/961.a9a0d362.chunk.css": "/BB/static/css/961.a9a0d362.chunk.css",
     "static/js/961.0186154a.chunk.js": "/BB/static/js/961.0186154a.chunk.js",
     "static/css/746.c421f9b0.chunk.css": "/BB/static/css/746.c421f9b0.chunk.css",
@@ -71,7 +71,7 @@
     "static/media/Cairo-Regular.ttf": "/BB/static/media/Cairo-Regular.808e3fbf5cb27d719d6d.ttf",
     "static/media/hero card.png": "/BB/static/media/hero card.ffd9bcb6773c169ecc13.png",
     "static/media/fa-regular-400.ttf": "/BB/static/media/fa-regular-400.eb91f7b948a42799f678.ttf",
-    "static/media/_combo.png": "/BB/static/media/_combo.e2a43be7dd6c743f3985.png",
+    "static/media/combo.png": "/BB/static/media/combo.e2a43be7dd6c743f3985.png",
     "static/media/wormark.png": "/BB/static/media/wormark.ec3acf9763fdd35e15f9.png",
     "static/media/saudi-arabia_5111862.png": "/BB/static/media/saudi-arabia_5111862.3ee840895546bdc072ea.png",
     "static/media/fa-regular-400.woff2": "/BB/static/media/fa-regular-400.21cb8f55d8e0c5b89751.woff2",
@@ -89,7 +89,7 @@
     "static/media/angle-down-solid.svg": "/BB/static/media/angle-down-solid.92c3413bb4bf151d0ef4.svg",
     "static/media/angle-left-solid (1).svg": "/BB/static/media/angle-left-solid (1).755b552480217fdf987e.svg",
     "main.12138634.css.map": "/BB/static/css/main.12138634.css.map",
-    "main.66a37a9b.js.map": "/BB/static/js/main.66a37a9b.js.map",
+    "main.d5fc3fd2.js.map": "/BB/static/js/main.d5fc3fd2.js.map",
     "961.a9a0d362.chunk.css.map": "/BB/static/css/961.a9a0d362.chunk.css.map",
     "961.0186154a.chunk.js.map": "/BB/static/js/961.0186154a.chunk.js.map",
     "746.c421f9b0.chunk.css.map": "/BB/static/css/746.c421f9b0.chunk.css.map",
@@ -152,6 +152,6 @@
   },
   "entrypoints": [
     "static/css/main.12138634.css",
-    "static/js/main.66a37a9b.js"
+    "static/js/main.d5fc3fd2.js"
   ]
 }
