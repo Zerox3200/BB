@@ -34,12 +34,15 @@ const AddCat = lazy(() => import("./components/CategoriesCrud/Add/AddCat.jsx"));
 const DeleteCat = lazy(() => import("./components/CategoriesCrud/Delete/DeleteCat.jsx"));
 const UpdateCat = lazy(() => import("./components/CategoriesCrud/Update/UpdateCat.jsx"));
 
+const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
+
 function App() {
 
   const { i18n } = useTranslation();
   const { setUserInformation } = useContext(UserContext);
 
   const routers = createHashRouter([
+    { path: "*", element: <NotFound /> },
     {
       path: '', element: <Layout />, children: [
         { index: true, element: <Home /> },

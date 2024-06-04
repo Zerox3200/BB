@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import './DashSideNav.scss';
-import Logo from '../../Assets/Images/_combo.png'
+import Logo from '../../Assets/Images/combo.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MdApps } from "react-icons/md";
 import { BsPersonFill } from "react-icons/bs";
