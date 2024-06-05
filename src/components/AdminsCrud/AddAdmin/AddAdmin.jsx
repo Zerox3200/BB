@@ -5,6 +5,7 @@ import axios from 'axios';
 import "./AddAdmin.scss"
 import toast from 'react-hot-toast';
 import SubmitToast from '../../SubmitToast/SubmitToast';
+import { HostLink } from '../../Host/Host';
 
 export default function AddAdmin() {
     const [loading, setloading] = useState(false);
@@ -12,7 +13,7 @@ export default function AddAdmin() {
 
     let addadmin = async (values) => {
         setloading(true)
-        await axios.post("http://localhost:3000/auth/CreateAdmin", {
+        await axios.post(`${HostLink}/auth/CreateAdmin`, {
             name: values.name,
             email: values.email,
             password: values.password,

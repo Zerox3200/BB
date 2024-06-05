@@ -6,6 +6,7 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import { useFormik } from 'formik';
 import { motion } from 'framer-motion'
 import { RiCloseCircleLine } from 'react-icons/ri';
+import { HostLink } from '../../../Host/Host';
 
 export default function Description({ HandleShow, ID, refetch }) {
     const [LoadingButton, setLoadingButton] = useState(false);
@@ -16,7 +17,7 @@ export default function Description({ HandleShow, ID, refetch }) {
 
     const SendNameUpdate = async (values) => {
         setLoadingButton(true)
-        await axios.patch(`http://localhost:3000/app/Update/${ID}`, {
+        await axios.patch(`${HostLink}/app/Update/${ID}`, {
             key: "description",
             result: values.NewDesc
         }, {

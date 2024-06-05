@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 import Loading from '../../Loading/Loading';
 import Empty from '../../Empty/Empty';
+import { HostLink } from '../../Host/Host';
 
 const Preview = lazy(() => import("./Preview/Preview"));
 
@@ -12,7 +13,7 @@ export default function UpdateCat() {
     const [Id, setId] = useState();
     const [loading, setLoading] = useState(false);
     const Categories = () => {
-        return axios.get("http://localhost:3000/Categories/GetAllCats")
+        return axios.get(`${HostLink}/Categories/GetAllCats`)
     }
     const { data: AllCategories, isLoading, refetch } = useQuery("Get Categories", Categories, {
         cacheTime: 3000000
@@ -31,7 +32,7 @@ export default function UpdateCat() {
                 : AllCategories?.data?.result?.map((Cat, index) => <div className="card p-3 mt-3" key={index}>
                     <div className="card-body d-flex flex-column align-items-start">
                         <h5 className="card-title">{Cat.name.en}</h5>
-                        <img src={`http://localhost:3000/${Cat.Icon}`} alt="..." className='my-4' />
+                        <img src={`${HostLink}/${Cat.Icon}`} alt="..." className='my-4' />
                         <button className="btn bg-main" onClick={() => HandlePopup(Cat._id)}>Update</button>
                     </div>
                 </div>)}

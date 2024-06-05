@@ -7,6 +7,7 @@ import { reactLocalStorage } from 'reactjs-localstorage'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../../Context/UserContext'
 import { jwtDecode } from 'jwt-decode'
+import { HostLink } from '../../../components/Host/Host'
 
 // .matches(/^[A-Z][\w @]{5,8}$/, "invalid password ex(Ahmed123)")
 export default function Login() {
@@ -24,7 +25,7 @@ export default function Login() {
     // callApi 
     async function loginsubmit(values) {
         setloading(true)
-        return await axios.post("http://localhost:3000/auth/login", {
+        return await axios.post(`${HostLink}/auth/login`, {
             email: values.email,
             password: values.password
         }).then((res) => {

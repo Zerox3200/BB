@@ -7,6 +7,7 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import { useQuery } from 'react-query';
 import toast from 'react-hot-toast';
 import SubmitToast from '../../SubmitToast/SubmitToast';
+import { HostLink } from '../../Host/Host';
 
 export default function AddApp() {
     const [loading, setLoading] = useState(false);
@@ -49,7 +50,7 @@ export default function AddApp() {
             });
         }
 
-        await axios.post("http://localhost:3000/app/uploadapp", formData, {
+        await axios.post(`${HostLink}/app/uploadapp`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 token: reactLocalStorage.get("token")
@@ -137,7 +138,7 @@ export default function AddApp() {
     }
 
     const GetAllCats = () => {
-        return axios.get("http://localhost:3000/Categories/GetAllCats")
+        return axios.get(`${HostLink}/Categories/GetAllCats`)
     }
 
     const { data: Categories } = useQuery("Get Categories", GetAllCats, {

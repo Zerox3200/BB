@@ -5,6 +5,7 @@ import * as Yup from 'yup'
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import SubmitToast from '../../SubmitToast/SubmitToast';
+import { HostLink } from '../../Host/Host';
 
 export default function AddCat() {
     const [loading, setLoading] = useState(false);
@@ -24,7 +25,7 @@ export default function AddCat() {
         const CatFormData = new FormData();
         CatFormData.append('name', values.name);
         CatFormData.append('catIcon', values.catIcon);
-        await axios.post("http://localhost:3000/Categories/CreateCat", CatFormData, {
+        await axios.post(`${HostLink}/Categories/CreateCat`, CatFormData, {
             headers: {
                 token: localStorage.getItem("token")
             }

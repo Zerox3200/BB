@@ -13,6 +13,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import Loading from '../Loading/Loading';
 import Empty from '../Empty/Empty';
+import { HostLink } from '../Host/Host';
 
 export default function Intro() {
     const { t } = useTranslation();
@@ -20,8 +21,8 @@ export default function Intro() {
     const Inview = useInView(Cat, { once: true });
     const MainLanguage = reactLocalStorage.get('lan');
 
-    const IntroCategoriesLink = "http://localhost:3000/Categories/IntroCats";
-    const IntroAppsLink = "http://localhost:3000/app/getlatestApp";
+    const IntroCategoriesLink = `${HostLink}/Categories/IntroCats`;
+    const IntroAppsLink = `${HostLink}/app/getlatestApp`;
 
     const GetIntroCats = () => {
         return axios.get(IntroCategoriesLink)

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { MdDeleteForever } from "react-icons/md";
 import Loading from '../../Loading/Loading';
 import Empty from '../../Empty/Empty';
+import { HostLink } from '../../Host/Host';
 
 export default function DeleteApp() {
 
@@ -14,7 +15,7 @@ export default function DeleteApp() {
 
     async function Delete(id) {
         let token = localStorage.getItem("token")
-        let { data } = await axios.delete(`http://localhost:3000/app/DeleteApp/${id}`, {
+        let { data } = await axios.delete(`$${HostLink}/app/DeleteApp/${id}`, {
             headers: { 'token': `${token}` }
         })
         setrefetch(true)
@@ -23,7 +24,7 @@ export default function DeleteApp() {
 
     async function fetchdata() {
         setloading(true)
-        const { data } = await axios.get("http://localhost:3000/app/GetAllApps")
+        const { data } = await axios.get(`${HostLink}/app/GetAllApps`)
         setApps(data.result)
         setloading(false)
     }
@@ -39,7 +40,7 @@ export default function DeleteApp() {
                         <div key={ele._id} className="container">
                             <div className="row app">
                                 <div className="appicon col-md-3 ">
-                                    <img src={`http://localhost:3000/${ele.appicon}`} alt="..." />
+                                    <img src={`${HostLink}/${ele.appicon}`} alt="..." />
                                 </div>
 
                                 <div className="app-name col-md-7">

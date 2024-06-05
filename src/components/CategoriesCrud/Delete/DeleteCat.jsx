@@ -7,12 +7,13 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import Empty from '../../Empty/Empty';
 import toast from 'react-hot-toast';
 import SubmitToast from '../../SubmitToast/SubmitToast';
+import { HostLink } from '../../Host/Host';
 
 export default function DeleteCat() {
     const [loading, setLoading] = useState(false);
     const [Enable, setEnable] = useState(true);
     const Categories = () => {
-        return axios.get("http://localhost:3000/Categories/GetAllCats")
+        return axios.get(`${HostLink}/Categories/GetAllCats`)
     }
     const { data: AllCategories, isLoading, refetch } = useQuery("Get Categories", Categories, {
         cacheTime: 3000000,
@@ -22,7 +23,7 @@ export default function DeleteCat() {
     const DeleteCategory = async (id) => {
         setLoading(true)
         setEnable(false)
-        await axios.delete(`http://localhost:3000/Categories/DeleteCat/${id}`, {
+        await axios.delete(`${HostLink}/Categories/DeleteCat/${id}`, {
             headers: {
                 token: reactLocalStorage.get("token")
             }
@@ -40,7 +41,7 @@ export default function DeleteCat() {
             AllCategories?.data?.result?.map((ele, index) => <div className="card p-3 mt-3" key={index}>
                 <div className="card-body d-flex flex-column align-items-start">
                     <h5 className="card-title">{ele.name.en}</h5>
-                    <img src={`http://localhost:3000/${ele.Icon}`} alt="..." className='my-4' />
+                    <img src={`${HostLink}/${ele.Icon}`} alt="..." className='my-4' />
                     <button className="btn bg-main" onClick={() => DeleteCategory(ele._id)}>Delete</button>
                 </div>
             </div>)}

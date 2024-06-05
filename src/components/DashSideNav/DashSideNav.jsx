@@ -10,6 +10,7 @@ import { BiSolidCategoryAlt } from "react-icons/bi";
 import { UserContext } from '../../Context/UserContext';
 import { NavContext } from '../../Context/NavContext';
 import { IoClose } from "react-icons/io5";
+import { HostLink } from '../Host/Host';
 
 export default function DashSideNav() {
     const { pathname } = useLocation();
@@ -20,7 +21,7 @@ export default function DashSideNav() {
 
     let logout = async () => {
         let token = localStorage.getItem("token")
-        let logedout = await axios.post('http://localhost:3000/auth/logout', {
+        let logedout = await axios.post(`${HostLink}/auth/logout`, {
             headers: { 'token': `${token}` }
         });
         console.log(logedout)

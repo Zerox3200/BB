@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { MdDeleteForever } from "react-icons/md";
 import Loading from '../../Loading/Loading';
 import "./Deleteadmin.scss"
+import { HostLink } from '../../Host/Host';
 export default function DeleteAdmin() {
 
     const [admin, setadmin] = useState([])
@@ -12,7 +13,7 @@ export default function DeleteAdmin() {
 
     async function Deleteadmin(id) {
         let token = localStorage.getItem("token")
-        let { data } = await axios.delete(`http://localhost:3000/auth/DeleteUser/${id}`, {
+        let { data } = await axios.delete(`${HostLink}/auth/DeleteUser/${id}`, {
             headers: { 'token': `${token}` }
         })
         setrefetch(true)
@@ -21,7 +22,7 @@ export default function DeleteAdmin() {
 
     async function fetchdata() {
         setloading(true)
-        const { data } = await axios.get("http://localhost:3000/auth/getalladmin", {
+        const { data } = await axios.get(`${HostLink}/auth/getalladmin`, {
             headers: {
                 token: localStorage.getItem("token")
             }

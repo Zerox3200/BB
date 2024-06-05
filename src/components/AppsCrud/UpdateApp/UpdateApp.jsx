@@ -6,6 +6,7 @@ import { MdModeEdit } from "react-icons/md";
 import Loading from '../../Loading/Loading';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import Empty from '../../Empty/Empty';
+import { HostLink } from '../../Host/Host';
 
 const Name = lazy(() => import("./Name/Name"));
 const Description = lazy(() => import("./Description/Description"));
@@ -27,7 +28,7 @@ export default function UpdateApp() {
     const [Id, setId] = useState('')
 
     const GetApps = () => {
-        return axios.get("http://localhost:3000/app/GetAllApps")
+        return axios.get(`${HostLink}/app/GetAllApps`)
     }
 
     const { data: Apps, refetch, isLoading } = useQuery("Get All Apps", GetApps, {
@@ -65,7 +66,7 @@ export default function UpdateApp() {
 
     const UpdateFree = async (id, paid) => {
         setLoading(true);
-        await axios.patch(`http://localhost:3000/app/Update/${id}`, {
+        await axios.patch(`${HostLink}/app/Update/${id}`, {
             key: "paid",
             result: paid === true ? false : true
         }, {
