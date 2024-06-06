@@ -195,7 +195,7 @@ export default function Filters() {
                     type="button" className={Paid === 'Paid' ? 'btn mx-2 my-1 Active' : 'btn mx-2 my-1'}>{t("Paid")}</button>
             </div>
         </motion.section>
-        <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: 'spring', duration: 0.6, delay: 0.2 }}
+        <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: 'spring', duration: 0.6, delay: 0.1 }}
             className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
                 "container FilteredApps mt-5 row justify-content-center column-gap-3 mx-auto Right" :
                 "container FilteredApps mt-5 row justify-content-center column-gap-3 mx-auto"}>
