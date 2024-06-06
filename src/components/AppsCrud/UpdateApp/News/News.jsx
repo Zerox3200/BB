@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { reactLocalStorage } from 'reactjs-localstorage';
+import { HostLink } from '../../../Host/Host';
 
 
 export default function News({ HandleShow, ID, refetch }) {
@@ -18,7 +19,7 @@ export default function News({ HandleShow, ID, refetch }) {
     const SendNameUpdate = async (values) => {
         setLoadingButton(true);
         console.log(values);
-        await axios.patch(`http://localhost:3000/app/Update/${ID}`, {
+        await axios.patch(`${HostLink}/app/Update/${ID}`, {
             key: "news",
             result: values.News
         }, {

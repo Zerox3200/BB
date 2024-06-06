@@ -51,7 +51,8 @@ function App() {
         { path: "AppInfo/:AppId", element: <Suspense fallback={<Loading />}><Productsinfo /> </Suspense> },
         { path: "Policy", element: <Suspense fallback={<Loading />}><Policy /> </Suspense> },
       ]
-    }, {
+    },
+    {
       path: '', element: <AdminLayout />, children: [
         { path: "Login2030", element: <Suspense fallback={<Loading />}><AdminLogin /> </Suspense> },
         {

@@ -14,6 +14,7 @@ import { motion, useInView } from 'framer-motion'
 import axios from 'axios'
 import { useQuery } from 'react-query'
 import Loading from '../../components/Loading/Loading'
+import { HostLink } from '../../components/Host/Host'
 
 export default function Productsinfo() {
     const { margin } = useContext(NavContext)
@@ -27,7 +28,7 @@ export default function Productsinfo() {
 
 
     const GetApp = () => {
-        return axios.get(`http://localhost:3000/app/GetOneApp/${AppId}`)
+        return axios.get(`${HostLink}/app/GetOneApp/${AppId}`)
     }
     const { data: SpeceficApp, isLoading, refetch } = useQuery("Get One App", GetApp, {
         enabled: queryEnabled
@@ -112,7 +113,7 @@ export default function Productsinfo() {
                     className={MainLanguage === 'ar' || MainLanguage === 'ur' ?
                         'row my-3 justify-content-center Right' : 'row my-3 justify-content-center'}>
 
-                    <img className='col-md-2 app-icon' src={`http://localhost:3000/${appicon}`} alt="..." loading='lazy' />
+                    <img className='col-md-2 app-icon' src={`${HostLink}/${appicon}`} alt="..." loading='lazy' />
 
                     <div className="col-md-4 app-name font-color">
                         <h1 className='mb-3'>{getAppTitle(MainLanguage)}</h1>

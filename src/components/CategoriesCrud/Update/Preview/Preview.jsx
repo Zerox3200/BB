@@ -6,6 +6,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import axios from 'axios'
 import { reactLocalStorage } from 'reactjs-localstorage'
+import { HostLink } from '../../../Host/Host'
 
 export default function Preview({ HandleShow, ID, setLoading, refetch }) {
     const [LoadingButton, setLoadingButton] = useState(false);
@@ -27,7 +28,7 @@ export default function Preview({ HandleShow, ID, setLoading, refetch }) {
         const UpdateForm = new FormData();
         UpdateForm.append('Category', values.AppName);
         UpdateForm.append('catIcon', values.appicon);
-        await axios.patch(`http://localhost:3000/Categories/UpdateCat/${ID}`, UpdateForm, {
+        await axios.patch(`${HostLink}/Categories/UpdateCat/${ID}`, UpdateForm, {
             headers: {
                 token: reactLocalStorage.get("token")
             }

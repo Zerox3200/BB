@@ -10,6 +10,7 @@ import { FaAngleRight } from "react-icons/fa6";
 import './Search.scss';
 import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { HostLink } from '../Host/Host';
 
 function Search() {
     const { HandleMobileNav } = useContext(NavContext);
@@ -25,7 +26,7 @@ function Search() {
     }
 
     const fetchdData = async (value) => {
-        const response = await axios.get('http://localhost:3000/app/SearchApp?', {
+        const response = await axios.get(`${HostLink}/app/SearchApp?`, {
             params: {
                 name: value
             }
@@ -65,7 +66,7 @@ function Search() {
                                 {searchData.map((ele, index) => (
                                     <div className="searchDropLit" key={ele._id}>
                                         <Link className='d-flex justify-content-between align-items-center' to={`/AppInfo/${ele._id}`}>
-                                            <img src={`http://localhost:3000/${ele.appicon}`} alt="" />
+                                            <img src={`${HostLink}/${ele.appicon}`} alt="" />
                                             <h5 className='font-color'>
                                                 {ele.name[0].value}
                                             </h5>

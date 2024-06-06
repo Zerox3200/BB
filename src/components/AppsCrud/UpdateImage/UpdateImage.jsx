@@ -8,6 +8,7 @@ import { RiCloseCircleLine } from "react-icons/ri";
 import * as Yup from 'yup'
 import { motion } from 'framer-motion';
 import Empty from '../../Empty/Empty';
+import { HostLink } from '../../Host/Host';
 
 export default function Updateimage() {
 
@@ -53,7 +54,7 @@ export default function Updateimage() {
         if (values.appcover) {
 
             formData.append('appcover', values.appcover);
-            await axios.patch(`http://localhost:3000/app/UpdateImageappcover/${values.id}`, formData, {
+            await axios.patch(`${HostLink}/app/UpdateImageappcover/${values.id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     token: Token
@@ -70,7 +71,7 @@ export default function Updateimage() {
                 formData.append('appslider', image);
                 console.log(image);
             });
-            await axios.patch(`http://localhost:3000/app/UpdateImageappslider/${values.id}`, formData, {
+            await axios.patch(`${HostLink}/app/UpdateImageappslider/${values.id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     token: Token
@@ -84,7 +85,7 @@ export default function Updateimage() {
         // appicon //
         if (values.appicon) {
             formData.append('appicon', values.appicon);
-            await axios.patch(`http://localhost:3000/app/UpdateImageappicon/${values.id}`, formData, {
+            await axios.patch(`${HostLink}/app/UpdateImageappicon/${values.id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     token: Token
@@ -120,7 +121,7 @@ export default function Updateimage() {
 
     async function fetchdata() {
         setloading(true)
-        const { data } = await axios.get("http://localhost:3000/app/GetAllApps")
+        const { data } = await axios.get(`${HostLink}/app/GetAllApps`);
         setApps(data.result)
         setloading(false)
     }
@@ -137,7 +138,7 @@ export default function Updateimage() {
 
                             <div className="row app">
                                 <div className="appicon col-md-4 col-sm-12">
-                                    <img src={`http://localhost:3000/${ele.appicon}`} alt="" />
+                                    <img src={`${HostLink}/${ele.appicon}`} alt="" />
                                 </div>
 
                                 <div className="app-name col-md-4 col-sm-12">

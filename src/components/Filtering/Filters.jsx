@@ -8,7 +8,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import Loading from '../Loading/Loading';
-import Empty from '../Empty/Empty';
+import { HostLink } from '../Host/Host';
+// import Empty from '../Empty/Empty';
 
 export default function Filters() {
     const [Category, setCategory] = useState('All');
@@ -16,8 +17,8 @@ export default function Filters() {
     const { t } = useTranslation();
     const [Apps, setApps] = useState([]);
 
-    const CATEGORIES_URL = "http://localhost:3000/Categories/GetAllCats";
-    const APPS_URL = "http://localhost:3000/app/GetAllApps";
+    const CATEGORIES_URL = `${HostLink}/Categories/GetAllCats`;
+    const APPS_URL = `${HostLink}/app/GetAllApps`;
 
 
     const MainLanguage = reactLocalStorage.get('lan');
@@ -168,7 +169,7 @@ export default function Filters() {
                         }} className={Category === Cat.name.en ?
                             'btn mx-2 my-1 d-flex justify-content-center align-items-center column-gap 3 Active'
                             : 'btn mx-2 my-1 d-flex justify-content-center align-items-center column-gap 3'}>
-                        <img alt='...' src={`http://localhost:3000/${Cat.Icon}`} />  {GetCat(Cat, MainLanguage)}</button>
+                        <img alt='...' src={`${HostLink}/${Cat.Icon}`} />  {GetCat(Cat, MainLanguage)}</button>
                 )
                 }
             </div>

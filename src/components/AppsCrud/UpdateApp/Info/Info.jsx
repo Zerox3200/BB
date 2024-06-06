@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import './Info.scss'
+import { HostLink } from '../../../Host/Host';
 
 export default function Info({ HandleShow, ID, refetch, DefultLanguage,
     DefultArchitecture, DefultPackageName, DefultReleaseDate, DefultUpdateDate, DefultRequired, DefultVersion, DefultSize }) {
@@ -24,7 +25,7 @@ export default function Info({ HandleShow, ID, refetch, DefultLanguage,
 
     const SendNameUpdate = async (values) => {
         setLoadingButton(true)
-        await axios.patch(`http://localhost:3000/app/Update/${ID}`, {
+        await axios.patch(`${HostLink}/app/Update/${ID}`, {
             key: "appinfo",
             result: {
                 applanguage: values.AppLanguage,

@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import './Slider.scss'
 // import app from '../../Assets/Images/people-holding-pinterest-icon.jpg'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { HostLink } from "../Host/Host";
 
 
 function CenterMode({ SliderImages }) {
@@ -44,7 +45,7 @@ function CenterMode({ SliderImages }) {
         <div className="slider-container">
             <Slider {...settings} >
                 {SliderImages?.map((Images, index) => <div key={index}>
-                    <LazyLoadImage src={`http://localhost:3000/${Images}`} alt="..." />
+                    <LazyLoadImage src={`${HostLink}/${Images}`} alt="..." />
                 </div>
                 )}
             </Slider>
