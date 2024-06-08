@@ -22,7 +22,7 @@ export default function Contactus() {
 
     function SendEmail(values) {
         setloading(true);
-        emailjs.sendForm('service_qpessc9', 'template_cf6eumt', form.current, {
+        emailjs.sendForm('service_vvh6b18', 'template_4dx89lw', form.current, {
             publicKey: 'EZs2A8HuNHHUQa3cu',
         }, {
             name: formik.values.name,
