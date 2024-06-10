@@ -9,6 +9,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import Loading from '../Loading/Loading';
 import { HostLink } from '../Host/Host';
+import Empty from '../Empty/Empty';
 // import Empty from '../Empty/Empty';
 
 export default function Filters() {
@@ -205,7 +206,7 @@ export default function Filters() {
             </div>
             <div className="row gap-3 px-5">
                 <AnimatePresence>
-                    {TotalAppsLoading ? <Loading /> : Apps.map((App) => {
+                    {TotalAppsLoading ? <Loading /> : Apps?.length === 0 ? <Empty /> : Apps.map((App) => {
                         return (
                             <AppCard Title={getAppTitle(App, MainLanguage)} Desc={getDesc(App, MainLanguage)} key={App._id}
                                 Cover={App.appcover} Icon={App.appicon} Free={App.paid} AppId={App._id} />

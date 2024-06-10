@@ -15,11 +15,10 @@ export default function DeleteApp() {
 
     async function Delete(id) {
         let token = localStorage.getItem("token")
-        let { data } = await axios.delete(`$${HostLink}/app/DeleteApp/${id}`, {
+        await axios.delete(`${HostLink}/app/DeleteApp/${id}`, {
             headers: { 'token': `${token}` }
         })
         setrefetch(true)
-        console.log(data);
     }
 
     async function fetchdata() {
