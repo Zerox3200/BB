@@ -1,8 +1,7 @@
 {
-  "homepage": "http://Zerox3200.github.io/BB",
   "name": "bakistan",
   "version": "0.1.0",
-  "private": true,
+  "homepage": ".",
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
     "@fortawesome/fontawesome-free": "^6.5.2",
@@ -11,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
     "formik": "^2.4.5",
     "framer-motion": "^11.1.7",
     "i18next": "^23.11.2",
