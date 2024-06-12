@@ -67,7 +67,7 @@ export default function AddAdmin() {
                 {Formik.errors.password && Formik.touched.password && <div className="alert alert-danger py-2 mt-2">{Formik.errors.password}</div>}
 
                 <label className='form-label font-color' htmlFor="confirmpassword">Confirmpassword:</label>
-                <input className='form-control' onBlur={Formik.handleBlur} onChange={Formik.handleChange} type="confirmpassword" name='confirmpassword' id='confirmpassword' />
+                <input className='form-control' onBlur={Formik.handleBlur} onChange={Formik.handleChange} type="Password" name='confirmpassword' id='confirmpassword' />
                 {Formik.errors.confirmpassword && Formik.touched.confirmpassword && <div className="alert alert-danger py-2 mt-2">{Formik.errors.confirmpassword}</div>}
 
 
