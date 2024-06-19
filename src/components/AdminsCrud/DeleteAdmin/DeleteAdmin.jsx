@@ -5,6 +5,7 @@ import { MdDeleteForever } from "react-icons/md";
 import Loading from '../../Loading/Loading';
 import "./Deleteadmin.scss"
 import { HostLink } from '../../Host/Host';
+import Empty from '../../Empty/Empty.jsx';
 export default function DeleteAdmin() {
 
     const [admin, setadmin] = useState([])
@@ -37,7 +38,7 @@ export default function DeleteAdmin() {
     }, [refetch])
     return (
         <>
-            {loading ? <Loading /> : <div className='admins'>
+            {loading ? <Loading /> : admin?.length === 0 ? <Empty /> : <div className='admins'>
                 {admin.map((ele) => {
                     return (
                         <div key={ele._id} className="container">
@@ -49,7 +50,6 @@ export default function DeleteAdmin() {
                                     <h6 className='font-color'>Created At:
                                         <p className='admin-created font-black'>{ele.createdAt}</p>
                                     </h6>
-
                                 </div>
 
                                 <span onClick={() => Deleteadmin(ele.email)} className="deletespan col-2"><MdDeleteForever /></span>

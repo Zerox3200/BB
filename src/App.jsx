@@ -50,10 +50,12 @@ function App() {
         { path: "Contactus", element: <Suspense fallback={<Loading />}><Contactus /> </Suspense> },
         { path: "AppInfo/:AppId", element: <Suspense fallback={<Loading />}><Productsinfo /> </Suspense> },
         { path: "Policy", element: <Suspense fallback={<Loading />}><Policy /> </Suspense> },
+        { path: "*", element: <NotFound /> }
       ]
     },
     {
       path: '', element: <AdminLayout />, children: [
+
         { path: "Login2030", element: <Suspense fallback={<Loading />}><AdminLogin /> </Suspense> },
         {
           path: "DashApps2030", element:
@@ -72,7 +74,9 @@ function App() {
             path: "UpdateAppText",
             element: <Protector><Suspense fallback={<Loading />}> <UpdateApp /></Suspense></Protector>
 
-          }]
+          },
+          { path: "*", element: <NotFound /> },
+          ]
         },
         {
           path: "Admins", element:
@@ -83,7 +87,8 @@ function App() {
             },
             {
               path: "DeleteAdmin", element: <Protector><Suspense fallback={<Loading />}><DeleteAdmin /> </Suspense></Protector>
-            }
+            },
+            { path: "*", element: <NotFound /> },
           ]
         },
         {
@@ -97,7 +102,8 @@ function App() {
             },
             {
               path: "UpdateCategories", element: <Protector><Suspense fallback={<Loading />}><UpdateCat /></Suspense></Protector>
-            }
+            },
+            { path: "*", element: <NotFound /> },
           ]
         }
       ]
@@ -124,5 +130,4 @@ function App() {
     </RouterProvider>
   </>
 }
-
 export default App;
