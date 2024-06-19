@@ -311,9 +311,9 @@ export default function AddApp() {
             <label className="form-check-label" htmlFor="Free">This app is paid</label>
         </div>
 
-        {loading ? <button type='button' className='btn bg-main text-light mt-2'>
+        {loading ? <button type='button' className='btn text-light mt-2'>
             <i className='fas fa-spinner fa-spin '></i>
-        </button> : <button type='submit' disabled={!(Formik.isValid && Formik.dirty)} className='btn bg-main text-light mt-2'>Upload App</button>}
+        </button> : <button type='submit' className='btn text-light mt-2'>Upload App</button>}
     </form>
 
 }

@@ -93,7 +93,7 @@ export default function Productsinfo() {
         }
     };
 
-    let { name, paid, size, news, description, appinfo, appslider, appicon } = SpeceficApp?.data.result || {};
+    let { name, paid, size, news, description, appinfo, appslider, appicon, applink } = SpeceficApp?.data.result || {};
 
     return <>
         {isLoading || Loader ? <Loading /> : <section className={margin ? "prod-info  prod-info-Marined " : "prod-info  prod-info-Constant"} >
@@ -122,11 +122,12 @@ export default function Productsinfo() {
                     </div>
 
                     <div className="app-link col-md-6">
-                        <Link className={MainLanguage === 'ar' || MainLanguage === "ur" ? " mt-3" : ""} to={"/"}>
+                        <a className={MainLanguage === 'ar' || MainLanguage === "ur" ? " mt-3" : ""}
+                            href={applink} target='_blank' rel="noreferrer">
                             <div className="share-link">
                                 <FaShareAlt />
                             </div>
-                        </Link>
+                        </a>
 
                         <div className={MainLanguage === 'ar' || MainLanguage === "ur" ? "google-play  mt-3" : "google-play  "}>
                             <img src={googleplay} alt="..." loading='lazy' />
