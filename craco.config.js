@@ -10,6 +10,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
     defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
     safelist: {
         standard: [/^fa-/, /^btn-/], // Safelist Font Awesome and Bootstrap button classes
+        deep: [/^slick-/], // Example safelist for dynamically generated classes
     },
 });
 
