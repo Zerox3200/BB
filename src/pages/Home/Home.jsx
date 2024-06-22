@@ -11,7 +11,7 @@ export default function Home() {
 
     return <>
         <Helmet>
-            <title>Apps store</title>
+            <title>Home</title>
         </Helmet>
         <section className={margin ? "Home HomeMarined" : "Home HomeConstant"} >
             <Suspense fallback={<Loading />}>
